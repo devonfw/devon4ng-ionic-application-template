@@ -1,14 +1,25 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Hello Ionic</ion-title>
   </ion-navbar>
 </ion-header>
-
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+
+  <form  (ngSubmit)="logForm()">
+    <ion-item>
+      <ion-label>User</ion-label>
+      <ion-input type="text" [(ngModel)]="user.name" name="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>password</ion-label>
+      <ion-input type="password" [(ngModel)]="user.password" name="password"></ion-input>
+    </ion-item>
+    <button ion-button type="submit" block>Login</button>
+  </form>
+
+  
 </ion-content>
