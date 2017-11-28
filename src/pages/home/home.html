@@ -1,48 +1,25 @@
-<ion-header padding>
-
-    
-    <ion-navbar padding>
-      <p>
-        <ion-fab top left>
-            <button ion-fab mini><ion-icon name="globe"></ion-icon></button>
-            <ion-fab-list side="right">
-              <button ion-fab><ion-icon name="" (click)="togglelanguage('ES')" >ES</ion-icon></button>
-              <button ion-fab><ion-icon name="" (click)="togglelanguage('ES')">EN</ion-icon></button>
-    
-            </ion-fab-list>
-          </ion-fab>
-          <ion-buttons end>
-          <button ion-button  icon-end *ngIf="!isauthenthicated()">
-              logout
-              <ion-icon name="exit"></ion-icon>
-            </button>
-          </ion-buttons>
-      </p>
-      </ion-navbar>
-
+<ion-header >
+  
 </ion-header>
-<ion-content padding>
 
-
+<ion-content >
   <form  (ngSubmit)="logForm()" >
     <ion-item>
-      <ion-label>User</ion-label>
+      <ion-label>{{'login.user'| translate}}</ion-label>
       <ion-input type="text" [(ngModel)]="user.name" name="name"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>password</ion-label>
+      <ion-label>{{'login.password'| translate}}</ion-label>
       <ion-input type="password" [(ngModel)]="user.password" name="password"></ion-input>
     </ion-item>
     <button ion-button type="submit" block>
-      Log in 
-    <ion-icon name="log-in"></ion-icon>>
+        {{'buttons.login'| translate}}
+    
     </button>
   </form>
 
-  <button ion-button icon-end *ngIf="isauthenthicated()">
+  <button ion-button icon-end *ngIf="!isauthenthicated()">
       asdads
       <ion-icon name="exit"></ion-icon>
     </button>
-
-  
 </ion-content>

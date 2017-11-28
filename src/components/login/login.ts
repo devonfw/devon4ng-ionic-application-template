@@ -20,7 +20,8 @@ export class LoginComponent {
      // this.text = 'Hello World';
   }
   
-  login(user: string, password: string){
-    this.loginp.login({username: user, password: password});
+  login(username: string, password: string){
+    console.log(username + "login component");
+    this.loginp.login({username: username, password: password});
   }
 }

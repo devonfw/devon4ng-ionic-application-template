@@ -19,6 +19,7 @@ export class HomePage {
 
   constructor( public navCtrl: NavController,  public loginc : LoginComponent, public auth: AuthServiceProvider , public translate: TranslateService ) {
     this.user = {name : 'waiter' ,password : 'waiter'};
+    translate.setDefaultLang('en');
   }
 
   isauthenthicated(){
@@ -27,17 +28,19 @@ export class HomePage {
 
 
   togglelanguage(lang: string){
-   // this.translate.use(lang);
+    console.log(lang + " arrived");
+    this.translate.use(lang);
   }
 
   logForm(){
+     //console.log(this.user.name)
      
-     this.loginc.login( this.user.name ,this.user.password);
-     //if( this.auth.getAuthenthicated() ){
+     this.loginc.login( this.user.name, this.user.password.toString());
+     if( this.auth.getAuthenthicated() ){
       this.navCtrl.push(WelcomePage);
-     //}  else {
-      // console.log("failed auth");
-     //}
+     }  else {
+       console.log("failed auth");
+     }
      
      //this.navCtrl.push(WelcomePage);
   }

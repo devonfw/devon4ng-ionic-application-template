@@ -1,14 +1,7 @@
 {
     "buttons": {
-      "submit": "Send",
-      "search": "SEARCH",
-      "cancel": "CANCEL",
-      "save": "SAVE",
-      "clean": "CLEAR",
-      "close": "Close",
-      "addItem": "Add item",
-      "editItem": "Edit item",
-      "deleteItem": "Delete item"
+      "login": "Send",
+      "logout": "logout"
     },
     "header": {
       "title": "OASP4JS",
@@ -17,7 +10,7 @@
       "ES": "Spanish"
     },
     "login": {
-      "title": "Login",
+      "user": "Login",
       "username": "Username",
       "password": "Password",
       "errorMsg": "Wrong username or password"

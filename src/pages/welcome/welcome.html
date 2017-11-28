@@ -5,24 +5,14 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-
-      
-      <ion-navbar>
-          <button ion-button menuToggle>
-            <ion-icon name="menu"></ion-icon>
-          </button>
-          <ion-title>{{name}}</ion-title>
-        </ion-navbar>
-
-
+  <layoutheader></layoutheader>
 </ion-header>
-
 
 
 <ion-content padding>
     <button ion-button icon-end (click)="back()">
-        back
-        <ion-icon name="back-arrow"></ion-icon>
+        {{'buttons.logout'| translate}}
+        <ion-icon name="left-arrow"></ion-icon>
       </button>
 </ion-content>
+

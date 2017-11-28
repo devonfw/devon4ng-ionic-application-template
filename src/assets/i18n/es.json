@@ -1,14 +1,7 @@
 {
     "buttons": {
-      "submit": "Send",
-      "search": "SEARCH",
-      "cancel": "CANCEL",
-      "save": "SAVE",
-      "clean": "CLEAR",
-      "close": "Close",
-      "addItem": "Add item",
-      "editItem": "Edit item",
-      "deleteItem": "Delete item"
+      "login": "Conectarse",
+      "logout": "Desconectarse"
     },
     "header": {
       "title": "OASP4JS",
@@ -17,10 +10,10 @@
       "ES": "Spanish"
     },
     "login": {
-      "title": "Login",
+      "user": "Usuario",
       "username": "Username",
-      "password": "Password",
-      "errorMsg": "Wrong username or password"
+      "password": "Contraseña",
+      "errorMsg": "Usuario o contraseña erroneos"
     },
     "home": "Home",
     "description": "Description",

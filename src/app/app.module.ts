@@ -21,6 +21,7 @@ import { BussinessOperatorProvider } from '../providers/shared/bussiness-operato
 import { TranslateService,TranslateLoader } from '@ngx-translate/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HeaderComponent } from '../components/header/header';
 
 
 
@@ -36,7 +37,7 @@ export function translateFactory(http: HttpClient) {
     HomePage,
     WelcomePage,
     LoginComponent,
-    
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

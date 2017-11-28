@@ -43,15 +43,17 @@ export class LoginProvider {
   }
 
   // http angular
-  IonicAngularLogin(login,password){
-    let a = {j_username: login,j_password: password};
+  IonicAngularLogin(login , password){
+    let a = {j_username: login, j_password: password};
+    console.log(login);
+    console.log(password);
     return new Promise(resolve => {
       this.http.post( this.BO.login() , //url
         {j_username: login,j_password: password}, //body
           {responseType: "text"}).subscribe(data => { //angular http expects json by default
         this.authservice.setAuthenthicated(true);
         this.authservice.setUsername(login);
-        console.log(data);
+        // console.log(data);
       }, err => {
         console.log(err);
 
@@ -61,7 +63,7 @@ export class LoginProvider {
 
   login(loginparams : any): any {
     // this calls a function that connects to a rest service
-    this.IonicAngularLogin(loginparams.name,loginparams.password) 
+    this.IonicAngularLogin(loginparams.username, loginparams.password) 
   }
 
   logout(): void {
