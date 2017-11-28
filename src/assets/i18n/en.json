@@ -1,0 +1,31 @@
+{
+    "buttons": {
+      "submit": "Send",
+      "search": "SEARCH",
+      "cancel": "CANCEL",
+      "save": "SAVE",
+      "clean": "CLEAR",
+      "close": "Close",
+      "addItem": "Add item",
+      "editItem": "Edit item",
+      "deleteItem": "Delete item"
+    },
+    "header": {
+      "title": "OASP4JS",
+      "error": "LOGIN ERROR",
+      "EN": "English",
+      "ES": "Spanish"
+    },
+    "login": {
+      "title": "Login",
+      "username": "Username",
+      "password": "Password",
+      "errorMsg": "Wrong username or password"
+    },
+    "home": "Home",
+    "description": "Description",
+    "example": "Example",
+    "example description": "Example Description",
+    "LIKE": "LIKE",
+    "SHARE": "SHARE"
+  }

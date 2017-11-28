@@ -19,8 +19,8 @@ export class WelcomePage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad WelcomePage');
+  back(){
+    this.navCtrl.pop();
   }
 
 }

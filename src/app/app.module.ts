@@ -18,11 +18,16 @@ import { HomePage } from '../pages/home/home';
 import { LoginComponent } from '../components/login/login';
 import { LoginProvider } from '../providers/login/loginProvider';
 import { BussinessOperatorProvider } from '../providers/shared/bussiness-operator';
+import { TranslateService,TranslateLoader } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 
 
 
-
+export function translateFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 
 @NgModule({
@@ -31,11 +36,19 @@ import { BussinessOperatorProvider } from '../providers/shared/bussiness-operato
     HomePage,
     WelcomePage,
     LoginComponent,
+    
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: translateFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -44,6 +57,16 @@ import { BussinessOperatorProvider } from '../providers/shared/bussiness-operato
     WelcomePage,
   ],
   providers: [
+    /*TranslateModule.forRoot({
+        loader: {
+        provide: TranslateLoader,
+        useFactory: translateFactory,
+        deps: [HttpClient]
+      }
+    })
+    */
+    TranslateModule,
+    
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
@@ -52,6 +75,7 @@ import { BussinessOperatorProvider } from '../providers/shared/bussiness-operato
     HttpClient,
     LoginProvider,
     AuthServiceProvider,
+    
   ]
 })
 export class AppModule {}
