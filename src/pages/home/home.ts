@@ -3,23 +3,32 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { HttpClientModule } from '@angular/common/http';
-import { LoginProvider } from '../../components/login/shared/loginProvider';
+import { LoginProvider } from '../../providers/login/loginProvider'
 import { LoginComponent } from '../../components/login/login';
+import { AuthServiceProvider } from '../../providers/security/auth-service';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
+  providers: [LoginComponent],
 })
 export class HomePage {
 
   user : {name: string , password: string };
 
-  constructor( public navCtrl: NavController,  public loginp : LoginProvider) {
+  constructor( public navCtrl: NavController,  public loginc : LoginComponent, public auth: AuthServiceProvider) {
     this.user = {name : 'waiter' ,password : 'waiter'};
   }
 
   logForm(){
-     this.loginp.login(this.user);
-     this.navCtrl.push(WelcomePage);
+     
+     this.loginc.login( this.user.name ,this.user.password);
+     if( this.auth.getAuthenthicated() ){
+      this.navCtrl.setRoot(WelcomePage);
+     }  else {
+       console.log("failed auth");
+     }
+     
+     //this.navCtrl.push(WelcomePage);
   }
 }

@@ -4,17 +4,36 @@
         <ion-toolbar>
           <ion-title>Pages</ion-title>
         </ion-toolbar>
+     
+
       </ion-header>
     
-      <ion-content>
+      <ion-content padding>
     
+          <ion-list>
+              <button ion-item  *ngFor="let p of pages" (click)="openPage(p)">
+                  {{p.title}}
+              </button>
+          </ion-list>
           
-        <ion-list>
-          <button ion-item  *ngFor="let p of pages" (click)="openPage(p)">
-            {{p.title}}
+          <form  *ngIf = "!isauthenthicated()" (ngSubmit)="logForm()">
+              <ion-item>
+                <ion-label>User</ion-label>
+                <ion-input type="text" [(ngModel)]="user.name" name="name"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label>password</ion-label>
+                <ion-input type="password" [(ngModel)]="user.password" name="password"></ion-input>
+              </ion-item>
+              <button ion-button type="submit" block>Login</button>
+            </form>
+    
+          <button *ngIf = "!isauthenthicated()" type="submit" (click)="logout()">
+            logout
           </button>
-        </ion-list>
-      </ion-content>
+          
+          </ion-content>
+      
     
     </ion-menu>
     

@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 // import { HTTP } from '@ionic-native/http';
-import { AuthServiceProvider } from '../../../app/core/security/auth-service';
-import { BussinessOperatorProvider } from '../../../app/core/shared/bussiness-operator';
+import { AuthServiceProvider } from '../security/auth-service'
+import { BussinessOperatorProvider } from '../shared/bussiness-operator'
 /*
   Generated class for the LoginProvider provider.
 

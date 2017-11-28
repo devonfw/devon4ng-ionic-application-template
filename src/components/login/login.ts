@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {LoginProvider} from './shared/loginProvider'
+import {LoginProvider} from '../../providers/login/loginProvider'
 
 /**
  * Generated class for the LoginComponent component.
@@ -16,11 +16,11 @@ export class LoginComponent {
   text: string;
 
   constructor(public loginp : LoginProvider) {
-    console.log('Hello LoginComponent Component');
-    this.text = 'Hello World';
+    // console.log('Hello LoginComponent Component');
+     // this.text = 'Hello World';
   }
   
-  login(){
-    this.loginp.login({username: 'waiter', password: 'waiter'});
+  login(user: string, password: string){
+    this.loginp.login({username: user, password: password});
   }
 }
