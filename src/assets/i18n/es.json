@@ -9,6 +9,11 @@
       "EN": "English",
       "ES": "Spanish"
     },
+    "alert":{
+      "title":"Error",
+      "subtitle":"Usuario o contraseña erroneo",
+      "dismiss":"cerrar"
+    },
     "login": {
       "user": "Usuario",
       "username": "Username",

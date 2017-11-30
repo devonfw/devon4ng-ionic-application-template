@@ -1,12 +1,12 @@
 <ion-header >
-  
+  <layoutheader></layoutheader>
 </ion-header>
 
 <ion-content >
   <form  (ngSubmit)="logForm()" >
     <ion-item>
       <ion-label>{{'login.user'| translate}}</ion-label>
-      <ion-input type="text" [(ngModel)]="user.name" name="name"></ion-input>
+      <ion-input type="text" [(ngModel)]="user.username" name="name"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>{{'login.password'| translate}}</ion-label>
@@ -18,8 +18,4 @@
     </button>
   </form>
 
-  <button ion-button icon-end *ngIf="!isauthenthicated()">
-      asdads
-      <ion-icon name="exit"></ion-icon>
-    </button>
 </ion-content>

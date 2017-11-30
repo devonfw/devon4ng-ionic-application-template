@@ -1,16 +1,19 @@
-<ion-header padding>
+
   
+  <div class="bar bar-header bar-light">
+    <ion-navbar>
+      <button ion-button *ngIf="isauthenthicated()" menuToggle>Toggle Menu</button>
+      <button ion-button *ngIf="currentlanguage('ES')" (click)="togglelanguage('ES')">ES</button>
+      <button ion-button *ngIf="currentlanguage('EN')" (click)="togglelanguage('EN')">EN</button>
       
-      <ion-navbar>
-          <button ion-button *ngIf="currentlanguage('ES')" (click)="togglelanguage('ES')">ES</button>
-          <button ion-button *ngIf="currentlanguage('EN')" (click)="togglelanguage('EN')">EN</button>
-          
-          <ion-buttons end> 
-              <button ion-button  icon-end *ngIf="!isauthenthicated()">
-                  {{'buttons.logout'| translate}}
-                  <ion-icon name="exit"></ion-icon>
-                </button>
-          </ion-buttons>
-        </ion-navbar>
-  
-  </ion-header>
+      <ion-buttons end> 
+          <button ion-button  icon-end *ngIf="isauthenthicated()">
+              {{'buttons.logout'| translate}}
+              <ion-icon name="exit"></ion-icon>
+            </button>
+      </ion-buttons>
+    </ion-navbar>
+
+  </div>
+      
+

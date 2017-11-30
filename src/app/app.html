@@ -2,32 +2,21 @@
     
       <ion-header>
 
-
-
-
-
         <ion-toolbar>
           <ion-title>Pages</ion-title>
         </ion-toolbar>
      
-
       </ion-header>
     
       <ion-content padding>
 
-            
-    
           <ion-list>
               <button ion-item  *ngFor="let p of pages" (click)="openPage(p)">
                   {{p.title}}
               </button>
-            </ion-list>
-    
-          <button *ngIf = "!isauthenthicated()" (click)="logout()">
-            logout
-          </button>
-          
-          </ion-content>
+            </ion-list>  
+        
+      </ion-content>
       
     
     </ion-menu>

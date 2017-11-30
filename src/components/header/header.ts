@@ -34,7 +34,6 @@ export class HeaderComponent {
   
 
   constructor(private translate: TranslateService, private auth: AuthServiceProvider, public loginp : LoginProvider) {
-    console.log('Hello HeaderComponent Component');
     //this._text = 'Hello World';
   }
 

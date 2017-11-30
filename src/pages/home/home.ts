@@ -1,47 +1,94 @@
+import { Response } from '@angular/http';
 import { WelcomePage } from '../welcome/welcome';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { LoginProvider } from '../../providers/login/loginProvider'
 import { LoginComponent } from '../../components/login/login';
 import { AuthServiceProvider } from '../../providers/security/auth-service';
 import { TranslateService } from '@ngx-translate/core';
+import { AlertController } from 'ionic-angular';
+import { HttpHeaderResponse } from '@angular/common/http/src/response';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
-  providers: [LoginComponent,TranslateService],
+  providers: [TranslateService],
 })
 export class HomePage {
 
-  user : {name: string , password: string };
-
-  constructor( public navCtrl: NavController,  public loginc : LoginComponent, public auth: AuthServiceProvider , public translate: TranslateService ) {
-    this.user = {name : 'waiter' ,password : 'waiter'};
+  user : {username: string , password: string };
+  alermessages: any = {};
+  constructor( public navCtrl: NavController, public alertCtrl: AlertController, public auth: AuthServiceProvider , public translate: TranslateService, public loginp : LoginProvider ) {
+    this.user = {username : 'waiter' ,password : 'waiter'};
     translate.setDefaultLang('en');
   }
 
+  
   isauthenthicated(){
     return this.auth.getAuthenthicated();
   }
 
+  presentAlert() {
 
+    let a: any = {};
+    
+        this.translate.get('ALERT.TITLE').subscribe(t => {
+          a.title = t;
+        });
+    
+        this.translate.get('ALERT.SUBTITLE').subscribe(t => {
+          a.subTitle = t;
+        });
+        this.translate.get('ALERT.DISMISS').subscribe(t => {
+          a.dismiss = t;
+        });
+
+    let alert = this.alertCtrl.create({
+      title: a.title,
+      subTitle: a.subTitle,
+      buttons: [a.dismiss]
+    });
+    alert.present();
+  }
+  
   togglelanguage(lang: string){
     console.log(lang + " arrived");
     this.translate.use(lang);
   }
 
   logForm(){
-     //console.log(this.user.name)
-     
-     this.loginc.login( this.user.name, this.user.password.toString());
-     if( this.auth.getAuthenthicated() ){
-      this.navCtrl.push(WelcomePage);
-     }  else {
-       console.log("failed auth");
-     }
-     
-     //this.navCtrl.push(WelcomePage);
+    // console.log(username + "login component");
+    this.loginp.login({username: this.user.username, password: this.user.password})
+    .subscribe( () => {
+      
+          //this.loginp.getCsrf().subscribe((data: any) => {
+          //this.auth.setToken(data.token);
+          this.auth.setAuthenthicated(true);
+
+        
+              //this.auth.setToken(res.headers.get('Authorization'));
+              this.auth.setAuthenthicated(true);
+              //Response.headers;
+              console.log(Response);
+              // this.auth.setToken(things.get('Authorization'))
+              this.navCtrl.push(WelcomePage);
+
+      }, (err: any ) => {
+        console.log(err);
+        this.auth.setAuthenthicated(false);
+        this.presentAlert();
+      }, () => {
+        //let wea = this.loginp.getCsrf();
+        
+        //console.log(wea);
+      }
+      
+    );
+    
+ 
+
+    
   }
 }

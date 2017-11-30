@@ -9,6 +9,11 @@
       "EN": "English",
       "ES": "Spanish"
     },
+    "ALERT":{
+      "TITLE":"Error",
+      "SUBTITLE":"Wrong User and/or password",
+      "DISMISS":"Close"
+    },
     "login": {
       "user": "Login",
       "username": "Username",

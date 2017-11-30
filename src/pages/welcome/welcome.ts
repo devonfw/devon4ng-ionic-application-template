@@ -24,7 +24,7 @@ export class WelcomePage {
   }
 
   back(){
-    this.navCtrl.pop();
+    this.navCtrl.popToRoot();
   }
 
 }

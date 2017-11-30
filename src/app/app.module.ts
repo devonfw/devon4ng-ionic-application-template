@@ -1,6 +1,6 @@
 import { AuthServiceProvider } from '../providers/security/auth-service';
 
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 // import { LoginComponent } from '../components/login/login.component';
 
 
@@ -22,6 +22,7 @@ import { TranslateService,TranslateLoader } from '@ngx-translate/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HeaderComponent } from '../components/header/header';
+//import { HttpRequestInterceptorProvider } from '../providers/shared/http-request-interceptor';
 
 
 
@@ -58,16 +59,12 @@ export function translateFactory(http: HttpClient) {
     WelcomePage,
   ],
   providers: [
-    /*TranslateModule.forRoot({
-        loader: {
-        provide: TranslateLoader,
-        useFactory: translateFactory,
-        deps: [HttpClient]
-      }
-    })
-    */
+
+    // {provide: HTTP_INTERCEPTORS,
+    // useClass: HttpRequestInterceptorProvider,
+    // multi: true,},
+
     TranslateModule,
-    
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
@@ -76,6 +73,7 @@ export function translateFactory(http: HttpClient) {
     HttpClient,
     LoginProvider,
     AuthServiceProvider,
+    
     
   ]
 })
