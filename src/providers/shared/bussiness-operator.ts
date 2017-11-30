@@ -10,8 +10,8 @@ import { Observable } from 'rxjs/Rx';
 @Injectable()
 export class BussinessOperatorProvider {
 
-  public serverPath = 'http://localhost:8081/oasp4j-sample-server/services/rest/';
-  public restPath = 'http://localhost:8081/oasp4j-sample-server/';
+  public serverPath = 'http://localhost:8081/oasp4j-sample-server/';
+  public restPath = 'http://localhost:8081/oasp4j-sample-server/services/rest/';
 
   constructor() { }
 
@@ -22,6 +22,6 @@ export class BussinessOperatorProvider {
       return this.serverPath + 'logout';
   }
   getCsrf() {
-      return this.serverPath + 'security/v1/csrftoken';
+      return this.restPath + 'security/v1/csrftoken';
   }
 }

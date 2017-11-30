@@ -4,7 +4,13 @@ import { Injectable } from '@angular/core';
 /*
   Generated class for the AuthServiceProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
+  See https://angular.io/guide/dependency-injection for m  setToken(arg0: any): any {
+    throw new Error("Method not implemented.");
+  }  setToken(arg0: any): any {
+    throw new Error("Method not implemented.");
+  }
+
+ore info on providers
   and Angular DI.
 */
 @Injectable()
@@ -12,6 +18,7 @@ export class AuthServiceProvider {
 
   authenthicated : boolean = false;
   username : string = '';
+  token : string = '';
 
   constructor(public http: HttpClient) {
     this.authenthicated = false;
@@ -25,6 +32,14 @@ export class AuthServiceProvider {
 
   getAuthenthicated() : boolean{
     return this.authenthicated;
+  }
+
+  setToken(state: string) : void{
+    this.token = state;
+  }
+
+  getToken() : string{
+    return this.token;
   }
 
   setUsername(name : string): void{

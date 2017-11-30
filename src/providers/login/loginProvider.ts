@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Rx';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 // import { HTTP } from '@ionic-native/http';
@@ -24,6 +25,9 @@ export class LoginProvider {
   }
 
  
+  getCsrf(): Observable<any> {
+    return this.http.get("http://localhost:8081/oasp4j-sample-server/services/rest/security/v1/csrftoken");
+  }
 
 
   IonicAngularLogout(): any {
@@ -43,17 +47,17 @@ export class LoginProvider {
   }
 
   // http angular
-  IonicAngularLogin(login , password) :any  {
-    let a = {j_username: login, j_password: password};
+  IonicAngularLogin(login , password) :Observable<any>  {
+    let a = {username: login, password: password};
     console.log(login);
     console.log(password);
       return this.http.post( this.BO.login() , //url
-        {j_username: login,j_password: password}, //body
+        {username: login,password: password}, //body
           {responseType: "text"});
 
       }
 
-  login(loginparams : any): any {
+  login(loginparams : any): Observable<any> {
     // this calls a function that connects to a rest service
     return this.IonicAngularLogin(loginparams.username, loginparams.password) 
   }

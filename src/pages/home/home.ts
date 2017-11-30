@@ -61,34 +61,21 @@ export class HomePage {
   logForm(){
     // console.log(username + "login component");
     this.loginp.login({username: this.user.username, password: this.user.password})
-    .subscribe( () => {
-      
-          //this.loginp.getCsrf().subscribe((data: any) => {
-          //this.auth.setToken(data.token);
-          this.auth.setAuthenthicated(true);
-
-        
-              //this.auth.setToken(res.headers.get('Authorization'));
-              this.auth.setAuthenthicated(true);
-              //Response.headers;
-              console.log(Response);
-              // this.auth.setToken(things.get('Authorization'))
-              this.navCtrl.push(WelcomePage);
-
-      }, (err: any ) => {
-        console.log(err);
+      .subscribe(() => {
+        this.loginp.getCsrf().subscribe((data: any) => {
+            this.auth.setToken(data.token);
+            this.auth.setAuthenthicated(true);
+            // this.router.navigate(['/home']);
+        });
+    }, (err: any) => {
         this.auth.setAuthenthicated(false);
-        this.presentAlert();
-      }, () => {
-        //let wea = this.loginp.getCsrf();
-        
-        //console.log(wea);
-      }
-      
-    );
+        this.translate.get('login.errorMsg').subscribe((res: string) => {
+        });
+    });
+}
+
     
  
 
     
   }
-}
