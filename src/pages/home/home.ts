@@ -54,7 +54,7 @@ export class HomePage {
   }
   
   togglelanguage(lang: string){
-    console.log(lang + " arrived");
+    // console.log(lang + " arrived");
     this.translate.use(lang);
   }
 
@@ -65,8 +65,8 @@ export class HomePage {
         
             this.auth.setToken(res.headers.get('Authorization'));
             this.auth.setAuthenthicated(true);
-
-            console.log(this.auth.getToken());
+            this.navCtrl.setRoot(WelcomePage);
+            // console.log(this.auth.getToken());
             // this.router.navigate(['/home']);
 
     }, (err: any) => {

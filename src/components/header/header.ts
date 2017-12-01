@@ -1,3 +1,5 @@
+import { HomePage } from '../../pages/home/home';
+import { NavController } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/security/auth-service';
 import { TranslateService } from '@ngx-translate/core';
 import { Component, Input } from '@angular/core';
@@ -33,7 +35,7 @@ export class HeaderComponent {
 
   
 
-  constructor(private translate: TranslateService, private auth: AuthServiceProvider, public loginp : LoginProvider) {
+  constructor(private translate: TranslateService,private navCtrl: NavController, private auth: AuthServiceProvider, public loginp : LoginProvider) {
     //this._text = 'Hello World';
   }
 
@@ -50,6 +52,9 @@ export class HeaderComponent {
 
   logout(){
     this.loginp.IonicAngularLogout();
+    
+    console.log(this.auth.getToken());
+    this.navCtrl.setRoot(HomePage);
   }
   currentlanguage(lang: String){
     if( lang == this.language ) {

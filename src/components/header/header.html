@@ -7,7 +7,7 @@
       <button ion-button *ngIf="currentlanguage('EN')" (click)="togglelanguage('EN')">EN</button>
       
       <ion-buttons end> 
-          <button ion-button  icon-end *ngIf="isauthenthicated()">
+          <button ion-button  icon-end  (click)="logout()" >
               {{'buttons.logout'| translate}}
               <ion-icon name="exit"></ion-icon>
             </button>

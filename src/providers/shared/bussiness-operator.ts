@@ -21,7 +21,7 @@ export class BussinessOperatorProvider {
       return this.serverPath + 'login';
   }
   logout() {
-      return this.serverPath + 'logout';
+      return this.restPath + 'logout';
   }
   getCsrf() {
       return this.restPath + 'security/v1/csrftoken';

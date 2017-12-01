@@ -62,20 +62,19 @@ export function translateFactory(http: HttpClient) {
   ],
   providers: [
 
-     {provide: HTTP_INTERCEPTORS,
-     useClass: HttpinterceptorProvider,
-     multi: true,},
+    
 
     TranslateModule,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    //AuthServiceProvider,
     BussinessOperatorProvider,
     HttpClient,
     LoginProvider,
     AuthServiceProvider,
-    
+    {provide: HTTP_INTERCEPTORS,
+      useClass: HttpinterceptorProvider,
+      multi: true},
     
     
   ]
