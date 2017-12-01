@@ -1,4 +1,5 @@
 import { HomePage } from '../../pages/home/home';
+import { WelcomePage } from '../../pages/welcome/welcome'
 import { NavController } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/security/auth-service';
 import { TranslateService } from '@ngx-translate/core';
@@ -19,6 +20,7 @@ export class HeaderComponent {
   defaultTitle = "Wrong Title"
   _text: string;
   language= 'EN';
+  pages:any;
 
   @Input()
   set text(newTitle: string) {
@@ -37,11 +39,17 @@ export class HeaderComponent {
 
   constructor(private translate: TranslateService,private navCtrl: NavController, private auth: AuthServiceProvider, public loginp : LoginProvider) {
     //this._text = 'Hello World';
+    this.pages = [
+      
+      { title: 'Welcome', component: WelcomePage},
+      { title: 'Home', component:  HomePage},
+      { title: 'AAAAA', component:  HomePage},
+    ];
   }
 
 
   togglelanguage(lang: string){
-    console.log(lang + " arrived");
+    // console.log(lang + " arrived");
     this.translate.use(lang);
     this.language = lang;
   }
@@ -52,7 +60,6 @@ export class HeaderComponent {
 
   logout(){
     this.loginp.IonicAngularLogout();
-    
     console.log(this.auth.getToken());
     this.navCtrl.setRoot(HomePage);
   }

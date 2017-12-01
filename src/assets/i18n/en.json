@@ -1,7 +1,9 @@
 {
     "buttons": {
       "login": "Send",
-      "logout": "logout"
+      "logout": "logout",
+      "menu": "Menu",
+      "back": "back"
     },
     "header": {
       "title": "OASP4JS",
@@ -20,10 +22,7 @@
       "password": "Password",
       "errorMsg": "Wrong username or password"
     },
-    "home": "Home",
-    "description": "Description",
-    "example": "Example",
-    "example description": "Example Description",
-    "LIKE": "LIKE",
-    "SHARE": "SHARE"
+    "example":"example",
+    "Home":"home",
+    "Welcome":"Welcome"
   }

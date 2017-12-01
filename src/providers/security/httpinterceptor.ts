@@ -1,7 +1,6 @@
 
 import { Observable } from 'rxjs/Rx';
-import { Injectable, Injector, NgModule } from '@angular/core';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { Injectable, Injector } from '@angular/core';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest} from '@angular/common/http';
 import { AuthServiceProvider } from './auth-service';
 

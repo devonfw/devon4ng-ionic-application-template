@@ -1,15 +1,12 @@
-import { Response } from '@angular/http';
+
 import { WelcomePage } from '../welcome/welcome';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-import { HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { LoginProvider } from '../../providers/login/loginProvider'
-import { LoginComponent } from '../../components/login/login';
 import { AuthServiceProvider } from '../../providers/security/auth-service';
 import { TranslateService } from '@ngx-translate/core';
 import { AlertController } from 'ionic-angular';
-import { HttpHeaderResponse } from '@angular/common/http/src/response';
 
 @Component({
   selector: 'page-home',

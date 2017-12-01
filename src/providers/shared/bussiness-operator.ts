@@ -1,6 +1,5 @@
-import { HttpClient } from '@angular/common/http';
+
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Rx';
 /*
   Generated class for the BussinessOperatorProvider provider.
 

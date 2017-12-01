@@ -16,10 +16,10 @@ import { WelcomePage } from '../pages/welcome/welcome';
 
 
 import { HomePage } from '../pages/home/home';
-import { LoginComponent } from '../components/login/login';
+
 import { LoginProvider } from '../providers/login/loginProvider';
 import { BussinessOperatorProvider } from '../providers/shared/bussiness-operator';
-import { TranslateService,TranslateLoader } from '@ngx-translate/core';
+import { TranslateLoader } from '@ngx-translate/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HeaderComponent } from '../components/header/header';
@@ -39,7 +39,6 @@ export function translateFactory(http: HttpClient) {
     MyApp,
     HomePage,
     WelcomePage,
-    LoginComponent,
     HeaderComponent
   ],
   imports: [

@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 // import { LoginComponent } from './login/login.component';
-import { LoginProvider } from '../providers/login/loginProvider'
-import { LoginComponent } from './login/login';
+
+
 import { HeaderComponent } from './header/header';
 @NgModule({
-	declarations: [LoginComponent,
+	declarations: [
     HeaderComponent],
 	imports: [],
-	exports: [LoginComponent,
+	exports: [
     HeaderComponent]
 })
 export class ComponentsModule {}

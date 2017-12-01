@@ -1,7 +1,9 @@
 {
     "buttons": {
       "login": "Conectarse",
-      "logout": "Desconectarse"
+      "logout": "Desconectarse",
+      "menu": "Menu",
+      "back": "Atras"
     },
     "header": {
       "title": "OASP4JS",
@@ -20,10 +22,8 @@
       "password": "Contraseña",
       "errorMsg": "Usuario o contraseña erroneos"
     },
-    "home": "Home",
-    "description": "Description",
-    "example": "Example",
-    "example description": "Example Description",
-    "LIKE": "LIKE",
-    "SHARE": "SHARE"
+    "example":"ejemplo",
+    "Home":"Home",
+    "Welcome":"Welcome",
+    "p":"wea"
   }
