@@ -4,20 +4,45 @@
 
     
     <ion-navbar>
-      <img src="../../assets/imgs/spanishflag.gif" style="width : 10% ; height : 10%" (click)="togglelanguage('ES')" >
-      <img src="../../assets/imgs/englishflag.png" style="width : 12% ; height : 12%" (click)="togglelanguage('EN')" >
-      <button ion-button *ngIf="isauthenthicated()" menuToggle>
-        {{'buttons.menu'| translate}}</button>
-      <button ion-button *ngIf="currentlanguage('ES')"  (click)="togglelanguage('ES')">ES</button>
-      <button ion-button *ngIf="currentlanguage('EN')"  (click)="togglelanguage('EN')">
-          
-        EN</button>
+      
+        <ion-grid>
+            <ion-row>
+              <ion-col>
+                  <button ion-button *ngIf="isauthenthicated()" menuToggle>
+                      {{'buttons.menu'| translate}}</button>
+              </ion-col>
+              <ion-col>
+                 
+              </ion-col>
+            
+
+              <ion-col>
+                  
+              </ion-col>
+              <ion-col>
+                  <img src="../../assets/imgs/spanishflag.gif" style="width : 40% ; height : 40%" (click)="togglelanguage('ES')" >
+                  <img src="../../assets/imgs/englishflag.png" style="width : 40% ; height : 40%" (click)="togglelanguage('EN')" >
+              </ion-col>
+              <ion-col>
+                  <button ion-button  icon-end  (click)="logout()" >
+                      {{'buttons.logout'| translate}}
+                      <ion-icon name="exit"></ion-icon>
+                    </button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        
+        
+        <ion-list>
+           
+            
+          </ion-list>
+      
+      
+     
       
       <ion-buttons end> 
-          <button ion-button  icon-end  (click)="logout()" >
-              {{'buttons.logout'| translate}}
-              <ion-icon name="exit"></ion-icon>
-            </button>
+          
       </ion-buttons>
 
      
