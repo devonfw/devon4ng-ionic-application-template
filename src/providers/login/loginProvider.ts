@@ -26,7 +26,7 @@ export class LoginProvider {
 
  
   getCsrf(): Observable<any> {
-    return this.http.get("http://localhost:8081/oasp4j-sample-server/services/rest/security/v1/csrftoken");
+    return this.http.get("http://localhost:8081/oasp4j-sample-server/services/rest/security/v1/csrftoken",{ withCredentials: true});
   }
 
 
@@ -49,11 +49,9 @@ export class LoginProvider {
   // http angular
   IonicAngularLogin(login , password) :Observable<any>  {
     let a = {username: login, password: password};
-    console.log(login);
-    console.log(password);
       return this.http.post( this.BO.login() , //url
         {username: login,password: password}, //body
-          {responseType: "text"});
+          {responseType: "text", observe: 'response'});
 
       }
 
@@ -66,10 +64,6 @@ export class LoginProvider {
     this.IonicAngularLogout();
   }
 
-  authenticated(): boolean{
-    // console.log(this.logged);
-    return true;
-  }
 
 
 }

@@ -1,3 +1,4 @@
+import { HttpinterceptorProvider } from '../providers/security/httpinterceptor';
 import { AuthServiceProvider } from '../providers/security/auth-service';
 
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
@@ -22,6 +23,7 @@ import { TranslateService,TranslateLoader } from '@ngx-translate/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HeaderComponent } from '../components/header/header';
+
 //import { HttpRequestInterceptorProvider } from '../providers/shared/http-request-interceptor';
 
 
@@ -60,9 +62,9 @@ export function translateFactory(http: HttpClient) {
   ],
   providers: [
 
-    // {provide: HTTP_INTERCEPTORS,
-    // useClass: HttpRequestInterceptorProvider,
-    // multi: true,},
+     {provide: HTTP_INTERCEPTORS,
+     useClass: HttpinterceptorProvider,
+     multi: true,},
 
     TranslateModule,
     StatusBar,
@@ -73,6 +75,7 @@ export function translateFactory(http: HttpClient) {
     HttpClient,
     LoginProvider,
     AuthServiceProvider,
+    
     
     
   ]

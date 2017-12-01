@@ -61,12 +61,14 @@ export class HomePage {
   logForm(){
     // console.log(username + "login component");
     this.loginp.login({username: this.user.username, password: this.user.password})
-      .subscribe(() => {
-        this.loginp.getCsrf().subscribe((data: any) => {
-            this.auth.setToken(data.token);
+      .subscribe((res: any) => {
+        
+            this.auth.setToken(res.headers.get('Authorization'));
             this.auth.setAuthenthicated(true);
+
+            console.log(this.auth.getToken());
             // this.router.navigate(['/home']);
-        });
+
     }, (err: any) => {
         this.auth.setAuthenthicated(false);
         this.translate.get('login.errorMsg').subscribe((res: string) => {
