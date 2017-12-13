@@ -1,56 +1,37 @@
 
-  
-  <div class="bar bar-header bar-light">
+  <div >
+    <ion-navbar class="bar bar-header bar-positive" color="primary">
 
-    
-    <ion-navbar>
-      
-        <ion-grid>
-            <ion-row>
-              <ion-col>
-                  <button ion-button *ngIf="isauthenthicated()" menuToggle>
-                      {{'buttons.menu'| translate}}</button>
-              </ion-col>
-              <ion-col>
-                 
-              </ion-col>
-            
+                  <ion-title>{{Title}}</ion-title>
 
-              <ion-col>
+                  <button ion-button  menuToggle="left" *ngIf="isauthenthicated()">
+                    <ion-icon name="menu"></ion-icon>    
+                  </button>
+
                   
-              </ion-col>
-              <ion-col>
-                  <img src="../../assets/imgs/spanishflag.gif" style="width : 40% ; height : 40%" (click)="togglelanguage('ES')" >
-                  <img src="../../assets/imgs/englishflag.png" style="width : 40% ; height : 40%" (click)="togglelanguage('EN')" >
-              </ion-col>
-              <ion-col>
-                  <button ion-button  icon-end  (click)="logout()" >
-                      {{'buttons.logout'| translate}}
+                  <ion-buttons end>
+                  <button id="Spanishbutton" *ngIf="currentlanguage('EN')"  ion-button end clear (click)="togglelanguage('ES')" >
+                      
+                      <ion-icon name="flag">
+                          <label> ES </label>  
+                      </ion-icon>
+
+                  </button>
+                  <button id="Englishbutton" *ngIf="currentlanguage('ES')"  ion-button end clear (click)="togglelanguage('EN')" >
+                      
+                  <ion-icon name="flag">
+                      <label> EN </label>
+                  </ion-icon>
+
+
+                  </button>
+                  <button id="logoutbutton" *ngIf="isauthenthicated()"  ion-button end clear (click)="logout()" >
                       <ion-icon name="exit"></ion-icon>
-                    </button>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        
-        
-        <ion-list>
-           
-            
-          </ion-list>
-      
-      
-     
-      
-      <ion-buttons end> 
-          
-      </ion-buttons>
+                  </button>
 
-     
+                  </ion-buttons>
+
+                  
     </ion-navbar>
-
-   
-
-    
   </div>
-      
 

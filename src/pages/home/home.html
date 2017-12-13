@@ -1,21 +1,27 @@
-<ion-header >
-  <layoutheader></layoutheader>
+<!--
+  Generated template for the WelcomePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <layoutheader Title = "Home" ></layoutheader>
 </ion-header>
 
-<ion-content >
-  <form  (ngSubmit)="logForm()" >
-    <ion-item>
-      <ion-label>{{'login.user'| translate}}</ion-label>
-      <ion-input type="text" [(ngModel)]="user.username" name="name"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>{{'login.password'| translate}}</ion-label>
-      <ion-input type="password" [(ngModel)]="user.password" name="password"></ion-input>
-    </ion-item>
-    <button ion-button type="submit" block>
-        {{'buttons.login'| translate}}
-    
-    </button>
-  </form>
 
+<ion-content padding>
+  <div>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et volutpat leo. 
+    Cras volutpat pharetra augue, eu euismod nunc condimentum ut. Donec sodales et elit a dictum. 
+    Nulla tellus elit, venenatis non felis at, pulvinar ultricies erat. 
+    Cras porta orci massa, eget pretium sapien lobortis ut. Ut facilisis ex at vulputate tincidunt. 
+    Proin odio tellus, porttitor eu lectus id, hendrerit porta tortor. 
+    Nunc dignissim ipsum libero, quis tincidunt leo posuere et. Phasellus in malesuada lectus, 
+    non scelerisque tortor. Donec condimentum ex a tortor interdum, in rhoncus ipsum ultrices. 
+    In mollis nec nisl vel iaculis.
+  </div>
+  <div>
+    <ion-img width="150" height="105" src="../../assets/imgs/cat1.jpg" ></ion-img>
+  </div>
 </ion-content>
+

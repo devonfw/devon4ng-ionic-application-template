@@ -1,4 +1,5 @@
-import { WelcomePage } from '../pages/welcome/welcome';
+import { LoginPage } from '../pages/Login/Login';
+
 import { AuthServiceProvider } from '../providers/security/auth-service';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
@@ -11,7 +12,7 @@ import { HomePage } from '../pages/home/home';
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  rootPage:any = HomePage;
+  rootPage:any = LoginPage;
   pages:any;
   
   user = {name: 'a', password: 'a'};
@@ -25,7 +26,6 @@ export class MyApp {
       
       this.pages = [
         { title: 'Home', component:  HomePage},
-        { title: 'Welcome', component: WelcomePage}
       ];
     });
   }

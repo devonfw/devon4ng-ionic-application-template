@@ -11,12 +11,8 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
-import { WelcomePage } from '../pages/welcome/welcome';
-
-
-
+import { LoginPage } from '../pages/Login/Login';
 import { HomePage } from '../pages/home/home';
-
 import { LoginProvider } from '../providers/login/loginProvider';
 import { BussinessOperatorProvider } from '../providers/shared/bussiness-operator';
 import { TranslateLoader } from '@ngx-translate/core';
@@ -38,7 +34,7 @@ export function translateFactory(http: HttpClient) {
   declarations: [
     MyApp,
     HomePage,
-    WelcomePage,
+    LoginPage,
     HeaderComponent
   ],
   imports: [
@@ -57,7 +53,7 @@ export function translateFactory(http: HttpClient) {
   entryComponents: [
     MyApp,
     HomePage,
-    WelcomePage,
+    LoginPage,
   ],
   providers: [
 
