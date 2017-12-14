@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
 import { LoginProvider } from '../../providers/login/loginProvider';
 import { HomePage } from '../../pages/home/home';
 import { LoginPage } from '../../pages/Login/Login';
-import { AlertController } from 'ionic-angular';
+
 
 /**
  * Generated class for the HeaderComponent component.
@@ -19,57 +19,36 @@ import { AlertController } from 'ionic-angular';
   templateUrl: 'header.html'
 })
 export class HeaderComponent {
-  defaultTitle = "Wrong Title"
-  _text: string;
-  language= 'EN';
-  pages:any;
+
+  currentlanguage: string;
+  langs = ['en','es'];
   @Input() Title : string = "Login";
-  @Input()
-  set text(newTitle: string) {
-      newTitle = newTitle.trim();
-      if (newTitle.length === 0) {
-          newTitle = this.defaultTitle;
-      }
-      this._text = newTitle;
+
+  constructor(private translate: TranslateService,private navCtrl: NavController, private auth: AuthServiceProvider) {
+    translate.setDefaultLang('en');
+    this.currentlanguage = 'en'; // 'en by default'
   }
 
-  get title() {
-      return this._text;
+  showlanguagebutton(lang:string) : boolean { //decides if a button should be shown
+    if(lang == this.currentlanguage) return false;
+    return true;
   }
 
-  
-
-  constructor(private translate: TranslateService,private navCtrl: NavController, private auth: AuthServiceProvider, 
-    public loginp : LoginProvider, public alertCtrl : AlertController) {
-    //this._text = 'Hello World';
-  }
-
-
-  togglelanguage(lang: string){
-    console.log(lang);
+  togglelanguage(lang: string) : void{
     
     this.translate.use(lang);
-    let a = '';
-    
-  
-    this.language = lang;
-   
+    this.currentlanguage = lang;
   }
 
-  isauthenthicated(){
+  isauthenthicated() : boolean{
     return this.auth.getAuthenthicated();
   }
 
-  logout(){
-    //this.loginp.IonicAngularLogout();
+  logout() : void{
+    //ionic uses a jwt token for security, we don't need to connect to the server since we don't have a season, erasing the jwt is enough.
     this.auth.setAuthenthicated(false);
     this.auth.setToken("");
     this.navCtrl.setRoot(LoginPage);
   }
-  currentlanguage(lang: String){
-    if( lang == this.language ) {
-      return true;
-    }
-    return false;
-  }
+
 }

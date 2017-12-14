@@ -2,18 +2,11 @@
     "buttons": {
       "login": "Send",
       "logout": "logout",
-      "menu": "Menu",
-      "back": "back"
-    },
-    "header": {
-      "title": "OASP4JS",
-      "error": "LOGIN ERROR",
-      "EN": "English",
-      "ES": "Spanish"
+      "menu": "Menu"
     },
     "ALERT":{
       "TITLE":"Error",
-      "SUBTITLE":"Wrong User and/or password",
+      "SUBTITLE":"User and/or password",
       "DISMISS":"Close"
     },
     "login": {
@@ -21,8 +14,5 @@
       "username": "Username",
       "password": "Password",
       "errorMsg": "Wrong username or password"
-    },
-    "example":"example",
-    "Home":"home",
-    "Welcome":"Welcome"
+    }
   }

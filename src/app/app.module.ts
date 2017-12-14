@@ -26,7 +26,7 @@ import { HeaderComponent } from '../components/header/header';
 
 
 export function translateFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/');
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 

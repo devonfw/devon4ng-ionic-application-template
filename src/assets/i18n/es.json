@@ -2,28 +2,17 @@
     "buttons": {
       "login": "Conectarse",
       "logout": "Desconectarse",
-      "menu": "Menu",
-      "back": "Atras"
+      "menu": "Menu"
     },
-    "header": {
-      "title": "OASP4JS",
-      "error": "LOGIN ERROR",
-      "EN": "English",
-      "ES": "Spanish"
-    },
-    "alert":{
-      "title":"Error",
-      "subtitle":"Usuario o contraseña erroneo",
-      "dismiss":"cerrar"
+    "ALERT":{
+      "TITLE":"Error",
+      "SUBTITLE":"Usuario o contraseña erroneos",
+      "DISMISS":"Cerrar"
     },
     "login": {
       "user": "Usuario",
       "username": "Username",
       "password": "Contraseña",
       "errorMsg": "Usuario o contraseña erroneos"
-    },
-    "example":"ejemplo",
-    "Home":"Home",
-    "Welcome":"Welcome",
-    "p":"wea"
+    }
   }

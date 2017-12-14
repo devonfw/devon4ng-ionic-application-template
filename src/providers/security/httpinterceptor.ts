@@ -15,22 +15,16 @@ export class HttpinterceptorProvider implements HttpInterceptor {
   
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     
-    //const tempToken = this.auth.getToken();
     const auth = this.inj.get(AuthServiceProvider);
     const tempToken = auth.getToken();
-    // console.log(req);
-    // console.log(tempToken);
+
     if (tempToken != null){
       const afterTokenreq: HttpRequest<any> = req.clone({setHeaders : {Authorization: tempToken}});
       return next.handle(afterTokenreq);
+      } else {
+        return next.handle(req);
+      }
       
-    } else {
-      return next.handle(req);
-    }
-
-
-
-    
   }
 }
 

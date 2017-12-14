@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the WelcomePage page.
+ * Generated class for the HomePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -19,16 +19,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class HomePage {
 
   constructor(public navCtrl: NavController, public auth: AuthServiceProvider, public navParams: NavParams, public translate: TranslateService) {
-    translate.setDefaultLang('es');
-    // this should go in the header
-  }
 
-  isauthenthicated(){
-    return this.auth.getAuthenthicated();
-  }
-
-  back(){
-    this.navCtrl.setRoot(LoginPage);
   }
 
 }

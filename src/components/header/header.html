@@ -2,36 +2,32 @@
   <div >
     <ion-navbar class="bar bar-header bar-positive" color="primary">
 
-                  <ion-title>{{Title}}</ion-title>
+                <ion-title>{{Title}}</ion-title>
 
-                  <button ion-button  menuToggle="left" *ngIf="isauthenthicated()">
+                <button ion-button  menuToggle="left" *ngIf="isauthenthicated()">
                     <ion-icon name="menu"></ion-icon>    
-                  </button>
+                </button>
 
+                <ion-buttons end>
+                    <ng-container *ngFor="let lang of langs">
+                            <button  *ngIf="showlanguagebutton(lang)" ion-button end clear (click)="togglelanguage(lang)">
+                                    {{lang}}
+                                </button>
+                    </ng-container>
+                    
+                </ion-buttons>
+                
+                
+                
+
+                <ion-buttons end>
                   
-                  <ion-buttons end>
-                  <button id="Spanishbutton" *ngIf="currentlanguage('EN')"  ion-button end clear (click)="togglelanguage('ES')" >
-                      
-                      <ion-icon name="flag">
-                          <label> ES </label>  
-                      </ion-icon>
 
-                  </button>
-                  <button id="Englishbutton" *ngIf="currentlanguage('ES')"  ion-button end clear (click)="togglelanguage('EN')" >
-                      
-                  <ion-icon name="flag">
-                      <label> EN </label>
-                  </ion-icon>
+                <button id="logoutbutton" *ngIf="isauthenthicated()"  ion-button end clear (click)="logout()" >
+                    <ion-icon name="exit"></ion-icon>
+                </button>
 
-
-                  </button>
-                  <button id="logoutbutton" *ngIf="isauthenthicated()"  ion-button end clear (click)="logout()" >
-                      <ion-icon name="exit"></ion-icon>
-                  </button>
-
-                  </ion-buttons>
-
-                  
+                </ion-buttons>          
     </ion-navbar>
   </div>
 
