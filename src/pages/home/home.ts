@@ -1,5 +1,5 @@
 import { LoginPage } from '../Login/Login';
-
+import { TranslateService } from '@ngx-translate/core';
 import { AuthServiceProvider } from '../../providers/security/auth-service';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -18,8 +18,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, public auth: AuthServiceProvider, public navParams: NavParams) {
-    
+  constructor(public navCtrl: NavController, public auth: AuthServiceProvider, public navParams: NavParams, public translate: TranslateService) {
+    translate.setDefaultLang('es');
     // this should go in the header
   }
 

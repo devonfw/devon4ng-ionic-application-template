@@ -9,8 +9,8 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class BussinessOperatorProvider {
 
-  public serverPath = 'http://localhost:8081/oasp4j-sample-server/';
-  public restPath = 'http://localhost:8081/oasp4j-sample-server/services/rest/';
+  public serverPath = 'http://10.68.8.119:8081/oasp4j-sample-server/';
+  public restPath = 'http://10.68.8.119:8081/oasp4j-sample-server/services/rest/';
 
   constructor() { }
 

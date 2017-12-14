@@ -6,6 +6,7 @@ import { Component, Input } from '@angular/core';
 import { LoginProvider } from '../../providers/login/loginProvider';
 import { HomePage } from '../../pages/home/home';
 import { LoginPage } from '../../pages/Login/Login';
+import { AlertController } from 'ionic-angular';
 
 /**
  * Generated class for the HeaderComponent component.
@@ -38,15 +39,21 @@ export class HeaderComponent {
 
   
 
-  constructor(private translate: TranslateService,private navCtrl: NavController, private auth: AuthServiceProvider, public loginp : LoginProvider) {
+  constructor(private translate: TranslateService,private navCtrl: NavController, private auth: AuthServiceProvider, 
+    public loginp : LoginProvider, public alertCtrl : AlertController) {
     //this._text = 'Hello World';
   }
 
 
   togglelanguage(lang: string){
     console.log(lang);
+    
     this.translate.use(lang);
+    let a = '';
+    
+  
     this.language = lang;
+   
   }
 
   isauthenthicated(){
@@ -54,8 +61,9 @@ export class HeaderComponent {
   }
 
   logout(){
-    this.loginp.IonicAngularLogout();
-    console.log(this.auth.getToken());
+    //this.loginp.IonicAngularLogout();
+    this.auth.setAuthenthicated(false);
+    this.auth.setToken("");
     this.navCtrl.setRoot(LoginPage);
   }
   currentlanguage(lang: String){
