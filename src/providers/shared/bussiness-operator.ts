@@ -18,6 +18,6 @@ export class BussinessOperatorProvider {
       return this.serverPath + 'login';
   }
   logout() {
-      return this.restPath + 'logout';
+      return this.restPath + 'logout'; //not really used in ionic
   }
 }

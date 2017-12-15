@@ -3,8 +3,6 @@ import { NavController } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/security/auth-service';
 import { TranslateService } from '@ngx-translate/core';
 import { Component, Input } from '@angular/core';
-import { LoginProvider } from '../../providers/login/loginProvider';
-import { HomePage } from '../../pages/home/home';
 import { LoginPage } from '../../pages/Login/Login';
 
 
@@ -29,7 +27,11 @@ export class HeaderComponent {
     this.currentlanguage = 'en'; // 'en by default'
   }
 
-  showlanguagebutton(lang:string) : boolean { //decides if a button should be shown
+  isauthenthicated() : boolean{
+    return this.auth.getAuthenthicated();
+  }
+
+  Showlanguage(lang:string) : boolean { //decides if a button should be shown
     if(lang == this.currentlanguage) return false;
     return true;
   }
@@ -40,9 +42,7 @@ export class HeaderComponent {
     this.currentlanguage = lang;
   }
 
-  isauthenthicated() : boolean{
-    return this.auth.getAuthenthicated();
-  }
+  
 
   logout() : void{
     //ionic uses a jwt token for security, we don't need to connect to the server since we don't have a season, erasing the jwt is enough.

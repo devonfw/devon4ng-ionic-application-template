@@ -3,7 +3,7 @@
 </ion-header>
 
 <ion-content >
-  <form  (ngSubmit)="logForm()" >
+  <form  (ngSubmit)="loginForm()" >
     <ion-item>
       <ion-label>{{'login.user'| translate}}</ion-label>
       <ion-input type="text" [(ngModel)]="user.username" name="name"></ion-input>
@@ -17,7 +17,7 @@
 
 </ion-content>
 <ion-footer>
-  <button ion-button (click)="logForm()" block>
+  <button ion-button (click)="loginForm()" block>
     {{'buttons.login'| translate}}
   </button>
 </ion-footer>

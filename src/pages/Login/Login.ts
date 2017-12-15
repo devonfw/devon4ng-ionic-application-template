@@ -25,9 +25,7 @@ export class LoginPage {
     return this.auth.getAuthenthicated();
   }
 
-  
-
-  logForm() {
+  loginForm() {
 
     this.loginp.login({ username: this.user.username, password: this.user.password })
       .subscribe((res: any) => {
@@ -38,7 +36,7 @@ export class LoginPage {
 
       }, (err: any) => {
         this.auth.setAuthenthicated(false);
-        console.log(this.translate.currentLang)
+
         this.presentAlert();
         this.translate.get('login.errorMsg').subscribe((res: string) => {
         });
@@ -50,7 +48,7 @@ export class LoginPage {
         let alerttranslations: any = {};
     
         this.translate.get('ALERT.TITLE').subscribe(t => {
-          console.log(this.translate.currentLang)
+
           alerttranslations.title = t;
         });
         this.translate.get('ALERT.SUBTITLE').subscribe(t => {

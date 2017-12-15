@@ -17,36 +17,36 @@ ore info on providers
 export class AuthServiceProvider {
 
   authenthicated : boolean = false;
-  username : string = '';
+  username : string = ''; //not used for now, could be used in the future.
   token : string = '';
 
   constructor(public http: HttpClient) {
     this.authenthicated = false;
-    this.username = '';
     //console.log('Hello AuthServiceProvider Provider');
-  }
-
-  setAuthenthicated(state: boolean) : void{
-    this.authenthicated = state;
   }
 
   getAuthenthicated() : boolean{
     return this.authenthicated;
   }
 
-  setToken(state: string) : void{
-    this.token = state;
+  setAuthenthicated(state: boolean) : void{
+    this.authenthicated = state;
   }
 
   getToken() : string{
     return this.token;
   }
 
-  setUsername(name : string): void{
-    this.username = name;
+  setToken(state: string) : void{
+    this.token = state;
   }
 
   getUsername(): string{
     return this.username;
   }
+
+  setUsername(name : string): void{
+    this.username = name;
+  }
+
 }
