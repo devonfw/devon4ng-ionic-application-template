@@ -14,7 +14,7 @@ import { MyApp } from './app.component';
 import { LoginPage } from '../pages/Login/Login';
 import { HomePage } from '../pages/home/home';
 import { LoginProvider } from '../providers/login/loginProvider';
-import { BussinessOperatorProvider } from '../providers/shared/bussiness-operator';
+import { BusinessOperatorProvider } from '../providers/shared/business-operator';
 import { TranslateLoader } from '@ngx-translate/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -63,7 +63,7 @@ export function translateFactory(http: HttpClient) {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    BussinessOperatorProvider,
+    BusinessOperatorProvider,
     HttpClient,
     LoginProvider,
     AuthServiceProvider,

@@ -12,6 +12,7 @@ import { LoginPage } from '../../pages/Login/Login';
  * See https://angular.io/api/core/Component for more info on Angular
  * Components.
  */
+
 @Component({
   selector: 'layoutheader',
   templateUrl: 'header.html'
@@ -20,7 +21,7 @@ export class HeaderComponent {
 
   currentlanguage: string;
   langs = ['en','es'];
-  @Input() Title : string = "Login";
+  @Input() Title : string;
 
   constructor(private translate: TranslateService,private navCtrl: NavController, private auth: AuthServiceProvider) {
     translate.setDefaultLang('en');
@@ -41,8 +42,6 @@ export class HeaderComponent {
     this.translate.use(lang);
     this.currentlanguage = lang;
   }
-
-  
 
   logout() : void{
     //ionic uses a jwt token for security, we don't need to connect to the server since we don't have a season, erasing the jwt is enough.

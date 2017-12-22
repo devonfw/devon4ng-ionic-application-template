@@ -1,4 +1,3 @@
-import { LoginPage } from '../Login/Login';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthServiceProvider } from '../../providers/security/auth-service';
 import { Component } from '@angular/core';

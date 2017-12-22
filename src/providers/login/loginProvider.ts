@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 // import { HTTP } from '@ionic-native/http';
 import { AuthServiceProvider } from '../security/auth-service'
-import { BussinessOperatorProvider } from '../shared/bussiness-operator'
+import { BusinessOperatorProvider } from '../shared/business-operator'
 /*
   Generated class for the LoginProvider provider.
 
@@ -13,7 +13,7 @@ import { BussinessOperatorProvider } from '../shared/bussiness-operator'
 @Injectable()
 export class LoginProvider {
   
-  constructor(public http: HttpClient, public authservice : AuthServiceProvider ,  private BO: BussinessOperatorProvider) {
+  constructor(public http: HttpClient, public authservice : AuthServiceProvider ,  private BO: BusinessOperatorProvider) {
   
   }
 

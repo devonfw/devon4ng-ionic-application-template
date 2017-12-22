@@ -1,5 +1,6 @@
 
 import { Injectable } from '@angular/core';
+import {url} from '../../assets/serverPath';
 /*
   Generated class for the BussinessOperatorProvider provider.
 
@@ -7,10 +8,10 @@ import { Injectable } from '@angular/core';
   and Angular DI.
 */
 @Injectable()
-export class BussinessOperatorProvider {
+export class BusinessOperatorProvider {
 
-  public serverPath = 'http://localhost:8081/oasp4j-sample-server/';
-  public restPath = 'http://localhost:8081/oasp4j-sample-server/services/rest/';
+  public serverPath = url;
+  public restPath = url + '/services/rest/';
 
   constructor() { }
 
