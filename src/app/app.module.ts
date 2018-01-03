@@ -4,7 +4,6 @@ import { AuthServiceProvider } from '../providers/security/auth-service';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 // import { LoginComponent } from '../components/login/login.component';
 
-
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -38,6 +37,7 @@ export function translateFactory(http: HttpClient) {
     HeaderComponent
   ],
   imports: [
+    
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
@@ -56,9 +56,6 @@ export function translateFactory(http: HttpClient) {
     LoginPage,
   ],
   providers: [
-
-    
-
     TranslateModule,
     StatusBar,
     SplashScreen,
@@ -70,8 +67,6 @@ export function translateFactory(http: HttpClient) {
     {provide: HTTP_INTERCEPTORS,
       useClass: HttpinterceptorProvider,
       multi: true},
-    
-    
   ]
 })
 export class AppModule {}

@@ -6,6 +6,7 @@ import { LoginProvider } from '../../providers/login/loginProvider'
 import { AuthServiceProvider } from '../../providers/security/auth-service';
 import { TranslateService } from '@ngx-translate/core';
 import { AlertController } from 'ionic-angular';
+import {url} from '../../assets/serverPath';
 
 @Component({
   selector: 'page-Login',
@@ -26,9 +27,15 @@ export class LoginPage {
   }
 
   loginForm() {
-
+    console.log('wea');
+    console.log(url);
+    this.loginp.http.get("http://10.68.14.49:8081/sample-server/services/rest/login",{}).subscribe(
+      (data) => {
+         console.log(data);
+      }
+    )
     this.loginp.login({ username: this.user.username, password: this.user.password })
-      .subscribe((res: any) => {
+    .subscribe((res: any) => {
 
         this.auth.setToken(res.headers.get('Authorization'));
         this.auth.setAuthenthicated(true);
@@ -36,17 +43,17 @@ export class LoginPage {
 
       }, (err: any) => {
         this.auth.setAuthenthicated(false);
-
-        this.presentAlert();
+        
+        this.presentAlert(err);
         this.translate.get('login.errorMsg').subscribe((res: string) => {
         });
-      });
+      }); 
   }
 
-  presentAlert() {
+  presentAlert(error : any) {
 
         let alerttranslations: any = {};
-    
+        console.log(error);
         this.translate.get('ALERT.TITLE').subscribe(t => {
 
           alerttranslations.title = t;
@@ -57,10 +64,10 @@ export class LoginPage {
         this.translate.get('ALERT.DISMISS').subscribe(t => {
           alerttranslations.dismiss = t;
         });
-    
+        console.log(error);
         let alert = this.alertCtrl.create({
-          title: alerttranslations.title,
-          subTitle: alerttranslations.subTitle,
+          title: error.statusText,
+          subTitle: error.message+""+error.error,
           buttons: [alerttranslations.dismiss]
         });
         alert.present();

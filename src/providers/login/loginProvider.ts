@@ -1,7 +1,6 @@
 import { Observable } from 'rxjs/Rx';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-// import { HTTP } from '@ionic-native/http';
 import { AuthServiceProvider } from '../security/auth-service'
 import { BusinessOperatorProvider } from '../shared/business-operator'
 /*
@@ -13,18 +12,20 @@ import { BusinessOperatorProvider } from '../shared/business-operator'
 @Injectable()
 export class LoginProvider {
   
-  constructor(public http: HttpClient, public authservice : AuthServiceProvider ,  private BO: BusinessOperatorProvider) {
+  constructor(public http: HttpClient, public authservice : AuthServiceProvider ,  
+    private BO: BusinessOperatorProvider) {
   
   }
 
 
   IonicAngularLogin(login , password) :Observable<any>  {
-      return this.http.post( this.BO.login() , //url
+      return this.http.post( "http://10.68.14.49:8081/sample-server/services/rest/login" , //url
         {username: login,password: password}, //body
           {responseType: "text", observe: 'response'});
 
   }
 
+  
   login(loginparams : any): Observable<any> {
     return this.IonicAngularLogin(loginparams.username, loginparams.password) 
   }

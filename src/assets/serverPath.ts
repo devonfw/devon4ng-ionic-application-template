@@ -1,3 +1,3 @@
 
 
-export let url = 'http://localhost:8081/oasp4j-sample-server/';
+export let url = 'http://10.68.14.49:8081/sample-server/';

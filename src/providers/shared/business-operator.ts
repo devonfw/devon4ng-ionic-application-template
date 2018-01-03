@@ -11,12 +11,12 @@ import {url} from '../../assets/serverPath';
 export class BusinessOperatorProvider {
 
   public serverPath = url;
-  public restPath = url + '/services/rest/';
+  public restPath = url + 'services/rest/';
 
   constructor() { }
 
   login() {
-      return this.serverPath + 'login';
+      return this.restPath + 'login';
   }
   logout() {
       return this.restPath + 'logout'; //not really used in ionic
