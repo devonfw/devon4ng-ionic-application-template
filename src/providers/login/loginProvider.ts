@@ -19,7 +19,8 @@ export class LoginProvider {
 
 
   IonicAngularLogin(login , password) :Observable<any>  {
-      return this.http.post( "http://10.68.14.49:8081/sample-server/services/rest/login" , //url
+
+      return this.http.post( this.BO.login() , //url
         {username: login,password: password}, //body
           {responseType: "text", observe: 'response'});
 

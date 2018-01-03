@@ -27,13 +27,7 @@ export class LoginPage {
   }
 
   loginForm() {
-    console.log('wea');
-    console.log(url);
-    this.loginp.http.get("http://10.68.14.49:8081/sample-server/services/rest/login",{}).subscribe(
-      (data) => {
-         console.log(data);
-      }
-    )
+
     this.loginp.login({ username: this.user.username, password: this.user.password })
     .subscribe((res: any) => {
 
@@ -47,7 +41,7 @@ export class LoginPage {
         this.presentAlert(err);
         this.translate.get('login.errorMsg').subscribe((res: string) => {
         });
-      }); 
+      });
   }
 
   presentAlert(error : any) {

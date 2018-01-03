@@ -24,7 +24,6 @@ export class HttpinterceptorProvider implements HttpInterceptor {
       const afterTokenreq: HttpRequest<any> = req.clone({ setHeaders: { Authorization: tempToken } });
       return next.handle(afterTokenreq);
     } else {
-      //req.headers.append('Access-Control-Allow-Origin',url)
       return next.handle(req);
     }
 
