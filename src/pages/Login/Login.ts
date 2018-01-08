@@ -48,20 +48,20 @@ export class LoginPage {
 
         let alerttranslations: any = {};
         console.log(error);
-        this.translate.get('ALERT.TITLE').subscribe(t => {
+        this.translate.get('alert.title').subscribe(t => {
 
           alerttranslations.title = t;
         });
-        this.translate.get('ALERT.SUBTITLE').subscribe(t => {
-          alerttranslations.subTitle = t;
+        this.translate.get('alert.subtitle').subscribe(t => {
+          alerttranslations.subtitle = t;
         });
-        this.translate.get('ALERT.DISMISS').subscribe(t => {
+        this.translate.get('alert.dismiss').subscribe(t => {
           alerttranslations.dismiss = t;
         });
         console.log(error);
         let alert = this.alertCtrl.create({
-          title: error.statusText,
-          subTitle: error.message+""+error.error,
+          title: alerttranslations.title,
+          subTitle:alerttranslations.subtitle,
           buttons: [alerttranslations.dismiss]
         });
         alert.present();
