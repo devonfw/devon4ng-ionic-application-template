@@ -6,7 +6,6 @@ import { LoginProvider } from '../../providers/login/loginProvider'
 import { AuthServiceProvider } from '../../providers/security/auth-service';
 import { TranslateService } from '@ngx-translate/core';
 import { AlertController } from 'ionic-angular';
-import {url} from '../../assets/serverPath';
 
 @Component({
   selector: 'page-Login',

@@ -3,7 +3,6 @@ import { Observable } from 'rxjs/Rx';
 import { Injectable, Injector } from '@angular/core';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';
 import { AuthServiceProvider } from './auth-service';
-import {url} from '../../assets/serverPath';
 
 
 
