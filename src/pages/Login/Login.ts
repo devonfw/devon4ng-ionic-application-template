@@ -47,7 +47,6 @@ export class LoginPage {
   presentAlert(error : any) {
 
         let alerttranslations: any = {};
-        console.log(error);
         this.translate.get('alert.title').subscribe(t => {
 
           alerttranslations.title = t;
@@ -58,7 +57,7 @@ export class LoginPage {
         this.translate.get('alert.dismiss').subscribe(t => {
           alerttranslations.dismiss = t;
         });
-        console.log(error);
+        
         let alert = this.alertCtrl.create({
           title: alerttranslations.title,
           subTitle:alerttranslations.subtitle,

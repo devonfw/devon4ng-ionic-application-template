@@ -4,10 +4,10 @@
       "logout": "logout",
       "menu": "Menu"
     },
-    "ALERT":{
-      "TITLE":"Error",
-      "SUBTITLE":"User and/or password",
-      "DISMISS":"Close"
+    "alert":{
+      "title":"Error",
+      "subtitle":"User and/or password",
+      "dismiss":"Close"
     },
     "login": {
       "user": "Login",
