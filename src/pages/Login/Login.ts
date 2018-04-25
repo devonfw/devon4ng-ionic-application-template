@@ -36,26 +36,19 @@ export class LoginPage {
 
       }, (err: any) => {
         this.auth.setAuthenthicated(false);
-        
-        this.presentAlert(err);
-        this.translate.get('login.errorMsg').subscribe((res: string) => {
-        });
+        this.presentAlert();        
       });
   }
 
-  presentAlert(error : any) {
+  presentAlert() {
 
         let alerttranslations: any = {};
-        this.translate.get('alert.title').subscribe(t => {
 
-          alerttranslations.title = t;
-        });
-        this.translate.get('alert.subtitle').subscribe(t => {
-          alerttranslations.subtitle = t;
-        });
-        this.translate.get('alert.dismiss').subscribe(t => {
-          alerttranslations.dismiss = t;
-        });
+        alerttranslations.title = this.translate.instant('alert.title');
+
+        alerttranslations.subtitle = this.translate.instant('alert.subtitle');
+
+        alerttranslations.dismiss = this.translate.instant('alert.dismiss');
         
         let alert = this.alertCtrl.create({
           title: alerttranslations.title,

@@ -1,4 +1,4 @@
-import { LoginPage } from '../pages/Login/Login';
+import { LoginPage } from '../pages/login/login';
 
 import { AuthServiceProvider } from '../providers/security/auth-service';
 import { Component, ViewChild } from '@angular/core';

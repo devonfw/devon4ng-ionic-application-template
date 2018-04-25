@@ -4,10 +4,10 @@
       "logout": "Desconectarse",
       "menu": "Menu"
     },
-    "ALERT":{
-      "TITLE":"Error",
-      "SUBTITLE":"Usuario o contraseña erroneos",
-      "DISMISS":"Cerrar"
+    "alert": {
+      "title": "Error",
+      "subtitle": "Usuario o contraseña erroneo",
+      "dismiss": "cerrar"
     },
     "login": {
       "user": "Usuario",
