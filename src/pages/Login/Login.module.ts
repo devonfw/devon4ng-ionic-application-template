@@ -4,6 +4,7 @@ import { LoginPage } from './Login';
 
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslateService } from '@ngx-translate/core';
+import { HeaderComponent } from '../../components/header/header';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import { TranslateService } from '@ngx-translate/core';
   imports: [
     IonicPageModule.forChild(LoginPage),
     TranslateModule,
-    TranslateService,
+    TranslateService
   ],
 })
 export class LoginPageModule {}

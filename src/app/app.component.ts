@@ -1,4 +1,4 @@
-import { LoginPage } from '../pages/Login/Login';
+import { LoginPage } from '../pages/login/login';
 
 import { AuthServiceProvider } from '../providers/security/auth-service';
 import { Component, ViewChild } from '@angular/core';
@@ -30,8 +30,8 @@ export class MyApp {
     });
   }
 
-  isauthenthicated(){
-    return this.auth.getAuthenthicated();
+  isAuthenticated(){
+    return this.auth.getAuthenticated();
   }
   openPage(p){
     this.nav.setRoot(p.component);

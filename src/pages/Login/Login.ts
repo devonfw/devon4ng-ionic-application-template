@@ -21,8 +21,8 @@ export class LoginPage {
   }
 
 
-  isauthenthicated() {
-    return this.auth.getAuthenthicated();
+  isAuthenticated() {
+    return this.auth.getAuthenticated();
   }
 
   loginForm() {
@@ -31,36 +31,29 @@ export class LoginPage {
     .subscribe((res: any) => {
 
         this.auth.setToken(res.headers.get('Authorization'));
-        this.auth.setAuthenthicated(true);
+        this.auth.setAuthenticated(true);
         this.navCtrl.setRoot(HomePage);
 
       }, (err: any) => {
-        this.auth.setAuthenthicated(false);
-        
-        this.presentAlert(err);
-        this.translate.get('login.errorMsg').subscribe((res: string) => {
-        });
+        this.auth.setAuthenticated(false);
+        this.presentAlert();        
       });
   }
 
-  presentAlert(error : any) {
+  presentAlert() {
 
-        let alerttranslations: any = {};
-        this.translate.get('alert.title').subscribe(t => {
+        let alertTranslations: any = {};
 
-          alerttranslations.title = t;
-        });
-        this.translate.get('alert.subtitle').subscribe(t => {
-          alerttranslations.subtitle = t;
-        });
-        this.translate.get('alert.dismiss').subscribe(t => {
-          alerttranslations.dismiss = t;
-        });
+        alertTranslations.title = this.translate.instant('alert.title');
+
+        alertTranslations.subtitle = this.translate.instant('alert.subtitle');
+
+        alertTranslations.dismiss = this.translate.instant('alert.dismiss');
         
         let alert = this.alertCtrl.create({
-          title: alerttranslations.title,
-          subTitle:alerttranslations.subtitle,
-          buttons: [alerttranslations.dismiss]
+          title: alertTranslations.title,
+          subTitle:alertTranslations.subtitle,
+          buttons: [alertTranslations.dismiss]
         });
         alert.present();
       }
