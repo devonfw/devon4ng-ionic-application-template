@@ -21,8 +21,8 @@ export class LoginPage {
   }
 
 
-  isAuthenthicated() {
-    return this.auth.getAuthenthicated();
+  isAuthenticated() {
+    return this.auth.getAuthenticated();
   }
 
   loginForm() {
@@ -31,29 +31,29 @@ export class LoginPage {
     .subscribe((res: any) => {
 
         this.auth.setToken(res.headers.get('Authorization'));
-        this.auth.setAuthenthicated(true);
+        this.auth.setAuthenticated(true);
         this.navCtrl.setRoot(HomePage);
 
       }, (err: any) => {
-        this.auth.setAuthenthicated(false);
+        this.auth.setAuthenticated(false);
         this.presentAlert();        
       });
   }
 
   presentAlert() {
 
-        let alerttranslations: any = {};
+        let alertTranslations: any = {};
 
-        alerttranslations.title = this.translate.instant('alert.title');
+        alertTranslations.title = this.translate.instant('alert.title');
 
-        alerttranslations.subtitle = this.translate.instant('alert.subtitle');
+        alertTranslations.subtitle = this.translate.instant('alert.subtitle');
 
-        alerttranslations.dismiss = this.translate.instant('alert.dismiss');
+        alertTranslations.dismiss = this.translate.instant('alert.dismiss');
         
         let alert = this.alertCtrl.create({
-          title: alerttranslations.title,
-          subTitle:alerttranslations.subtitle,
-          buttons: [alerttranslations.dismiss]
+          title: alertTranslations.title,
+          subTitle:alertTranslations.subtitle,
+          buttons: [alertTranslations.dismiss]
         });
         alert.present();
       }

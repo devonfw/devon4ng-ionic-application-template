@@ -16,21 +16,21 @@ ore info on providers
 @Injectable()
 export class AuthServiceProvider {
 
-  authenthicated : boolean = false;
+  authenticated : boolean = false;
   username : string = ''; //not used for now, could be used in the future.
   token : string = '';
 
   constructor(public http: HttpClient) {
-    this.authenthicated = false;
+    this.authenticated = false;
     //console.log('Hello AuthServiceProvider Provider');
   }
 
-  getAuthenthicated() : boolean{
-    return this.authenthicated;
+  getAuthenticated() : boolean{
+    return this.authenticated;
   }
 
-  setAuthenthicated(state: boolean) : void{
-    this.authenthicated = state;
+  setAuthenticated(state: boolean) : void{
+    this.authenticated = state;
   }
 
   getToken() : string{

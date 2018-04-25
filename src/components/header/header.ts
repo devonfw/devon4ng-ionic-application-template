@@ -29,8 +29,8 @@ export class HeaderComponent {
     this.currentlanguage = translate.currentLang; // 'en by default'
   }
 
-  isAuthenthicated() : boolean{
-    return this.auth.getAuthenthicated();
+  isAuthenticated() : boolean{
+    return this.auth.getAuthenticated();
   }
 
   Showlanguage(lang:string) : boolean { //decides if a button should be shown
@@ -50,7 +50,7 @@ export class HeaderComponent {
 
   logout() : void{
     //ionic uses a jwt token for security, we don't need to connect to the server since we don't have a season, erasing the jwt is enough.
-    this.auth.setAuthenthicated(false);
+    this.auth.setAuthenticated(false);
     this.auth.setToken("");
     this.navCtrl.setRoot(LoginPage);
   }

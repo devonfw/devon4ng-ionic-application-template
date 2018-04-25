@@ -30,8 +30,8 @@ export class MyApp {
     });
   }
 
-  isAuthenthicated(){
-    return this.auth.getAuthenthicated();
+  isAuthenticated(){
+    return this.auth.getAuthenticated();
   }
   openPage(p){
     this.nav.setRoot(p.component);
