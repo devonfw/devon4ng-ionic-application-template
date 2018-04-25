@@ -13,8 +13,7 @@ import { HeaderComponent } from '../../components/header/header';
   imports: [
     IonicPageModule.forChild(LoginPage),
     TranslateModule,
-    TranslateService,
-    HeaderComponent
+    TranslateService
   ],
 })
 export class LoginPageModule {}

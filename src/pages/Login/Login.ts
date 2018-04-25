@@ -21,7 +21,7 @@ export class LoginPage {
   }
 
 
-  isauthenthicated() {
+  isAuthenthicated() {
     return this.auth.getAuthenthicated();
   }
 

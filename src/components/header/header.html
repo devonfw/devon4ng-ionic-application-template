@@ -4,7 +4,7 @@
 
                 <ion-title>{{Title}}</ion-title>
 
-                <button ion-button  menuToggle="left" *ngIf="isauthenthicated()">
+                <button ion-button  menuToggle="left" *ngIf="isAuthenthicated()">
                     <ion-icon name="menu"></ion-icon>    
                 </button>
 
@@ -23,7 +23,7 @@
                 <ion-buttons end>
                   
 
-                <button id="logoutbutton" *ngIf="isauthenthicated()"  ion-button end clear (click)="logout()" >
+                <button id="logoutbutton" *ngIf="isAuthenthicated()"  ion-button end clear (click)="logout()" >
                     <ion-icon name="exit"></ion-icon>
                 </button>
 

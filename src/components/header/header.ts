@@ -29,7 +29,7 @@ export class HeaderComponent {
     this.currentlanguage = translate.currentLang; // 'en by default'
   }
 
-  isauthenthicated() : boolean{
+  isAuthenthicated() : boolean{
     return this.auth.getAuthenthicated();
   }
 

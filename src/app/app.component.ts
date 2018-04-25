@@ -30,7 +30,7 @@ export class MyApp {
     });
   }
 
-  isauthenthicated(){
+  isAuthenthicated(){
     return this.auth.getAuthenthicated();
   }
   openPage(p){
