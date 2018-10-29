@@ -11,55 +11,34 @@ import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { LoginProvider } from '../providers/login/loginProvider';
 import { BusinessOperatorProvider } from '../providers/shared/business-operator';
-import { TranslateLoader } from '@ngx-translate/core';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HeaderComponent } from '../components/header/header';
+import { SampledataDetail } from '../pages/sampledata-detail/sampledata-detail';
+import { SampledataRest } from '../providers/sampledata-rest';
+import { SampledataList } from '../pages/sampledata-list/sampledata-list';
 
 
 export function translateFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
-
-
 @NgModule({
-  declarations: [
-    MyApp,
-    HomePage,
-    LoginPage,
-    HeaderComponent
-  ],
-  imports: [
-    
-    BrowserModule,
-    HttpClientModule,
-    IonicModule.forRoot(MyApp),
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: translateFactory,
-        deps: [HttpClient]
-      }
-    })
-  ],
-  bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    HomePage,
-    LoginPage,
-  ],
-  providers: [
-    TranslateModule,
-    StatusBar,
-    SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    BusinessOperatorProvider,
-    HttpClient,
-    LoginProvider,
-    AuthServiceProvider,
-    {provide: HTTP_INTERCEPTORS,
-      useClass: HttpinterceptorProvider,
-      multi: true},
-  ]
-})
-export class AppModule {}
+    declarations: [MyApp, HomePage, LoginPage, HeaderComponent, SampledataList, SampledataDetail],
+    imports: [BrowserModule, HttpClientModule, IonicModule.forRoot(MyApp), TranslateModule.forRoot({
+        loader: {
+            provide: TranslateLoader,
+            useFactory: translateFactory,
+            deps: [HttpClient]
+        }
+    })],
+    bootstrap: [IonicApp],
+    entryComponents: [MyApp, HomePage, LoginPage, SampledataList, SampledataDetail],
+    providers: [TranslateModule, StatusBar, SplashScreen, {
+        provide: ErrorHandler,
+        useClass: IonicErrorHandler
+    }, BusinessOperatorProvider, HttpClient, LoginProvider, AuthServiceProvider, {
+        provide: HTTP_INTERCEPTORS,
+        useClass: HttpinterceptorProvider,
+        multi: true
+    }, SampledataRest]
+}) export class AppModule {}
