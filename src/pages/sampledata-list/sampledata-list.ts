@@ -258,7 +258,7 @@ export class SampledataList {
    * @param  infiniteScroll Infinite scroll event.
    */
   public doInfinite(infiniteScroll) {
-    if (this.sampledataSearchCriteria.pageable.pageNumber <= 0)
+    if (this.sampledataSearchCriteria.pageable.pageNumber < 0)
       this.infiniteScrollEnabled = false;
     else {
       this.sampledataSearchCriteria.pageable.pageNumber =
