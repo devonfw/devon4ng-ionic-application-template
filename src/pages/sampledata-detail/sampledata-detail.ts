@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
 import { SampledataRest } from '../../providers/sampledata-rest';
 import { Sampledata } from '../../providers/interfaces/sampledata';
 import { SampledataSearchCriteria } from '../../providers/interfaces/sampledata-search-criteria';
-import { Pagination } from '../../providers/interfaces/pagination'
+import { Pageable } from '../../providers/interfaces/pageable';
 import { PaginatedListTo } from '../../providers/interfaces/paginated-list-to';
 /**
  * Generated class for the SampledataDetail component.
@@ -14,41 +14,61 @@ import { PaginatedListTo } from '../../providers/interfaces/paginated-list-to';
  */
 @Component({
   selector: 'sampledata-detail',
-  templateUrl: 'sampledata-detail.html'
+  templateUrl: 'sampledata-detail.html',
 })
 export class SampledataDetail {
-  
-  pagination: Pagination = { size:15, page:1, total:false };
-  sampledataSearchCriteria : SampledataSearchCriteria = {  name:null, surname:null, age:null, mail:null, pagination : this.pagination };
+  pageable: Pageable = { pageSize: 15, pageNumber: 0 };
+  sampledataSearchCriteria: SampledataSearchCriteria = {
+    name: null,
+    surname: null,
+    age: null,
+    mail: null,
+    pageable: this.pageable,
+  };
 
-  sampledataReceived : Sampledata;
-  cleanSampledata : Sampledata = {  name:null, surname:null, age:null, mail:null, id:null, modificationCounter:null, revision:null };
-  
-  translations = {title : "Dialog", message: "message" }
-  dialogType = "";
+  sampledataReceived: Sampledata;
+  cleanSampledata: Sampledata = {
+    name: null,
+    surname: null,
+    age: null,
+    mail: null,
+    id: null,
+    modificationCounter: null,
+    revision: null,
+  };
+
+  translations = { title: 'Dialog', message: 'message' };
+  dialogType = '';
 
   /** If filterActive is true, then the dialog will be of type search. */
-  filterActive : boolean = true;
+  filterActive: boolean = true;
 
   constructor(
-    public params: NavParams, 
-    public viewCtrl: ViewController, 
-    public translate: TranslateService, 
-    public sampledataRest: SampledataRest
+    public params: NavParams,
+    public viewCtrl: ViewController,
+    public translate: TranslateService,
+    public sampledataRest: SampledataRest,
   ) {
-    
-    this.getTranslation("sampledatamanagement.sampledata.operations." + this.params.get('dialog'));
+    this.getTranslation(
+      'sampledatamanagement.sampledata.operations.' + this.params.get('dialog'),
+    );
     this.dialogType = this.params.get('dialog');
     this.sampledataReceived = this.params.get('edit');
-    if(!this.sampledataReceived) this.sampledataReceived = {  name:null, surname:null, age:null, mail:null,};
-    if(this.dialogType == "filter") this.filterActive = false;
+    if (!this.sampledataReceived)
+      this.sampledataReceived = {
+        name: null,
+        surname: null,
+        age: null,
+        mail: null,
+      };
+    if (this.dialogType == 'filter') this.filterActive = false;
   }
 
   /**
    * Translates the passed dialog to the current language
    * @param  dialog - The passed dialog
    */
-  private getTranslation(dialog:string){
+  private getTranslation(dialog: string) {
     this.translations = this.translate.instant(dialog);
   }
 
@@ -56,58 +76,65 @@ export class SampledataDetail {
    * Dismisses the current opened dialog and returns the result data to it's creator.
    * @param  data - Tuple containing all the objects which the server returns .
    */
-  private dismiss(data: [SampledataSearchCriteria, PaginatedListTo<Sampledata>]) {
+  private dismiss(
+    data: [SampledataSearchCriteria, PaginatedListTo<Sampledata>],
+  ) {
     this.viewCtrl.dismiss(data);
     this.filterActive = true;
   }
 
   /**
-   * Creates the add and modify dialog and returns the result data to it's creator. 
+   * Creates the add and modify dialog and returns the result data to it's creator.
    */
-  public addOrModify(){
-
-    this.cleanSampledata.id=null; 
-    for(let i in this.cleanSampledata){
+  public addOrModify() {
+    this.cleanSampledata.id = null;
+    for (let i in this.cleanSampledata) {
       this.cleanSampledata[i] = this.sampledataReceived[i];
     }
 
-    this.sampledataRest.save(this.sampledataReceived).subscribe(
-      (data: Sampledata) => {  
+    this.sampledataRest
+      .save(this.sampledataReceived)
+      .subscribe((data: Sampledata) => {
         this.viewCtrl.dismiss(data);
       });
   }
 
   /**
-   * Creates the search dialog. 
+   * Creates the search dialog.
    */
-  public search(){
-    for (let i in this.sampledataReceived){
-      if(this.sampledataReceived[i]=="") delete this.sampledataReceived[i]
+  public search() {
+    for (let i in this.sampledataReceived) {
+      if (this.sampledataReceived[i] == '') delete this.sampledataReceived[i];
       else this.sampledataSearchCriteria[i] = this.sampledataReceived[i];
     }
-    if(!this.sampledataSearchCriteria) return;
-    this.sampledataRest.search(this.sampledataSearchCriteria).subscribe(
-      (data: PaginatedListTo<Sampledata>) => {
-        let dataArray : [SampledataSearchCriteria, PaginatedListTo<Sampledata>];
+    if (!this.sampledataSearchCriteria) return;
+    this.sampledataRest
+      .search(this.sampledataSearchCriteria)
+      .subscribe((data: PaginatedListTo<Sampledata>) => {
+        let dataArray: [SampledataSearchCriteria, PaginatedListTo<Sampledata>];
         dataArray = [this.sampledataSearchCriteria, data];
         this.dismiss(dataArray);
-        this.sampledataSearchCriteria = {  name:null, surname:null, age:null, mail:null, pagination : this.pagination };
-      }
-    )
+        this.sampledataSearchCriteria = {
+          name: null,
+          surname: null,
+          age: null,
+          mail: null,
+          pageable: this.pageable,
+        };
+      });
   }
 
   /**
-   * Clears all the search filters and returns the first data page. 
+   * Clears all the search filters and returns the first data page.
    */
-  clearSearch(){
-    this.sampledataSearchCriteria.pagination.page = 1;
-    this.sampledataRest.retrieveData(this.sampledataSearchCriteria).subscribe(
-     (data: PaginatedListTo<Sampledata>) => {        
-        let dataArray : [SampledataSearchCriteria, PaginatedListTo<Sampledata>];
+  clearSearch() {
+    this.sampledataSearchCriteria.pageable.pageNumber = 0;
+    this.sampledataRest
+      .retrieveData(this.sampledataSearchCriteria)
+      .subscribe((data: PaginatedListTo<Sampledata>) => {
+        let dataArray: [SampledataSearchCriteria, PaginatedListTo<Sampledata>];
         dataArray = [this.sampledataSearchCriteria, data];
         this.dismiss(dataArray);
-      }
-    );
+      });
   }
-
 }

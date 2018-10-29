@@ -1,4 +1,4 @@
-import { Pagination } from "./pagination";
+import { Pageable } from "./pageable";
 
 /** Interface used for searching sampledatas by criteria on the server.*/
 export interface SampledataSearchCriteria {
@@ -6,5 +6,5 @@ export interface SampledataSearchCriteria {
     surname:string,
     age:number,
     mail:string,
-    pagination: Pagination,
+    pageable: Pageable,
 }
