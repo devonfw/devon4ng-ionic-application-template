@@ -123,6 +123,7 @@ export class SampledataList {
    */
   private reloadSampledataList() {
     this.sampledatas = [];
+    this.pageable.pageNumber = 0;
     this.sampledataSearchCriteria.pageable = this.pageable;
     this.deleteModifiedButtonsDisabled = true;
     this.selectedItemIndex = -1;
