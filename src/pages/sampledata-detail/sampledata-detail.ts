@@ -17,7 +17,16 @@ import { PaginatedListTo } from '../../providers/interfaces/paginated-list-to';
   templateUrl: 'sampledata-detail.html',
 })
 export class SampledataDetail {
-  pageable: Pageable = { pageSize: 15, pageNumber: 0 };
+  pageable: Pageable = {
+    pageSize: 15,
+    pageNumber: 0,
+    sort: [
+      {
+        property: 'name',
+        direction: 'ASC',
+      },
+    ],
+  };
   sampledataSearchCriteria: SampledataSearchCriteria = {
     name: null,
     surname: null,
