@@ -177,7 +177,6 @@ export class SampledataList {
       else {
         this.infiniteScrollEnabled = true;
         this.sampledataSearchCriteria = data[0];
-        this.sampledatas = data[1].result;
         this.reloadSampledataList();
       }
     });
