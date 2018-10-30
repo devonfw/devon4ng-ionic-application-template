@@ -21,7 +21,16 @@ import { PaginatedListTo } from '../../providers/interfaces/paginated-list-to';
 export class SampledataList {
   /** Contains the strings for the deletion prompt */
   deleteTranslations: any = {};
-  pageable: Pageable = { pageSize: 15, pageNumber: 0 };
+  pageable: Pageable = {
+    pageSize: 15,
+    pageNumber: 0,
+    sort: [
+      {
+        property: 'name',
+        direction: 'ASC',
+      },
+    ],
+  };
   sampledataSearchCriteria: SampledataSearchCriteria = {
     name: null,
     surname: null,
@@ -66,7 +75,6 @@ export class SampledataList {
       content: 'Please wait...',
     });
     loading.present();
-    this.sampledataSearchCriteria.pageable.pageNumber = 0;
     this.sampledataRest.retrieveData(this.sampledataSearchCriteria).subscribe(
       (data: PaginatedListTo<Sampledata>) => {
         this.sampledatas = this.sampledatas.concat(data.content);
@@ -107,7 +115,7 @@ export class SampledataList {
     setTimeout(() => {
       this.reloadSampledataList();
       refresher.complete();
-    }, 500);
+    }, 300);
   }
 
   /**
@@ -115,7 +123,7 @@ export class SampledataList {
    */
   private reloadSampledataList() {
     this.sampledatas = [];
-    this.sampledataSearchCriteria.pageable.pageNumber = 0;
+    this.sampledataSearchCriteria.pageable = this.pageable;
     this.deleteModifiedButtonsDisabled = true;
     this.selectedItemIndex = -1;
     this.sampledataRest.retrieveData(this.sampledataSearchCriteria).subscribe(
@@ -169,6 +177,7 @@ export class SampledataList {
         this.infiniteScrollEnabled = true;
         this.sampledataSearchCriteria = data[0];
         this.sampledatas = data[1].result;
+        this.reloadSampledataList();
       }
     });
   }
@@ -285,7 +294,7 @@ export class SampledataList {
               console.log(err);
             },
           );
-      }, 500);
+      }, 300);
     }
   }
 
