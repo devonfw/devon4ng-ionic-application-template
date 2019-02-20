@@ -2,8 +2,8 @@
 import { HomePage } from '../home/home'
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { LoginProvider } from '../../providers/login/loginProvider'
-import { AuthServiceProvider } from '../../providers/security/auth-service';
+import { LoginProvider } from '../../services/login/loginProvider'
+import { AuthServiceProvider } from '../../services/security/auth-service';
 import { TranslateService } from '@ngx-translate/core';
 import { AlertController } from 'ionic-angular';
 

@@ -7,12 +7,12 @@ import {
   NavParams,
   LoadingController,
 } from 'ionic-angular';
-import { SampledataRest } from '../../providers/sampledata-rest';
+import { SampledataRest } from '../../services/sampledata-rest';
 import { SampledataDetail } from '../sampledata-detail/sampledata-detail';
-import { Sampledata } from '../../providers/interfaces/sampledata';
-import { Pageable } from '../../providers/interfaces/pageable';
-import { SampledataSearchCriteria } from '../../providers/interfaces/sampledata-search-criteria';
-import { PaginatedListTo } from '../../providers/interfaces/paginated-list-to';
+import { Sampledata } from '../../services/interfaces/sampledata';
+import { Pageable } from '../../services/interfaces/pageable';
+import { SampledataSearchCriteria } from '../../services/interfaces/sampledata-search-criteria';
+import { PaginatedListTo } from '../../services/interfaces/paginated-list-to';
 
 @Component({
   selector: 'sampledata-list',

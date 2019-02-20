@@ -1,11 +1,11 @@
 import { NavParams, ViewController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 import { Component } from '@angular/core';
-import { SampledataRest } from '../../providers/sampledata-rest';
-import { Sampledata } from '../../providers/interfaces/sampledata';
-import { SampledataSearchCriteria } from '../../providers/interfaces/sampledata-search-criteria';
-import { Pageable } from '../../providers/interfaces/pageable';
-import { PaginatedListTo } from '../../providers/interfaces/paginated-list-to';
+import { SampledataRest } from '../../services/sampledata-rest';
+import { Sampledata } from '../../services/interfaces/sampledata';
+import { SampledataSearchCriteria } from '../../services/interfaces/sampledata-search-criteria';
+import { Pageable } from '../../services/interfaces/pageable';
+import { PaginatedListTo } from '../../services/interfaces/paginated-list-to';
 /**
  * Generated class for the SampledataDetail component.
  *

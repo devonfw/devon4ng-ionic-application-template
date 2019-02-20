@@ -1,6 +1,5 @@
 
-import { NavController } from 'ionic-angular';
-import { AuthServiceProvider } from '../../providers/security/auth-service';
+import { AuthServiceProvider } from '../../services/security/auth-service';
 import { TranslateService } from '@ngx-translate/core';
 import { Component, Input } from '@angular/core';
 import { LoginPage } from '../../pages/login/login';
@@ -23,7 +22,7 @@ export class HeaderComponent {
   langs = ['en','es'];
   @Input() Title : string;
 
-  constructor(private translate: TranslateService,private navCtrl: NavController, private auth: AuthServiceProvider) {
+  constructor(private translate: TranslateService, private auth: AuthServiceProvider) {
     translate.currentLang = translate.currentLang == undefined ? "en" : translate.currentLang;
     translate.setDefaultLang(translate.currentLang);
     this.currentlanguage = translate.currentLang; // 'en by default'
@@ -33,16 +32,21 @@ export class HeaderComponent {
     return this.auth.getAuthenticated();
   }
 
-  Showlanguage(lang:string) : boolean { //decides if a button should be shown
-    if(lang == this.currentlanguage) return true;
+  Showlanguage(lang:string) : boolean { // decides if a button should be shown
+    if (lang == this.currentlanguage) {
+      return true;
+    }
     return false;
   }
 
-  togglelanguage(lang: string) : void{
-        
+  togglelanguage(lang: string): void{
+
     let index = this.langs.indexOf(lang);
-    if (index + 1 == this.langs.length) index = 0;
-    else index++;
+    if (index + 1 == this.langs.length) { 
+      index = 0;
+    } else {
+      index++;
+    }
 
     this.translate.use(this.langs[index]);
     this.currentlanguage = this.langs[index];
@@ -52,7 +56,6 @@ export class HeaderComponent {
     //ionic uses a jwt token for security, we don't need to connect to the server since we don't have a season, erasing the jwt is enough.
     this.auth.setAuthenticated(false);
     this.auth.setToken("");
-    this.navCtrl.setRoot(LoginPage);
   }
 
 }

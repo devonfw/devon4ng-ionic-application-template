@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { url } from '../../assets/serverPath';
+import { url } from '../../../assets/serverPath';
 
 
 @Injectable() export class BusinessOperatorProvider {
