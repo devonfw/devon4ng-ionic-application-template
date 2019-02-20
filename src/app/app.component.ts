@@ -55,7 +55,7 @@ export class AppComponent {
     isAuthenticated() {
         return this.auth.getAuthenticated();
     }
-    openPage(p) {
+    openPage(p: { component: any; }) {
         this.nav.setRoot(p.component);
     }
 }
