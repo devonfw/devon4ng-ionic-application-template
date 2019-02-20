@@ -1,8 +1,5 @@
 {
-  "name": "oasp-ionic-application-template",
-  "app_id": "",
-  "type": "ionic-angular",
-  "integrations": {
-    "cordova": {}
-  }
+  "name": "devon4ng-ionic-application-template",
+  "integrations": {},
+  "type": "angular"
 }
