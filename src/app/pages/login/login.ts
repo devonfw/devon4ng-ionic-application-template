@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
 import { LoginProvider } from '../../services/login/loginProvider'
 import { AuthServiceProvider } from '../../services/security/auth-service';
 import { TranslateService } from '@ngx-translate/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'page-Login',
@@ -15,7 +15,11 @@ export class LoginPage {
 
   user: { username: string, password: string };
   alermessages: any = {};
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public auth: AuthServiceProvider, public translate: TranslateService, public loginp: LoginProvider) {
+  constructor(public navCtrl: NavController,
+    public alertCtrl: AlertController,
+    public auth: AuthServiceProvider,
+    public translate: TranslateService,
+    public loginp: LoginProvider) {
     this.user = { username: 'waiter', password: 'waiter' };
   }
 
@@ -31,15 +35,14 @@ export class LoginPage {
 
         this.auth.setToken(res.headers.get('Authorization'));
         this.auth.setAuthenticated(true);
-        this.navCtrl.setRoot(HomePage);
-
+        this.navCtrl.navigateRoot('../home/home');
       }, (err: any) => {
         this.auth.setAuthenticated(false);
         this.presentAlert();        
       });
   }
 
-  presentAlert() {
+  async presentAlert() {
 
         let alertTranslations: any = {};
 
@@ -48,15 +51,13 @@ export class LoginPage {
         alertTranslations.subtitle = this.translate.instant('alert.subtitle');
 
         alertTranslations.dismiss = this.translate.instant('alert.dismiss');
-        
-        let alert = this.alertCtrl.create({
-          title: alertTranslations.title,
-          subTitle:alertTranslations.subtitle,
+
+        const alert = await this.alertCtrl.create({
+          header: alertTranslations.title,
+          subHeader: alertTranslations.subtitle,
           buttons: [alertTranslations.dismiss]
         });
-        alert.present();
+
+        await alert.present();
       }
-
-
-
 }

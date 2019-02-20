@@ -6,7 +6,7 @@ import {
   NavController,
   NavParams,
   LoadingController,
-} from 'ionic-angular';
+} from '@ionic/angular';
 import { SampledataRest } from '../../services/sampledata-rest';
 import { SampledataDetail } from '../sampledata-detail/sampledata-detail';
 import { Sampledata } from '../../services/interfaces/sampledata';
@@ -70,17 +70,17 @@ export class SampledataList {
   /**
    * Runs when the page is about to enter and become the active page.
    */
-  private ionViewWillEnter() {
-    let loading = this.loadingCtrl.create({
-      content: 'Please wait...',
+  private async ionViewWillEnter() {
+    const loading = await this.loadingCtrl.create({
+      message: 'Please wait...',
     });
-    loading.present();
+    await loading.present();
     this.sampledataRest.retrieveData(this.sampledataSearchCriteria).subscribe(
       (data: PaginatedListTo<Sampledata>) => {
         this.sampledatas = this.sampledatas.concat(data.content);
         loading.dismiss();
       },
-      (err) => {
+      (err: any) => {
         loading.dismiss();
         console.log(err);
       },
@@ -152,26 +152,27 @@ export class SampledataList {
   /**
    * Presents the create dialog to the user and creates a new sampledata if the data is correctly defined.
    */
-  public createSampledata() {
-    let modal = this.modalCtrl.create(SampledataDetail, {
+  public async createSampledata() {
+    let modal = await this.modalCtrl.create(SampledataDetail, {
       dialog: 'add',
       edit: null,
     });
-    modal.present();
+    await modal.present();
     modal.onDidDismiss(() => this.reloadSampledataList());
   }
 
   /**
    * Presents the search dialog to the user and sets to the list all the found sampledatas.
    */
-  public searchSampledatas() {
+  public async searchSampledatas() {
     this.deleteModifiedButtonsDisabled = true;
     this.selectedItemIndex = -1;
-    let modal = this.modalCtrl.create(SampledataDetail, {
+    let modal = await this.modalCtrl.create(SampledataDetail, {
       dialog: 'filter',
       edit: null,
     });
-    modal.present();
+
+    await modal.present();
     modal.onDidDismiss((data) => {
       if (data == null) return;
       else {
@@ -185,7 +186,7 @@ export class SampledataList {
   /**
    * Presents the modify dialog and updates the selected sampledata.
    */
-  public updateSelectedSampledata() {
+  public async updateSelectedSampledata() {
     if (!this.selectedItemIndex && this.selectedItemIndex != 0) {
       return;
     }
@@ -193,11 +194,11 @@ export class SampledataList {
     for (let i in cleanItem) {
       cleanItem[i] = this.sampledatas[this.selectedItemIndex][i];
     }
-    let modal = this.modalCtrl.create(SampledataDetail, {
+    let modal = await this.modalCtrl.create(SampledataDetail, {
       dialog: 'modify',
       edit: this.sampledatas[this.selectedItemIndex],
     });
-    modal.present();
+    await modal.present();
     modal.onDidDismiss((data) => {
       if (data == null) this.reloadSampledataList();
       else {
@@ -215,7 +216,7 @@ export class SampledataList {
   /**
    * Presents a promt to the user to warn him about the deletion.
    */
-  public deleteSelectedSampledata() {
+  public async deleteSelectedSampledata() {
     this.deleteTranslations = this.getTranslation(
       'sampledatamanagement.sampledata.operations.delete',
     );
@@ -224,8 +225,8 @@ export class SampledataList {
         this.deleteButtonNames[i]
       ];
     }
-    let prompt = this.alertCtrl.create({
-      title: this.deleteTranslations.title,
+    let prompt = await this.alertCtrl.create({
+      header: this.deleteTranslations.title,
       message: this.deleteTranslations.message,
       buttons: [
         { text: this.deleteButtons[0].text, handler: (data) => {} },
@@ -237,7 +238,7 @@ export class SampledataList {
         },
       ],
     });
-    prompt.present();
+    await prompt.present();
   }
 
   /**
