@@ -153,12 +153,15 @@ export class SampledataList {
    * Presents the create dialog to the user and creates a new sampledata if the data is correctly defined.
    */
   public async createSampledata() {
-    let modal = await this.modalCtrl.create(SampledataDetail, {
-      dialog: 'add',
-      edit: null,
+    let modal = await this.modalCtrl.create({
+      component: SampledataDetail,
+      componentProps: {
+        dialog: 'add',
+        edit: null,
+      },
     });
     await modal.present();
-    modal.onDidDismiss(() => this.reloadSampledataList());
+    modal.onDidDismiss().then(() => this.reloadSampledataList());
   }
 
   /**
@@ -167,17 +170,20 @@ export class SampledataList {
   public async searchSampledatas() {
     this.deleteModifiedButtonsDisabled = true;
     this.selectedItemIndex = -1;
-    let modal = await this.modalCtrl.create(SampledataDetail, {
-      dialog: 'filter',
-      edit: null,
+    let modal = await this.modalCtrl.create({
+      component: SampledataDetail,
+      componentProps: {
+        dialog: 'filter',
+        edit: null,
+      },
     });
 
     await modal.present();
-    modal.onDidDismiss((data) => {
-      if (data == null) return;
+    modal.onDidDismiss().then((data) => {
+      if (data.data == null) return;
       else {
         this.infiniteScrollEnabled = true;
-        this.sampledataSearchCriteria = data[0];
+        this.sampledataSearchCriteria = data.data[0];
         this.reloadSampledataList();
       }
     });
@@ -194,21 +200,24 @@ export class SampledataList {
     for (let i in cleanItem) {
       cleanItem[i] = this.sampledatas[this.selectedItemIndex][i];
     }
-    let modal = await this.modalCtrl.create(SampledataDetail, {
-      dialog: 'modify',
-      edit: this.sampledatas[this.selectedItemIndex],
+    let modal = await this.modalCtrl.create({
+      component: SampledataDetail,
+      componentProps: {
+        dialog: 'modify',
+        edit: null,
+      },
     });
     await modal.present();
-    modal.onDidDismiss((data) => {
-      if (data == null) this.reloadSampledataList();
+    modal.onDidDismiss().then((data) => {
+      if (data.data == null) this.reloadSampledataList();
       else {
         for (let i in cleanItem) {
           if (data[i] != cleanItem[i]) {
-            data.modificationCounter++;
+            data.data.modificationCounter++;
             break;
           }
         }
-        this.sampledatas.splice(this.selectedItemIndex, 1, data);
+        this.sampledatas.splice(this.selectedItemIndex, 1, data.data);
       }
     });
   }
