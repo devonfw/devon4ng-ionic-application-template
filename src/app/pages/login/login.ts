@@ -39,7 +39,7 @@ export class LoginPage {
         this.navCtrl.navigateRoot('../home/home');
       }, (err: any) => {
         this.auth.setAuthenticated(false);
-        this.presentAlert();        
+        this.presentAlert();
       });
   }
 
