@@ -1,5 +1,5 @@
-import { BusinessOperatorProvider } from '../providers/shared/business-operator'
-import { Observable } from 'rxjs/Rx';
+import { BusinessOperatorProvider } from '../services/shared/business-operator';
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { SampledataSearchCriteria } from './interfaces/sampledata-search-criteria';
