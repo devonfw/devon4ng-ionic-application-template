@@ -17,6 +17,8 @@
     "@angular/core": "^7.2.2",
     "@angular/forms": "^7.2.2",
     "@angular/http": "^7.2.2",
+    "@ngx-translate/core": "^9.0.1",
+    "@ngx-translate/http-loader": "^2.0.0",
     "@angular/platform-browser": "^7.2.2",
     "@angular/platform-browser-dynamic": "^7.2.2",
     "@angular/router": "^7.2.2",

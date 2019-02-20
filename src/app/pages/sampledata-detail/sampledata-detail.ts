@@ -1,4 +1,4 @@
-import { NavParams, ViewController } from 'ionic-angular';
+import { NavParams, ModalController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { Component } from '@angular/core';
 import { SampledataRest } from '../../services/sampledata-rest';
@@ -54,7 +54,7 @@ export class SampledataDetail {
 
   constructor(
     public params: NavParams,
-    public viewCtrl: ViewController,
+    public viewCtrl: ModalController,
     public translate: TranslateService,
     public sampledataRest: SampledataRest,
   ) {
