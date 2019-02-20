@@ -9,6 +9,7 @@ import { AlertController, NavController } from '@ionic/angular';
 @Component({
   selector: 'page-Login',
   templateUrl: 'Login.html',
+  styleUrls: ['login.scss'],
   providers: [TranslateService],
 })
 export class LoginPage {

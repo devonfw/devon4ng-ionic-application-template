@@ -11,7 +11,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'page-Home',
-  templateUrl: 'Home.html',
+  templateUrl: 'home.html',
+  styleUrls: ['home.css'],
 })
 export class HomePage {
 
