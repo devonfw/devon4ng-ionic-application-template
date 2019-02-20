@@ -14,7 +14,7 @@ import { SampledataList } from './pages/sampledata-list/sampledata-list';
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
-  @ViewChild(Nav) nav: Nav;
+  //@ViewChild(Nav) nav: Nav;
   rootPage: any = LoginPage;
   pages: any;
   user = {
@@ -56,6 +56,6 @@ export class AppComponent {
         return this.auth.getAuthenticated();
     }
     openPage(p: { component: any; }) {
-        this.nav.setRoot(p.component);
+        //this.nav.setRoot(p.component);
     }
 }
