@@ -14,9 +14,10 @@ import { TranslateModule } from '@ngx-translate/core';
 import { LoginPage } from './pages/login/login';
 import { FormsModule } from '@angular/forms';
 import { ComponentsModule } from './components/components.module';
+import { SampledataList } from './pages/sampledata-list/sampledata-list';
 
 @NgModule({
-  declarations: [AppComponent, LoginPage],
+  declarations: [AppComponent, LoginPage, SampledataList],
   entryComponents: [],
   imports: [
     BrowserModule,

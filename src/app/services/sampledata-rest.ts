@@ -11,7 +11,7 @@ import { Sampledata } from './interfaces/sampledata';
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class SampledataRest {
 
   constructor(public http: HttpClient, public BO: BusinessOperatorProvider) {

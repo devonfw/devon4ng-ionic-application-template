@@ -4,7 +4,6 @@ import {
   AlertController,
   ModalController,
   NavController,
-  NavParams,
   LoadingController,
 } from '@ionic/angular';
 import { SampledataRest } from '../../services/sampledata-rest';
@@ -17,6 +16,7 @@ import { PaginatedListTo } from '../../services/interfaces/paginated-list-to';
 @Component({
   selector: 'sampledata-list',
   templateUrl: 'sampledata-list.html',
+  styleUrls: ['sampledata-list.scss']
 })
 export class SampledataList {
   /** Contains the strings for the deletion prompt */
@@ -59,7 +59,6 @@ export class SampledataList {
 
   constructor(
     public navCtrl: NavController,
-    public navParams: NavParams,
     public sampledataRest: SampledataRest,
     public alertCtrl: AlertController,
     public translate: TranslateService,
@@ -70,7 +69,11 @@ export class SampledataList {
   /**
    * Runs when the page is about to enter and become the active page.
    */
-  private async ionViewWillEnter() {
+  private wionViewWillEnter() {
+    this.ionViewWillEnterAsync();
+  }
+
+  private async ionViewWillEnterAsync() {
     const loading = await this.loadingCtrl.create({
       message: 'Please wait...',
     });

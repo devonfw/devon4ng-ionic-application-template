@@ -5,8 +5,6 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AuthServiceProvider } from './services/security/auth-service';
 import { TranslateService } from '@ngx-translate/core';
-import { HomePage } from './pages/home/home';
-import { SampledataList } from './pages/sampledata-list/sampledata-list';
 import { Router } from '@angular/router';
 
 @Component({
@@ -37,10 +35,10 @@ export class AppComponent {
       splashScreen.hide();
       this.pages = [{
           title: 'Home',
-          component: HomePage
+          route: 'home'
       }, {
           title: 'sampledata',
-          component: SampledataList
+          route: 'sampledata'
       }, ];
     });
     translate.setDefaultLang('en');
@@ -57,8 +55,7 @@ export class AppComponent {
       return this.auth.getAuthenticated();
   }
 
-  openPage(p: { component: any; }) {
-      //this.nav.setRoot(p.component);
-      this.router.navigate(['Home']);
+  openPage(p: { route: any; }) {
+      this.router.navigate([p.route]);
   }
 }
