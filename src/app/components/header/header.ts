@@ -53,7 +53,7 @@ export class HeaderComponent {
   }
 
   logout() : void{
-    //ionic uses a jwt token for security, we don't need to connect to the server since we don't have a season, erasing the jwt is enough.
+    // ionic uses a jwt token for security, we don't need to connect to the server since we don't have a season, erasing the jwt is enough.
     this.auth.setAuthenticated(false);
     this.auth.setToken('');
   }

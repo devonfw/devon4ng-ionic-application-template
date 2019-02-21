@@ -5,7 +5,6 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AuthServiceProvider } from './services/security/auth-service';
 import { TranslateService } from '@ngx-translate/core';
-import { LoginPage } from './pages/login/login';
 import { HomePage } from './pages/home/home';
 import { SampledataList } from './pages/sampledata-list/sampledata-list';
 
@@ -15,7 +14,7 @@ import { SampledataList } from './pages/sampledata-list/sampledata-list';
 })
 export class AppComponent {
   //@ViewChild(Nav) nav: Nav;
-  rootPage: any = LoginPage;
+  rootPage: any; // = LoginPage
   pages: any;
   user = {
       name: 'a',

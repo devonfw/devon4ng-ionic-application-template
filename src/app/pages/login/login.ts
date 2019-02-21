@@ -20,7 +20,8 @@ export class LoginPage {
     public alertCtrl: AlertController,
     public auth: AuthServiceProvider,
     public translate: TranslateService,
-    public loginp: LoginProvider) {
+    public loginp: LoginProvider
+    ) {
     this.user = { username: 'waiter', password: 'waiter' };
   }
 
