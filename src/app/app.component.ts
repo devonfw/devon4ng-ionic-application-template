@@ -7,6 +7,7 @@ import { AuthServiceProvider } from './services/security/auth-service';
 import { TranslateService } from '@ngx-translate/core';
 import { HomePage } from './pages/home/home';
 import { SampledataList } from './pages/sampledata-list/sampledata-list';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -27,6 +28,7 @@ export class AppComponent {
     private statusBar: StatusBar,
     private auth: AuthServiceProvider,
     private translate: TranslateService,
+    private router: Router,
   ) {
     this.initializeApp();
 
@@ -40,8 +42,8 @@ export class AppComponent {
           title: 'sampledata',
           component: SampledataList
       }, ];
-  });
-  translate.setDefaultLang('en');
+    });
+    translate.setDefaultLang('en');
   }
 
   initializeApp() {
@@ -51,10 +53,12 @@ export class AppComponent {
     });
   }
 
-    isAuthenticated() {
-        return this.auth.getAuthenticated();
-    }
-    openPage(p: { component: any; }) {
-        //this.nav.setRoot(p.component);
-    }
+  isAuthenticated() {
+      return this.auth.getAuthenticated();
+  }
+
+  openPage(p: { component: any; }) {
+      //this.nav.setRoot(p.component);
+      this.router.navigate(['Home']);
+  }
 }
