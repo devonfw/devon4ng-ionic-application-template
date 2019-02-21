@@ -14,13 +14,14 @@ import { LoginPage } from '../../pages/login/login';
 
 @Component({
   selector: 'layoutheader',
-  templateUrl: 'header.html'
+  templateUrl: 'header.html',
+  styleUrls: ['header.scss']
 })
 export class HeaderComponent {
 
   currentlanguage: string;
-  langs = ['en','es'];
-  @Input() Title : string;
+  langs = ['en', 'es'];
+  @Input() Title: string;
 
   constructor(private translate: TranslateService, private auth: AuthServiceProvider) {
     translate.currentLang = translate.currentLang == undefined ? "en" : translate.currentLang;

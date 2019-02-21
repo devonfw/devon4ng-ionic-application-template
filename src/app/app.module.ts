@@ -12,11 +12,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { TranslateModule } from '@ngx-translate/core';
 import { LoginPage } from './pages/login/login';
-import { HeaderComponent } from './components/header/header';
 import { FormsModule } from '@angular/forms';
+import { ComponentsModule } from './components/components.module';
 
 @NgModule({
-  declarations: [AppComponent, LoginPage, HeaderComponent],
+  declarations: [AppComponent, LoginPage],
   entryComponents: [],
   imports: [
     BrowserModule,
@@ -24,7 +24,8 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     TranslateModule.forRoot(),
-    FormsModule
+    FormsModule,
+    ComponentsModule
   ],
   providers: [
     StatusBar,
