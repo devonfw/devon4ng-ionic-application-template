@@ -4,9 +4,9 @@
         <ion-title>{{Title}}</ion-title>
 
         <ion-buttons slot="start">
-            <ion-button  menuToggle="left" *ngIf="isAuthenticated()" (click)="openMenu()">
+            <ion-menu-button  menuToggle="left" *ngIf="isAuthenticated()">
                 <ion-icon name="menu"></ion-icon>    
-            </ion-button>
+            </ion-menu-button>
         </ion-buttons>
 
         <ion-buttons slot="end">
