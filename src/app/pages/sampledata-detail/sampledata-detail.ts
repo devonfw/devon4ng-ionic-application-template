@@ -15,6 +15,7 @@ import { PaginatedListTo } from '../../services/interfaces/paginated-list-to';
 @Component({
   selector: 'sampledata-detail',
   templateUrl: 'sampledata-detail.html',
+  styleUrls: ['sampledata-detail.scss']
 })
 export class SampledataDetail {
   pageable: Pageable = {

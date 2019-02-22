@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule, Routes } from '@angular/router';
+import { ComponentsModule } from 'src/app/components/components.module';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 
 const routes: Routes = [
   {
@@ -13,14 +15,17 @@ const routes: Routes = [
 ];
 @NgModule({
   declarations: [
-    LoginPage,
+    LoginPage
   ],
   imports: [
     // IonicPageModule.forChild(LoginPage),
     CommonModule,
     FormsModule,
     IonicModule,
+    ComponentsModule,
+    TranslateModule,
     RouterModule.forChild(routes)
   ],
+  providers: [TranslateService],
 })
 export class LoginPageModule {}

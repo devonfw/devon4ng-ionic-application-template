@@ -1,22 +1,21 @@
-
-import { HomePage } from '../home/home';
 import { Component } from '@angular/core';
-import { LoginProvider } from '../../services/login/loginProvider'
+import { LoginProvider } from '../../services/login/loginProvider';
 import { AuthServiceProvider } from '../../services/security/auth-service';
 import { TranslateService } from '@ngx-translate/core';
-import { AlertController, NavController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'page-Login',
   templateUrl: 'Login.html',
   styleUrls: ['login.scss'],
-  providers: [TranslateService],
 })
 export class LoginPage {
 
   user: { username: string, password: string };
   alermessages: any = {};
-  constructor(public navCtrl: NavController,
+  constructor(
+    private router: Router,
     public alertCtrl: AlertController,
     public auth: AuthServiceProvider,
     public translate: TranslateService,
@@ -37,7 +36,7 @@ export class LoginPage {
 
         this.auth.setToken(res.headers.get('Authorization'));
         this.auth.setAuthenticated(true);
-        this.navCtrl.navigateRoot('../home/home');
+        this.router.navigate(['home']);
       }, (err: any) => {
         this.auth.setAuthenticated(false);
         this.presentAlert();
@@ -46,17 +45,17 @@ export class LoginPage {
 
   async presentAlert() {
 
-        let alertTranslations: any = {};
+        const alertTranslations: any = {};
 
-        alertTranslations.title = this.translate.instant('alert.title');
+        alertTranslations.header = this.translate.instant('alert.title');
 
-        alertTranslations.subtitle = this.translate.instant('alert.subtitle');
+        alertTranslations.subHeader = this.translate.instant('alert.subtitle');
 
         alertTranslations.dismiss = this.translate.instant('alert.dismiss');
 
         const alert = await this.alertCtrl.create({
-          header: alertTranslations.title,
-          subHeader: alertTranslations.subtitle,
+          header: alertTranslations.header,
+          subHeader: alertTranslations.subHeader,
           buttons: [alertTranslations.dismiss]
         });
 

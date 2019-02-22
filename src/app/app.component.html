@@ -1,8 +1,6 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
-  <!--<page-Login></page-Login>-->
-  <!--<ion-menu  *ngIf="isAuthenticated()" >-->
-  <ion-menu content-id="content">
+  <!--<ion-menu content-id="content" *ngIf="isAuthenticated()" >-->
+  <ion-menu swipe-gesture="true" side="start" contentId="content">
     <ion-header>
       <ion-toolbar color="primary">
         <ion-title>Pages</ion-title>
@@ -18,5 +16,6 @@
     </ion-content>
   </ion-menu>
 
-  <ion-nav [root]="rootPage" id="content" swipeBackEnabled="true"></ion-nav>
+  <!--<ion-nav [root]="rootPage" id="content" swipeBackEnabled="true"></ion-nav>-->
+  <ion-router-outlet id="content"></ion-router-outlet>
 </ion-app>
