@@ -16,6 +16,7 @@ import { LoginPage } from './pages/login/login';
 import { FormsModule } from '@angular/forms';
 import { ComponentsModule } from './components/components.module';
 import { SampledataList } from './pages/sampledata-list/sampledata-list';
+import { AuthGuardService } from './services/authorization/auth-guard.service';
 
 export function translateFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -40,9 +41,10 @@ export function translateFactory(http: HttpClient) {
     ComponentsModule
   ],
   providers: [
+    AuthGuardService,
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   ],
   bootstrap: [AppComponent],
 })
