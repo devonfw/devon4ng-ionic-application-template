@@ -19,13 +19,21 @@ import { SampledataList } from './pages/sampledata-list/sampledata-list';
 import { AuthGuardService } from './services/authorization/auth-guard.service';
 import { HttpinterceptorProvider } from './services/security/httpinterceptor';
 import { SampledataRest } from './services/sampledata-rest';
+import { SampledataDetail } from './pages/sampledata-detail/sampledata-detail';
 
 export function translateFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 @NgModule({
-  declarations: [AppComponent, LoginPage, SampledataList],
-  entryComponents: [],
+  declarations: [
+    AppComponent,
+    LoginPage,
+    SampledataList,
+    SampledataDetail
+  ],
+  entryComponents: [
+    SampledataDetail
+  ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),

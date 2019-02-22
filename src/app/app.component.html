@@ -1,6 +1,5 @@
 <ion-app>
-  <!--<ion-menu content-id="content" *ngIf="isAuthenticated()" >-->
-  <ion-menu swipe-gesture="true" side="start" contentId="content">
+  <ion-menu *ngIf="isAuthenticated()" swipe-gesture="true" side="start" contentId="content" >
     <ion-header>
       <ion-toolbar color="primary">
         <ion-title>Pages</ion-title>
@@ -15,7 +14,7 @@
       </ion-list>
     </ion-content>
   </ion-menu>
-
   <!--<ion-nav [root]="rootPage" id="content" swipeBackEnabled="true"></ion-nav>-->
-  <ion-router-outlet id="content"></ion-router-outlet>
+  <ion-router-outlet id="content" swipeBackEnabled="true"></ion-router-outlet>
+  <button (click)="openMenu()"></button>
 </ion-app>

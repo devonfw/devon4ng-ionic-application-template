@@ -156,7 +156,7 @@ export class SampledataList {
    * Presents the create dialog to the user and creates a new sampledata if the data is correctly defined.
    */
   public async createSampledata() {
-    let modal = await this.modalCtrl.create({
+    const modal = await this.modalCtrl.create({
       component: SampledataDetail,
       componentProps: {
         dialog: 'add',
@@ -173,7 +173,7 @@ export class SampledataList {
   public async searchSampledatas() {
     this.deleteModifiedButtonsDisabled = true;
     this.selectedItemIndex = -1;
-    let modal = await this.modalCtrl.create({
+    const modal = await this.modalCtrl.create({
       component: SampledataDetail,
       componentProps: {
         dialog: 'filter',

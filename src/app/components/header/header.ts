@@ -26,7 +26,7 @@ export class HeaderComponent {
   constructor(
     private translate: TranslateService,
     private auth: AuthServiceProvider,
-    private router: Router
+    private router: Router,
     ) {
     translate.currentLang = translate.currentLang == undefined ? 'en' : translate.currentLang;
     translate.setDefaultLang(translate.currentLang);
@@ -63,5 +63,4 @@ export class HeaderComponent {
     this.auth.setToken('');
     this.router.navigate(['']);
   }
-
 }
