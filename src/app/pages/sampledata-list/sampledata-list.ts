@@ -69,7 +69,7 @@ export class SampledataList {
   /**
    * Runs when the page is about to enter and become the active page.
    */
-  private wionViewWillEnter() {
+  private ionViewWillEnter() {
     this.ionViewWillEnterAsync();
   }
 
@@ -280,9 +280,9 @@ export class SampledataList {
    * @param  infiniteScroll Infinite scroll event.
    */
   public doInfinite(infiniteScroll) {
-    if (this.sampledataSearchCriteria.pageable.pageNumber < 0)
+    if (this.sampledataSearchCriteria.pageable.pageNumber < 0) {
       this.infiniteScrollEnabled = false;
-    else {
+    } else {
       this.sampledataSearchCriteria.pageable.pageNumber =
         this.sampledataSearchCriteria.pageable.pageNumber + 1;
 
@@ -301,7 +301,8 @@ export class SampledataList {
               } else {
                 this.sampledatas = this.sampledatas.concat(data.content);
               }
-              infiniteScroll.complete();
+
+              infiniteScroll.target.complete();
             },
             (err) => {
               console.log(err);

@@ -9,7 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { LoginPage } from './pages/login/login';
@@ -17,6 +17,8 @@ import { FormsModule } from '@angular/forms';
 import { ComponentsModule } from './components/components.module';
 import { SampledataList } from './pages/sampledata-list/sampledata-list';
 import { AuthGuardService } from './services/authorization/auth-guard.service';
+import { HttpinterceptorProvider } from './services/security/httpinterceptor';
+import { SampledataRest } from './services/sampledata-rest';
 
 export function translateFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -45,6 +47,12 @@ export function translateFactory(http: HttpClient) {
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpinterceptorProvider,
+      multi: true,
+    },
+    SampledataRest,
   ],
   bootstrap: [AppComponent],
 })
