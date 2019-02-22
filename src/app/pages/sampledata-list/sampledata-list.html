@@ -42,9 +42,9 @@
         </ion-grid>
       </ion-item>
       <ion-item-options icon-start (ionSwipe)="setSelectedItemIndex(i);deleteSelectedSampledata()">
-        <button color="danger" ion-button expandable (click)="setSelectedItemIndex(i);deleteSelectedSampledata()">
+        <ion-button color="danger" expandable (click)="setSelectedItemIndex(i);deleteSelectedSampledata()">
           <ion-icon name="trash"></ion-icon>
-        </button>
+        </ion-button>
       </ion-item-options>
       <ion-item-options side="start" (ionSwipe)="setSelectedItemIndex(i);updateSelectedSampledata()">
         <button ion-button color="secondary" ion-button expandable (click)="setSelectedItemIndex(i);updateSelectedSampledata()">
@@ -56,26 +56,26 @@
     <ion-infinite-scroll *ngIf="infiniteScrollEnabled" (ionInfinite)="doInfinite($event)">
       <ion-infinite-scroll-content></ion-infinite-scroll-content>
     </ion-infinite-scroll>
-  <ion-fab bottom right>
-    <button ion-fab color="blue">
+  <ion-fab vertical="bottom" horizontal="end">
+    <ion-fab-button color="primary">
       <ion-icon name="arrow-dropright"></ion-icon>
-    </button>
+    </ion-fab-button>
     <ion-fab-list side="top">
-      <button ion-fab class="fabButton" (click)="createSampledata()" >
+      <ion-fab-button color="primary" class="fabButton" (click)="createSampledata()" >
         <ion-icon name="add-circle"></ion-icon>
-      </button>
+      </ion-fab-button>
       
-      <button ion-fab (click)="updateSelectedSampledata()" [disabled] = deleteModifiedButtonsDisabled  > 
+      <ion-fab-button color="primary" (click)="updateSelectedSampledata()" [disabled] = deleteModifiedButtonsDisabled  > 
         <ion-icon name="brush"></ion-icon>
-      </button>
+      </ion-fab-button>
     
-      <button ion-fab (click)="deleteSelectedSampledata()" [disabled] = deleteModifiedButtonsDisabled >
+      <ion-fab-button color="primary" (click)="deleteSelectedSampledata()" (tap)="deleteSelectedSampledata($event)" [disabled] = deleteModifiedButtonsDisabled >
         <ion-icon name="trash"></ion-icon>
-      </button>
+      </ion-fab-button>
       
-      <button ion-fab (click)="searchSampledatas()" >
+      <ion-fab-button color="primary" (click)="searchSampledatas()" >
         <ion-icon name="search"></ion-icon>
-      </button>
+      </ion-fab-button>
     </ion-fab-list>
   </ion-fab>
 

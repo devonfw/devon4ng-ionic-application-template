@@ -4,23 +4,23 @@
         <ion-title>{{Title}}</ion-title>
 
         <ion-buttons slot="start">
-            <button ion-button  menuToggle="left" *ngIf="isAuthenticated()">
+            <ion-button  menuToggle="left" *ngIf="isAuthenticated()" (click)="openMenu()">
                 <ion-icon name="menu"></ion-icon>    
-            </button>
+            </ion-button>
         </ion-buttons>
 
         <ion-buttons slot="end">
             <ng-container *ngFor="let lang of langs">
-                    <button  *ngIf="Showlanguage(lang)" ion-button end clear (click)="togglelanguage(lang)">
+                    <ion-button  *ngIf="Showlanguage(lang)" end clear (click)="togglelanguage(lang)">
                         {{lang}}
-                    </button>
+                    </ion-button>
             </ng-container>
         </ion-buttons>
 
         <ion-buttons slot="end">
-            <button id="logoutbutton" *ngIf="isAuthenticated()"  ion-button end clear (click)="logout()" >
+            <ion-button id="logoutbutton" *ngIf="isAuthenticated()" end clear (click)="logout()" >
                 <ion-icon name="exit"></ion-icon>
-            </button>
+            </ion-button>
         </ion-buttons>          
     </ion-toolbar>
 </div>
