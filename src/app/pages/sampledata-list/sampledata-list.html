@@ -33,7 +33,7 @@
     <ion-item-sliding *ngFor="let sampledata of sampledatas; let i = index">
       <ion-item [class.selected]="i === selectedItemIndex" (click)="enableUpdateDeleteOperations(i)" >
         <ion-grid>
-          <ion-row>
+          <ion-row class="grid-margin">
             <ion-col>{{sampledata.name}}</ion-col>
             <ion-col>{{sampledata.surname}}</ion-col>
             <ion-col>{{sampledata.age}}</ion-col>
@@ -42,21 +42,21 @@
         </ion-grid>
       </ion-item>
       <ion-item-options icon-start (ionSwipe)="setSelectedItemIndex(i);deleteSelectedSampledata()">
-        <ion-button color="danger" expandable (click)="setSelectedItemIndex(i);deleteSelectedSampledata()">
+        <ion-button color="danger" expandable (click)="setSelectedItemIndex(i);deleteSelectedSampledata()" class="item-button">
           <ion-icon name="trash"></ion-icon>
         </ion-button>
       </ion-item-options>
       <ion-item-options side="start" (ionSwipe)="setSelectedItemIndex(i);updateSelectedSampledata()">
-        <button ion-button color="secondary" ion-button expandable (click)="setSelectedItemIndex(i);updateSelectedSampledata()">
+        <ion-button color="secondary" expandable (click)="setSelectedItemIndex(i);updateSelectedSampledata()" class="item-button">
           <ion-icon name="brush"></ion-icon>
-        </button>
+        </ion-button>
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
     <ion-infinite-scroll *ngIf="infiniteScrollEnabled" (ionInfinite)="doInfinite($event)">
       <ion-infinite-scroll-content></ion-infinite-scroll-content>
     </ion-infinite-scroll>
-  <ion-fab vertical="bottom" horizontal="end">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button color="primary">
       <ion-icon name="arrow-dropright"></ion-icon>
     </ion-fab-button>

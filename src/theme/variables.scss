@@ -74,13 +74,12 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
-}
 
-$colors: (
-  primary:    #488aff,
-  secondary:  #32db64,
-  danger:     #f53d3d,
-  light:      #cbdeff,
-  dark:       #222
-);
+  /* $colors from v3*/
+  --color-primary:  #488aff;
+  --color-secondary:  #32db64;
+  --color-danger: #f53d3d;
+  --color-light:  #cbdeff;
+  --color-dark: #222;
+}
 

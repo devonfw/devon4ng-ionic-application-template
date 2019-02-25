@@ -117,7 +117,7 @@ export class SampledataList {
   public doRefresh(refresher) {
     setTimeout(() => {
       this.reloadSampledataList();
-      refresher.complete();
+      refresher.target.complete();
     }, 300);
   }
 
@@ -183,8 +183,9 @@ export class SampledataList {
 
     await modal.present();
     modal.onDidDismiss().then((data) => {
-      if (data.data == null) return;
-      else {
+      if (data.data == null) {
+        return;
+      } else {
         this.infiniteScrollEnabled = true;
         this.sampledataSearchCriteria = data.data[0];
         this.reloadSampledataList();
