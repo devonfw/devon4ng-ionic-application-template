@@ -51,12 +51,12 @@ export class SampledataList {
     { text: '', handler: (data) => {} },
   ];
   @Input()
-  deleteModifiedButtonsDisabled: boolean = true;
+  deleteModifiedButtonsDisabled = true;
   @Input()
   infiniteScrollEnabled = true;
 
   sampledatas: Sampledata[] = [];
-  selectedItemIndex: number = -1;
+  selectedItemIndex = -1;
 
   constructor(
     public navCtrl: NavController,
@@ -201,14 +201,15 @@ export class SampledataList {
   public async updateSelectedSampledata() {
     await this.slidingList.closeSlidingItems();
 
-    if (!this.selectedItemIndex && this.selectedItemIndex != 0) {
+    if (!this.selectedItemIndex && this.selectedItemIndex !== 0) {
       return;
     }
-    let cleanItem = this.sampledataListItem;
-    for (let i in cleanItem) {
+    const cleanItem = this.sampledataListItem;
+    for (const i in cleanItem) {
       cleanItem[i] = this.sampledatas[this.selectedItemIndex][i];
     }
-    let modal = await this.modalCtrl.create({
+
+    const modal = await this.modalCtrl.create({
       component: SampledataDetail,
       componentProps: {
         dialog: 'modify',
@@ -220,8 +221,8 @@ export class SampledataList {
       if (data.data == null) {
         this.reloadSampledataList();
       } else {
-        for (let i in cleanItem) {
-          if (data[i] != cleanItem[i]) {
+        for (const i in cleanItem) {
+          if (data.data[i] !== cleanItem[i]) {
             data.data.modificationCounter++;
             break;
           }
@@ -238,12 +239,12 @@ export class SampledataList {
     this.deleteTranslations = this.getTranslation(
       'sampledatamanagement.sampledata.operations.delete',
     );
-    for (let i in this.deleteButtons) {
+    for (const i in this.deleteButtons) {
       this.deleteButtons[i].text = this.deleteTranslations[
         this.deleteButtonNames[i]
       ];
     }
-    let prompt = await this.alertCtrl.create({
+    const prompt = await this.alertCtrl.create({
       header: this.deleteTranslations.title,
       message: this.deleteTranslations.message,
       buttons: [
@@ -264,10 +265,10 @@ export class SampledataList {
    */
 
   private confirmDeletion() {
-    if (!this.selectedItemIndex && this.selectedItemIndex != 0) {
+    if (!this.selectedItemIndex && this.selectedItemIndex !== 0) {
       return;
     }
-    let search = this.sampledatas[this.selectedItemIndex];
+    const search = this.sampledatas[this.selectedItemIndex];
 
     this.sampledataRest.delete(search.id).subscribe(
       (deleteresponse) => {
@@ -298,7 +299,7 @@ export class SampledataList {
           .subscribe(
             (data: PaginatedListTo<Sampledata>) => {
               if (
-                data.content.length == 0 &&
+                data.content.length === 0 &&
                 this.sampledataSearchCriteria.pageable.pageNumber > 0
               ) {
                 this.sampledataSearchCriteria.pageable.pageNumber =
@@ -323,7 +324,7 @@ export class SampledataList {
    * @param  index The index of the selected sampledata that will be allowed to be updated or deleted.
    */
   public enableUpdateDeleteOperations(index: number) {
-    if (this.selectedItemIndex != index) {
+    if (this.selectedItemIndex !== index) {
       this.selectedItemIndex = index;
       this.deleteModifiedButtonsDisabled = false;
     } else {

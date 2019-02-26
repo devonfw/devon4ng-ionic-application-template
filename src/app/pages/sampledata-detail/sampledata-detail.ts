@@ -51,7 +51,7 @@ export class SampledataDetail {
   dialogType = '';
 
   /** If filterActive is true, then the dialog will be of type search. */
-  filterActive: boolean = true;
+  filterActive = true;
 
   constructor(
     public params: NavParams,
@@ -64,14 +64,17 @@ export class SampledataDetail {
     );
     this.dialogType = this.params.get('dialog');
     this.sampledataReceived = this.params.get('edit');
-    if (!this.sampledataReceived)
+    if (!this.sampledataReceived) {
       this.sampledataReceived = {
         name: null,
         surname: null,
         age: null,
         mail: null,
       };
-    if (this.dialogType == 'filter') this.filterActive = false;
+    }
+    if (this.dialogType === 'filter') {
+      this.filterActive = false;
+    }
   }
 
   /**
@@ -98,7 +101,7 @@ export class SampledataDetail {
    */
   public addOrModify() {
     this.cleanSampledata.id = null;
-    for (let i in this.cleanSampledata) {
+    for (const i in this.cleanSampledata) {
       this.cleanSampledata[i] = this.sampledataReceived[i];
     }
 
@@ -113,11 +116,17 @@ export class SampledataDetail {
    * Creates the search dialog.
    */
   public search() {
-    for (let i in this.sampledataReceived) {
-      if (this.sampledataReceived[i] == '') delete this.sampledataReceived[i];
-      else this.sampledataSearchCriteria[i] = this.sampledataReceived[i];
+    for (const i in this.sampledataReceived) {
+      if (this.sampledataReceived[i] === '') {
+        delete this.sampledataReceived[i];
+      } else {
+        this.sampledataSearchCriteria[i] = this.sampledataReceived[i];
+      }
     }
-    if (!this.sampledataSearchCriteria) return;
+
+    if (!this.sampledataSearchCriteria) {
+      return;
+    }
     this.sampledataRest
       .search(this.sampledataSearchCriteria)
       .subscribe((data: PaginatedListTo<Sampledata>) => {

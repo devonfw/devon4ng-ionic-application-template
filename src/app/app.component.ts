@@ -14,10 +14,6 @@ import { Router } from '@angular/router';
 export class AppComponent {
   rootPage: any;
   pages: any;
-  user = {
-      name: 'a',
-      password: 'a'
-  };
 
   constructor(
     private platform: Platform,
