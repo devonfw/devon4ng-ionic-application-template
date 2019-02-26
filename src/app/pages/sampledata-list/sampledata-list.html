@@ -29,7 +29,7 @@
   <ion-refresher (ionRefresh)="doRefresh($event)">
       <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
-  <ion-list>
+  <ion-list #slidingList>
     <ion-item-sliding *ngFor="let sampledata of sampledatas; let i = index">
       <ion-item [class.selected]="i === selectedItemIndex" (click)="enableUpdateDeleteOperations(i)" >
         <ion-grid>
@@ -41,15 +41,15 @@
           </ion-row>
         </ion-grid>
       </ion-item>
-      <ion-item-options icon-start (ionSwipe)="setSelectedItemIndex(i);deleteSelectedSampledata()">
-        <ion-button color="danger" expandable (click)="setSelectedItemIndex(i);deleteSelectedSampledata()" class="item-button">
-          <ion-icon name="trash"></ion-icon>
-        </ion-button>
+      <ion-item-options side="end" (ionSwipe)="setSelectedItemIndex(i);deleteSelectedSampledata()">
+        <ion-item-option expandable color="danger" (click)="setSelectedItemIndex(i);deleteSelectedSampledata()">
+          <ion-icon size="large" name="trash"></ion-icon>
+        </ion-item-option>
       </ion-item-options>
       <ion-item-options side="start" (ionSwipe)="setSelectedItemIndex(i);updateSelectedSampledata()">
-        <ion-button color="secondary" expandable (click)="setSelectedItemIndex(i);updateSelectedSampledata()" class="item-button">
-          <ion-icon name="brush"></ion-icon>
-        </ion-button>
+        <ion-item-option expandable (click)="setSelectedItemIndex(i);updateSelectedSampledata()" color="secondary">
+          <ion-icon size="large" name="brush"></ion-icon>
+        </ion-item-option>
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>

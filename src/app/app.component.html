@@ -8,13 +8,15 @@
       </ion-header>
     
       <ion-content padding>
-        <ion-list>
-            <ion-menu-toggle auto-hide="false" *ngFor="let p of pages">
-              <ion-item  (click)="openPage(p)">
-                {{p.title}}
-              </ion-item>
-          </ion-menu-toggle>
-        </ion-list>
+        <div class="content-pad">
+          <ion-list>
+              <ion-menu-toggle auto-hide="false" *ngFor="let p of pages">
+                <ion-item  (click)="openPage(p)">
+                  {{p.title}}
+                </ion-item>
+            </ion-menu-toggle>
+          </ion-list>
+        </div>
       </ion-content>
     </ion-menu>
     <!--<ion-nav [root]="rootPage" id="content" swipeBackEnabled="true"></ion-nav>-->

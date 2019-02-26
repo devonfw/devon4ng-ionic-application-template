@@ -12,8 +12,7 @@ import { Router } from '@angular/router';
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
-  //@ViewChild(Nav) nav: Nav;
-  rootPage: any; // = LoginPage
+  rootPage: any;
   pages: any;
   user = {
       name: 'a',

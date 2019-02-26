@@ -1,10 +1,11 @@
 import { TranslateService } from '@ngx-translate/core';
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import {
   AlertController,
   ModalController,
   NavController,
   LoadingController,
+  IonList
 } from '@ionic/angular';
 import { SampledataRest } from '../../services/sampledata-rest';
 import { SampledataDetail } from '../sampledata-detail/sampledata-detail';
@@ -66,6 +67,7 @@ export class SampledataList {
     public loadingCtrl: LoadingController,
   ) {}
 
+  @ViewChild('slidingList') slidingList: IonList;
   /**
    * Runs when the page is about to enter and become the active page.
    */
@@ -197,6 +199,8 @@ export class SampledataList {
    * Presents the modify dialog and updates the selected sampledata.
    */
   public async updateSelectedSampledata() {
+    await this.slidingList.closeSlidingItems();
+
     if (!this.selectedItemIndex && this.selectedItemIndex != 0) {
       return;
     }
@@ -208,13 +212,14 @@ export class SampledataList {
       component: SampledataDetail,
       componentProps: {
         dialog: 'modify',
-        edit: null,
+        edit:  this.sampledatas[this.selectedItemIndex],
       },
     });
     await modal.present();
     modal.onDidDismiss().then((data) => {
-      if (data.data == null) this.reloadSampledataList();
-      else {
+      if (data.data == null) {
+        this.reloadSampledataList();
+      } else {
         for (let i in cleanItem) {
           if (data[i] != cleanItem[i]) {
             data.data.modificationCounter++;

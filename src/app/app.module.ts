@@ -50,6 +50,7 @@ export function translateFactory(http: HttpClient) {
     FormsModule,
     ComponentsModule
   ],
+
   providers: [
     AuthGuardService,
     StatusBar,
