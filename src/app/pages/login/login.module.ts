@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { LoginPage } from './Login';
+import { LoginPage } from './login.page';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
