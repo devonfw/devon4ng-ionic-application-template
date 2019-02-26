@@ -82,3 +82,18 @@ a[disabled], button[disabled], [ion-button][disabled]{
     background-color: #e6e6e6!important;
     color: #b3b0b0!important;
 }
+
+ion-fab-button {
+    height: 56px;
+    width: 56px;
+
+    ion-icon {
+        height: 24px;
+        width: 24px;
+    }
+}
+
+ion-item-option ion-icon {
+    height: 24px;
+    width: 24px;
+}

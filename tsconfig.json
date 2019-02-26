@@ -1,6 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
@@ -18,5 +19,13 @@
       "es2018",
       "dom"
     ]
+  },
+  "exclude": [
+    "node_modules",
+    "src/**/*.spec.ts",
+    "src/**/__tests__/*.ts"
+  ],
+  "atom": {
+    "rewriteTsconfig": false
   }
 }
