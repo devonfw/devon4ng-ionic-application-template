@@ -1,5 +1,7 @@
 {
   "name": "devon4ng-ionic-application-template",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }

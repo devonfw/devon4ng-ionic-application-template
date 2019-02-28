@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">devon4ng-ionic-application-template</string>
+    <string name="title_activity_main">devon4ng-ionic-application-template</string>
+    <string name="package_name">com.devonfw.devon4ngionicapplicationtemplate</string>
+    <string name="fileprovider_authority">com.devonfw.devon4ngionicapplicationtemplate.fileprovider</string>
+    <string name="custom_url_scheme">com.devonfw.devon4ngionicapplicationtemplate</string>
+</resources>
