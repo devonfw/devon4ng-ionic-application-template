@@ -45,7 +45,7 @@ export class AppComponent {
       //this.statusBar.styleDefault();
       SplashScreen.hide().catch(()=> {
         console.warn("Spashscreen not available");
-      });;
+      });
     });
   }
 
