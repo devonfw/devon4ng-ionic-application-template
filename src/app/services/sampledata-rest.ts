@@ -22,7 +22,7 @@ export class SampledataRest {
   * @returns The found sampledata from the server.
   */
   getSampledata(sampledata: Sampledata): Observable<any> {
-    return this.http.post(this.BO.sampledataService() + "search", sampledata, {});
+    return this.http.post(this.BO.sampledataService() + 'search', sampledata, {});
   }
 
   /**
@@ -37,8 +37,8 @@ export class SampledataRest {
   * @param  sampledataSearchCriteria Object used for searching sampledatas by a criteria on the server.
   * @returns The first data page on the server.
   */
-  retrieveData(sampledataSearchCriteria : SampledataSearchCriteria): Observable<any> {
-    return this.http.post(this.BO.sampledataService() + "search", sampledataSearchCriteria);
+  retrieveData(sampledataSearchCriteria: SampledataSearchCriteria): Observable<any> {
+    return this.http.post(this.BO.sampledataService() + 'search', sampledataSearchCriteria);
   }
 
   /**
@@ -46,7 +46,7 @@ export class SampledataRest {
   * @returns A list of the found sampledatas on the server.
   */
   search(sampledataSearchCriteria: SampledataSearchCriteria) {
-    return this.http.post(this.BO.sampledataService() + "search", sampledataSearchCriteria, {})
+    return this.http.post(this.BO.sampledataService() + 'search', sampledataSearchCriteria, {});
   }
 
   /**

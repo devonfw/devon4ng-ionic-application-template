@@ -28,26 +28,29 @@ export class HeaderComponent {
     private auth: AuthServiceProvider,
     private router: Router,
     ) {
-    translate.currentLang = translate.currentLang == undefined ? 'en' : translate.currentLang;
+
+    if (typeof translate.currentLang === undefined) {
+      translate.currentLang = 'en';
+    }
     translate.setDefaultLang(translate.currentLang);
     this.currentlanguage = translate.currentLang; // 'en by default'
   }
 
-  isAuthenticated(): boolean{
+  isAuthenticated(): boolean {
     return this.auth.getAuthenticated();
   }
 
   Showlanguage(lang: string): boolean { // decides if a button should be shown
-    if (lang == this.currentlanguage) {
+    if (lang === this.currentlanguage) {
       return true;
     }
     return false;
   }
 
-  togglelanguage(lang: string): void{
+  togglelanguage(lang: string): void {
 
     let index = this.langs.indexOf(lang);
-    if (index + 1 == this.langs.length) {
+    if (index + 1 === this.langs.length) {
       index = 0;
     } else {
       index++;

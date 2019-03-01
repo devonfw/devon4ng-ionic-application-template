@@ -1,11 +1,12 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
 import { AuthServiceProvider } from './services/security/auth-service';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 
-import { Plugins } from '@capacitor/core';
+import { Plugins, Capacitor } from '@capacitor/core';
+
 const { SplashScreen, StatusBar } = Plugins;
 
 @Component({
@@ -25,10 +26,13 @@ export class AppComponent {
     this.initializeApp();
 
     platform.ready().then(() => {
-      //StatusBar.setStyle();
-      SplashScreen.hide().catch(()=> {
-        console.warn("Spashscreen not available");
-      });
+      // StatusBar.setStyle();
+      if (Capacitor.isPluginAvailable('SplashScreen')) {
+        SplashScreen.hide().catch(() => {
+          console.warn('Spashscreen not available');
+        });
+      }
+
       this.pages = [{
           title: 'Home',
           route: 'home'
@@ -42,10 +46,12 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      //this.statusBar.styleDefault();
-      SplashScreen.hide().catch(()=> {
-        console.warn("Spashscreen not available");
-      });
+      // this.statusBar.styleDefault();
+      if (Capacitor.isPluginAvailable('SplashScreen')) {
+        SplashScreen.hide().catch(() => {
+          console.warn('Spashscreen not available');
+        });
+      }
     });
   }
 

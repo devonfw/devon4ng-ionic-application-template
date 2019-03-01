@@ -205,7 +205,7 @@ export class SampledataList {
       return;
     }
     const cleanItem = this.sampledataListItem;
-    for (const i in cleanItem) {
+    for (const i of Object.keys(cleanItem)) {
       cleanItem[i] = this.sampledatas[this.selectedItemIndex][i];
     }
 
@@ -239,7 +239,7 @@ export class SampledataList {
     this.deleteTranslations = this.getTranslation(
       'sampledatamanagement.sampledata.operations.delete',
     );
-    for (const i in this.deleteButtons) {
+    for (const i of Object.keys(this.deleteButtons)) {
       this.deleteButtons[i].text = this.deleteTranslations[
         this.deleteButtonNames[i]
       ];

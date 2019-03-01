@@ -101,7 +101,7 @@ export class SampledataDetail {
    */
   public addOrModify() {
     this.cleanSampledata.id = null;
-    for (const i in this.cleanSampledata) {
+    for (const i of Object.keys(this.cleanSampledata)) {
       this.cleanSampledata[i] = this.sampledataReceived[i];
     }
 

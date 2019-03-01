@@ -19,8 +19,8 @@ export class LoginProvider {
 
   IonicAngularLogin(login, password): Observable<any> {
     return this.http.post(
-      this.BO.login(), //url
-      { j_username: login, j_password: password }, //body
+      this.BO.login(), // url
+      { j_username: login, j_password: password }, // body
       { responseType: 'text', observe: 'response' },
     );
   }

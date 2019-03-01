@@ -18,7 +18,7 @@ export class HttpinterceptorProvider implements HttpInterceptor {
     const auth = this.inj.get(AuthServiceProvider);
 
     const tempToken = auth.getToken();
-    
+
     if (tempToken != null) {
       const afterTokenreq: HttpRequest<any> = req.clone({ setHeaders: { Authorization: tempToken } });
       return next.handle(afterTokenreq);
@@ -28,4 +28,3 @@ export class HttpinterceptorProvider implements HttpInterceptor {
 
   }
 }
-
