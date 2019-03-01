@@ -29,7 +29,7 @@ export class HeaderComponent {
     private router: Router,
     ) {
 
-    if (typeof translate.currentLang === undefined) {
+    if (typeof translate.currentLang === 'undefined') {
       translate.currentLang = 'en';
     }
     translate.setDefaultLang(translate.currentLang);
