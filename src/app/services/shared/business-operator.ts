@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { url } from '../../../assets/serverPath';
+import { SERVER_URL } from '../../../environments/environment';
 
 
 @Injectable({ providedIn: 'root' })
 export class BusinessOperatorProvider {
-    public serverPath = url;
-    public restPath = url + 'services/rest/';
+    public serverPath = SERVER_URL;
+    public restPath = SERVER_URL + 'services/rest/';
     constructor() {}
     login() {
         return this.restPath + 'login';
