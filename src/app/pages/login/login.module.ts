@@ -18,7 +18,6 @@ const routes: Routes = [
     LoginPage
   ],
   imports: [
-    // IonicPageModule.forChild(LoginPage),
     CommonModule,
     FormsModule,
     IonicModule,
@@ -26,6 +25,5 @@ const routes: Routes = [
     TranslateModule,
     RouterModule.forChild(routes)
   ],
-  providers: [TranslateService],
 })
 export class LoginPageModule {}
