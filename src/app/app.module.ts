@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FormsModule } from '@angular/forms';
 import { ComponentsModule } from './components/components.module';
@@ -56,6 +56,7 @@ export function translateFactory(http: HttpClient) {
       multi: true,
     },
     SampledataRest,
+    TranslateService,
   ],
   bootstrap: [AppComponent],
 })

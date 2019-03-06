@@ -1,7 +1,7 @@
 
 import { AuthServiceProvider } from '../../services/security/auth-service';
 import { TranslateService } from '@ngx-translate/core';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 
@@ -19,7 +19,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
 
-  currentlanguage: string;
+  currentlanguage = 'en';
   langs = ['en', 'es'];
   @Input() Title: string;
 
@@ -28,36 +28,29 @@ export class HeaderComponent {
     private auth: AuthServiceProvider,
     private router: Router,
     ) {
-
     if (typeof translate.currentLang === 'undefined') {
       translate.currentLang = 'en';
     }
     translate.setDefaultLang(translate.currentLang);
-    this.currentlanguage = translate.currentLang; // 'en by default'
   }
 
   isAuthenticated(): boolean {
     return this.auth.getAuthenticated();
   }
 
-  Showlanguage(lang: string): boolean { // decides if a button should be shown
-    if (lang === this.currentlanguage) {
-      return true;
+  getCurrentLanguage(): string {
+    if (this.translate) {
+      return this.translate.currentLang;
     }
-    return false;
+
+    return 'en';
   }
 
   togglelanguage(lang: string): void {
-
-    let index = this.langs.indexOf(lang);
-    if (index + 1 === this.langs.length) {
-      index = 0;
-    } else {
-      index++;
-    }
+    let index = this.langs.indexOf(this.translate.currentLang);
+    index = (index + 1) % this.langs.length;
 
     this.translate.use(this.langs[index]);
-    this.currentlanguage = this.langs[index];
   }
 
   logout(): void {

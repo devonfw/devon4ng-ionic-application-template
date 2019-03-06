@@ -10,11 +10,9 @@
         </ion-buttons>
 
         <ion-buttons slot="end">
-            <ng-container *ngFor="let lang of langs">
-                    <ion-button  *ngIf="Showlanguage(lang)" end clear (click)="togglelanguage(lang)">
-                        {{lang}}
+                    <ion-button fill="clear" (click)="togglelanguage()">
+                        {{getCurrentLanguage()}}
                     </ion-button>
-            </ng-container>
         </ion-buttons>
 
         <ion-buttons slot="end">

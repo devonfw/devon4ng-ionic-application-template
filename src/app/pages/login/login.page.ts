@@ -24,7 +24,6 @@ export class LoginPage {
     this.user = { username: 'waiter', password: 'waiter' };
   }
 
-
   isAuthenticated() {
     return this.auth.getAuthenticated();
   }
