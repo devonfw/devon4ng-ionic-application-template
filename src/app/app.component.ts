@@ -1,42 +1,66 @@
-import { LoginPage } from '../pages/login/login';
-import { AuthServiceProvider } from '../providers/security/auth-service';
-import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { HomePage } from '../pages/home/home';
-import { SampledataList } from '../pages/sampledata-list/sampledata-list';
-import { TranslateService } from '@ngx-translate/core';
+import { Component } from '@angular/core';
 
+import { Platform } from '@ionic/angular';
+import { AuthServiceProvider } from './services/security/auth-service';
+import { TranslateService } from '@ngx-translate/core';
+import { Router } from '@angular/router';
+
+import { Plugins, Capacitor } from '@capacitor/core';
+
+const { SplashScreen, StatusBar } = Plugins;
 
 @Component({
-    templateUrl: 'app.html'
-}) export class MyApp {
-    @ViewChild(Nav) nav: Nav;
-    rootPage: any = LoginPage;
-    pages: any;
-    user = {
-        name: 'a',
-        password: 'a'
-    };
-    constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private auth: AuthServiceProvider, private translate: TranslateService) {
-        platform.ready().then(() => {
-            statusBar.styleDefault();
-            splashScreen.hide();
-            this.pages = [{
-                title: 'Home',
-                component: HomePage
-            }, {
-                title: 'sampledata',
-                component: SampledataList
-            }, ];
+  selector: 'app-root',
+  templateUrl: 'app.component.html'
+})
+export class AppComponent {
+  rootPage: any;
+  pages: any;
+
+  constructor(
+    private platform: Platform,
+    private auth: AuthServiceProvider,
+    private translate: TranslateService,
+    private router: Router,
+  ) {
+    this.initializeApp();
+
+    platform.ready().then(() => {
+      // StatusBar.setStyle();
+      if (Capacitor.isPluginAvailable('SplashScreen')) {
+        SplashScreen.hide().catch(() => {
+          console.warn('Spashscreen not available');
         });
-        translate.setDefaultLang('en');
-    }
-    isAuthenticated() {
-        return this.auth.getAuthenticated();
-    }
-    openPage(p) {
-        this.nav.setRoot(p.component);
-    }
+      }
+
+      this.pages = [{
+          title: 'Home',
+          route: 'home'
+      }, {
+          title: 'sampledata',
+          route: 'sampledata'
+      }, ];
+    });
+    this.translate.setDefaultLang('en');
+    this.translate.currentLang = 'en';
+  }
+
+  initializeApp() {
+    this.platform.ready().then(() => {
+      // this.statusBar.styleDefault();
+      if (Capacitor.isPluginAvailable('SplashScreen')) {
+        SplashScreen.hide().catch(() => {
+          console.warn('Spashscreen not available');
+        });
+      }
+    });
+  }
+
+  isAuthenticated() {
+      return this.auth.getAuthenticated();
+  }
+
+  openPage(p: { route: any; }) {
+      this.router.navigate([p.route]);
+  }
 }

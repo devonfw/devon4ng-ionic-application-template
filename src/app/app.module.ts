@@ -1,77 +1,63 @@
-import { HttpinterceptorProvider } from '../providers/security/httpinterceptor';
-import { AuthServiceProvider } from '../providers/security/auth-service';
-import {
-  HTTP_INTERCEPTORS,
-  HttpClient,
-  HttpClientModule,
-} from '@angular/common/http';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { StatusBar } from '@ionic-native/status-bar';
-import { MyApp } from './app.component';
-import { LoginPage } from '../pages/login/login';
-import { HomePage } from '../pages/home/home';
-import { LoginProvider } from '../providers/login/loginProvider';
-import { BusinessOperatorProvider } from '../providers/shared/business-operator';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { RouteReuseStrategy } from '@angular/router';
+
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HeaderComponent } from '../components/header/header';
-import { SampledataDetail } from '../pages/sampledata-detail/sampledata-detail';
-import { SampledataRest } from '../providers/sampledata-rest';
-import { SampledataList } from '../pages/sampledata-list/sampledata-list';
+import { FormsModule } from '@angular/forms';
+import { ComponentsModule } from './components/components.module';
+import { SampledataList } from './pages/sampledata-list/sampledata-list';
+import { AuthGuardService } from './services/authorization/auth-guard.service';
+import { HttpinterceptorProvider } from './services/security/httpinterceptor';
+import { SampledataRest } from './services/sampledata-rest';
+import { SampledataDetail } from './pages/sampledata-detail/sampledata-detail';
 
 export function translateFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage,
-    LoginPage,
-    HeaderComponent,
+    AppComponent,
     SampledataList,
-    SampledataDetail,
+    SampledataDetail
+  ],
+  entryComponents: [
+    SampledataDetail
   ],
   imports: [
     BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp),
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: translateFactory,
-        deps: [HttpClient],
-      },
-    }),
+    TranslateModule.forRoot(
+      {
+        loader: {
+          provide: TranslateLoader,
+          useFactory: translateFactory,
+          deps: [HttpClient],
+        },
+      }),
+    FormsModule,
+    ComponentsModule
   ],
-  bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    HomePage,
-    LoginPage,
-    SampledataList,
-    SampledataDetail,
-  ],
+
   providers: [
-    TranslateModule,
-    StatusBar,
-    SplashScreen,
-    {
-      provide: ErrorHandler,
-      useClass: IonicErrorHandler,
-    },
-    BusinessOperatorProvider,
-    HttpClient,
-    LoginProvider,
-    AuthServiceProvider,
+    AuthGuardService,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpinterceptorProvider,
       multi: true,
     },
     SampledataRest,
+    TranslateService,
   ],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
