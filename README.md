@@ -7,7 +7,7 @@ To run the commands command on the "How to use" section, a Node.js installation 
 
 This application also uses [Capacitor](https://capacitor.ionicframework.com/) to access to native functionalities, so the capacitor module has to be installed.
 
-To show the template on android devices, it is necessary to have Android Studio and Android SDK.
+To show the template on android devices, it is necessary to have [Android Studio](https://developer.android.com/studio) and Android SDK.
 
 
 |  NOTE: |  devonfw console comes with an Node.js and Ionic installation. |
