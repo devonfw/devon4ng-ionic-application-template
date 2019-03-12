@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { SampledataSearchCriteria } from './interfaces/sampledata-search-criteria';
 import { Sampledata } from './interfaces/sampledata';
-// import { HTTP } from '@ionic-native/http';
+
 /**
   Generated class for the SampledataRest provider. Implements the REST service.
 

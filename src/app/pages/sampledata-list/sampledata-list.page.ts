@@ -8,7 +8,7 @@ import {
   IonList
 } from '@ionic/angular';
 import { SampledataRest } from '../../services/sampledata-rest';
-import { SampledataDetail } from '../sampledata-detail/sampledata-detail';
+import { SampledataDetail } from '../sampledata-detail/sampledata-detail.page';
 import { Sampledata } from '../../services/interfaces/sampledata';
 import { Pageable } from '../../services/interfaces/pageable';
 import { SampledataSearchCriteria } from '../../services/interfaces/sampledata-search-criteria';
@@ -16,8 +16,8 @@ import { PaginatedListTo } from '../../services/interfaces/paginated-list-to';
 
 @Component({
   selector: 'sampledata-list',
-  templateUrl: 'sampledata-list.html',
-  styleUrls: ['sampledata-list.scss']
+  templateUrl: 'sampledata-list.page.html',
+  styleUrls: ['sampledata-list.page.scss']
 })
 export class SampledataList {
   /** Contains the strings for the deletion prompt */
@@ -213,7 +213,7 @@ export class SampledataList {
       component: SampledataDetail,
       componentProps: {
         dialog: 'modify',
-        edit:  this.sampledatas[this.selectedItemIndex],
+        edit: this.sampledatas[this.selectedItemIndex],
       },
     });
     await modal.present();
@@ -263,7 +263,6 @@ export class SampledataList {
   /**
    * Removes the current selected item.
    */
-
   private confirmDeletion() {
     if (!this.selectedItemIndex && this.selectedItemIndex !== 0) {
       return;

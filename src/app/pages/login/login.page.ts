@@ -7,8 +7,8 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'page-Login',
-  templateUrl: 'login.html',
-  styleUrls: ['login.scss'],
+  templateUrl: 'login.page.html',
+  styleUrls: ['login.page.scss'],
 })
 export class LoginPage {
 
