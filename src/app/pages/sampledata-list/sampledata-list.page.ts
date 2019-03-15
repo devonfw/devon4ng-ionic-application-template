@@ -218,9 +218,9 @@ export class SampledataList {
     });
     await modal.present();
     modal.onDidDismiss().then((data) => {
-      if (data.data == null) {
-        this.reloadSampledataList();
-      } else {
+      // if (data.data == null) {
+
+      if (data.data !== null) {
         for (const i in cleanItem) {
           if (data.data[i] !== cleanItem[i]) {
             data.data.modificationCounter++;
@@ -229,6 +229,8 @@ export class SampledataList {
         }
         this.sampledatas.splice(this.selectedItemIndex, 1, data.data);
       }
+
+      this.reloadSampledataList();
     });
   }
 
@@ -236,6 +238,8 @@ export class SampledataList {
    * Presents a promt to the user to warn him about the deletion.
    */
   public async deleteSelectedSampledata() {
+    await this.slidingList.closeSlidingItems();
+
     this.deleteTranslations = this.getTranslation(
       'sampledatamanagement.sampledata.operations.delete',
     );
