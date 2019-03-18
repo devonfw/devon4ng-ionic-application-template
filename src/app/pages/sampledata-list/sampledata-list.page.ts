@@ -185,7 +185,7 @@ export class SampledataList {
 
     await modal.present();
     modal.onDidDismiss().then((data) => {
-      if (data.data == null) {
+      if (!data && data.data == null) {
         return;
       } else {
         this.infiniteScrollEnabled = true;
@@ -218,7 +218,7 @@ export class SampledataList {
     });
     await modal.present();
     modal.onDidDismiss().then((data) => {
-      if (data.data !== null) {
+      if (!data && !data.data) {
         for (const i in cleanItem) {
           if (data.data[i] !== cleanItem[i]) {
             data.data.modificationCounter++;

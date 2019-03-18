@@ -19,12 +19,12 @@
         margin-bottom: 15%;
 
         &.item {
-            border-bottom: solid #10dc60;
+            border-bottom: solid var(--ion-color-secondary);
             --ion-color-success: none;
         }
 
         &.item:focus-within {
-            border-bottom: solid #3880ff;
+            border-bottom: solid var(--ion-color-primary);
         }
     }
 

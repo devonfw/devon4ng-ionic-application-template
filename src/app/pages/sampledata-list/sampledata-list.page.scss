@@ -27,18 +27,15 @@
     text-overflow: ellipsis;   
 }
 
-.scroll-content {
-    --padding-left: 7%!important;
-    --padding-right: 9%!important;
-}
+
 
 .item-inner{
     --padding-right: 0%!important;
 }
 
 .selected {
-    --background: #cbdeff;
-    --color: #222;
+    --background: var(--color-light);
+    --color: var(--colors-dark);
 }
 
 .fab-md {

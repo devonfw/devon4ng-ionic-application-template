@@ -74,5 +74,19 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  /* $colors from v3*/	
+  --color-primary:  #488aff;	
+  --color-secondary:  #32db64;	
+  --color-danger: #f53d3d;	
+  --color-light:  #cbdeff;	
+  --color-dark: #222;
+
+  /* form styles*/
+  --form-button-pad-left: 7%;
+  --form-button-pad-right: 7%;
+  --form-content-pad-left: 7%;
+  --form-content-pad-right: 7%;
+  --form-button-height: 3rem;
 }
 
