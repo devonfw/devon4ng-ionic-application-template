@@ -184,7 +184,7 @@ export class SampledataList {
 
     await modal.present();
     modal.onDidDismiss().then((data) => {
-      if (!data && data.data == null) {
+      if (data && data.data == null) {
         return;
       } else {
         this.infiniteScrollEnabled = true;
