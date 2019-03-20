@@ -15,8 +15,7 @@
 </ion-header>
 
 <ion-content>
-
-  <div class="detail-message" style="font-size: 16px" padding >{{translations.message}}</div>
+  <div class="detail-message" padding >{{translations.message}}</div>
   <form class="form-content">
   
     <ion-item lines="inset" class="formItem">
@@ -37,11 +36,8 @@
     </ion-item>
      
   </form>
-
 </ion-content>
-
 <ion-footer>
-  
   <ion-button class="buttonForm" [hidden]=!filterActive (click)="addOrModify()" expand="full">
     {{'sampledatamanagement.sampledata.commonbuttons.send' | translate}}
   </ion-button>
@@ -51,6 +47,4 @@
   <ion-button class="buttonForm" [hidden]=filterActive (click)="clearSearch()" expand="block">
     {{'sampledatamanagement.sampledata.operations.filter.clear' | translate}}
   </ion-button>
-
-
 </ion-footer>
