@@ -5,8 +5,8 @@
 
 .header-attributes{
     background-color: #ddd;
-    --padding-left:  7%;
-    --padding-right: 9%;
+    padding-left:  7%;
+    padding-right: 9%;
 }
 
 .header-span{
@@ -44,7 +44,7 @@
 
 .fab-md:active {
     color: #fff;
-    background-color: #488aff;
+    background-color: var(--color-primary);
 }
 
 
@@ -59,7 +59,7 @@
 
 // When the buttons are being shown
 .fab-in-list.show{
-    background-color: #488aff;
+    background-color: var(--color-primary);;
     color: #fff;
     transform: scale(1.3)!important;
     margin-bottom: 20%!important;
