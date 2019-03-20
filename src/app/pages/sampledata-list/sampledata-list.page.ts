@@ -127,14 +127,13 @@ export class SampledataList {
    * Reloads the sampledata list, retrieving the first page.
    */
   private reloadSampledataList() {
-    this.sampledatas = [];
     this.pageable.pageNumber = 0;
     this.sampledataSearchCriteria.pageable = this.pageable;
     this.deleteModifiedButtonsDisabled = true;
     this.selectedItemIndex = -1;
     this.sampledataRest.retrieveData(this.sampledataSearchCriteria).subscribe(
       (data: PaginatedListTo<Sampledata>) => {
-        this.sampledatas = this.sampledatas.concat(data.content);
+        this.sampledatas = data.content;
         this.infiniteScrollEnabled = true;
       },
       (err) => {
@@ -217,18 +216,10 @@ export class SampledataList {
       },
     });
     await modal.present();
-    modal.onDidDismiss().then((data) => {
-      if (!data && !data.data) {
-        for (const i in cleanItem) {
-          if (data.data[i] !== cleanItem[i]) {
-            data.data.modificationCounter++;
-            break;
-          }
-        }
+    modal.onDidDismiss().then((data: any) => {
+      if (data && data.data) {
         this.sampledatas.splice(this.selectedItemIndex, 1, data.data);
       }
-
-      this.reloadSampledataList();
     });
   }
 
