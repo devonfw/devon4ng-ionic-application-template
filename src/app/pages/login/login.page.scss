@@ -37,15 +37,23 @@
        margin: 0px 16px 0px 16px;
        padding-bottom: 20px;
     }    
- 
+
     .submit-btn {
         --padding-start: 10%;
         --padding-end: 10%;
-        --padding-top: 10%;
-        --padding-bottom: 10%;
+        --padding-top: 24px;
+        --padding-bottom: 24px;
         --background: #019fff;
         --border-radius: 30px;
         --box-shadow: 2px 2px 60px rgba(0, 147, 216, 0.35);
+    }
+
+    @media (min-width: 420px) {
+        .submit-btn {
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
     }
  
     .register-btn {
