@@ -11,7 +11,7 @@
         <div class="content-pad">
           <ion-list>
               <ion-menu-toggle auto-hide="false" *ngFor="let p of pages">
-                <ion-item  (click)="openPage(p)">
+                <ion-item  (tap)="openPage(p)" tappable>
                   {{p.title}}
                 </ion-item>
             </ion-menu-toggle>

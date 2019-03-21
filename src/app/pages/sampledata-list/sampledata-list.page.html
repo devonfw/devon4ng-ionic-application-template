@@ -31,7 +31,7 @@
   </ion-refresher>
   <ion-list #slidingList>
     <ion-item-sliding *ngFor="let sampledata of sampledatas; let i = index">
-      <ion-item [class.selected]="i === selectedItemIndex" (click)="enableUpdateDeleteOperations(i)" >
+      <ion-item [class.selected]="i === selectedItemIndex" (tap)="enableUpdateDeleteOperations(i)" tappable>
         <ion-grid>
           <ion-row class="grid-margin">
             <ion-col>{{sampledata.name}}</ion-col>
@@ -42,12 +42,12 @@
         </ion-grid>
       </ion-item>
       <ion-item-options side="end" (ionSwipe)="setSelectedItemIndex(i);deleteSelectedSampledata()">
-        <ion-item-option expandable color="danger" (click)="setSelectedItemIndex(i);deleteSelectedSampledata()">
+        <ion-item-option expandable color="danger" (tap)="setSelectedItemIndex(i);deleteSelectedSampledata()" tappable>
           <ion-icon size="large" name="trash"></ion-icon>
         </ion-item-option>
       </ion-item-options>
       <ion-item-options side="start" (ionSwipe)="setSelectedItemIndex(i);updateSelectedSampledata()">
-        <ion-item-option expandable (click)="setSelectedItemIndex(i);updateSelectedSampledata()" color="secondary">
+        <ion-item-option expandable (tap)="setSelectedItemIndex(i);updateSelectedSampledata()" color="secondary" tappable>
           <ion-icon size="large" name="brush"></ion-icon>
         </ion-item-option>
       </ion-item-options>
@@ -61,19 +61,19 @@
       <ion-icon name="arrow-dropright"></ion-icon>
     </ion-fab-button>
     <ion-fab-list side="top">
-      <ion-fab-button color="primary" class="fabButton fab-button-size" (click)="createSampledata()">
+      <ion-fab-button color="primary" class="fabButton fab-button-size" (tap)="createSampledata()">
         <ion-icon name="add-circle"></ion-icon>
       </ion-fab-button>
       
-      <ion-fab-button color="primary" (click)="updateSelectedSampledata()" [disabled] = deleteModifiedButtonsDisabled  > 
+      <ion-fab-button color="primary" (tap)="updateSelectedSampledata()" [disabled] = deleteModifiedButtonsDisabled  > 
         <ion-icon name="brush"></ion-icon>
       </ion-fab-button>
     
-      <ion-fab-button color="primary" (click)="deleteSelectedSampledata()" [disabled] = deleteModifiedButtonsDisabled >
+      <ion-fab-button color="primary" (tap)="deleteSelectedSampledata()" [disabled] = deleteModifiedButtonsDisabled >
         <ion-icon name="trash"></ion-icon>
       </ion-fab-button>
       
-      <ion-fab-button color="primary" (click)="searchSampledatas()" >
+      <ion-fab-button color="primary" (tap)="searchSampledatas()" >
         <ion-icon name="search"></ion-icon>
       </ion-fab-button>
     </ion-fab-list>
