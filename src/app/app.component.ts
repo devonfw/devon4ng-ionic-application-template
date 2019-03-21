@@ -20,7 +20,7 @@ export class AppComponent {
     private platform: Platform,
     private auth: AuthServiceProvider,
     private translate: TranslateService,
-    private router: Router,
+    private router: Router
   ) {
     this.initializeApp();
 
@@ -32,13 +32,16 @@ export class AppComponent {
         });
       }
 
-      this.pages = [{
+      this.pages = [
+        {
           title: 'Home',
           route: 'home'
-      }, {
+        },
+        {
           title: 'sampledata',
           route: 'sampledata'
-      }, ];
+        }
+      ];
     });
     this.translate.setDefaultLang('en');
     this.translate.currentLang = 'en';
@@ -56,10 +59,10 @@ export class AppComponent {
   }
 
   isAuthenticated() {
-      return this.auth.getAuthenticated();
+    return this.auth.getAuthenticated();
   }
 
   openPage(p: any) {
-      this.router.navigate([p.route]);
+    this.router.navigate([p.route]);
   }
 }

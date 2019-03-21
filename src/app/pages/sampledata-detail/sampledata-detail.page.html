@@ -1,10 +1,10 @@
 <!-- Generated template for the SampledataDetail component -->
 <ion-header>
-  <ion-toolbar color="primary" >
-    <ion-title align=center>
-      {{translations.title}}
+  <ion-toolbar color="primary">
+    <ion-title>
+      {{ translations.title }}
     </ion-title>
-    
+
     <ion-buttons slot="end">
       <ion-button (tap)="dismiss()">
         <ion-text color="primary" showWhen="ios">Cancel</ion-text>
@@ -15,36 +15,73 @@
 </ion-header>
 
 <ion-content>
-  <div class="detail-message" padding >{{translations.message}}</div>
+  <div class="detail-message" padding>{{ translations.message }}</div>
   <form class="form-content">
-  
     <ion-item lines="inset" class="formItem">
-      <ion-label>{{'sampledatamanagement.sampledata.name'| translate}}</ion-label>
-      <ion-input  string [(ngModel)]="sampledataReceived.name" name="name"></ion-input>
+      <ion-label>{{
+        'sampledatamanagement.sampledata.name' | translate
+      }}</ion-label>
+      <ion-input
+        string
+        [(ngModel)]="sampledataReceived.name"
+        name="name"
+      ></ion-input>
     </ion-item>
     <ion-item lines="inset" class="formItem">
-      <ion-label>{{'sampledatamanagement.sampledata.surname'| translate}}</ion-label>
-      <ion-input  string [(ngModel)]="sampledataReceived.surname" name="surname"></ion-input>
+      <ion-label>{{
+        'sampledatamanagement.sampledata.surname' | translate
+      }}</ion-label>
+      <ion-input
+        string
+        [(ngModel)]="sampledataReceived.surname"
+        name="surname"
+      ></ion-input>
     </ion-item>
     <ion-item lines="inset" class="formItem">
-      <ion-label>{{'sampledatamanagement.sampledata.age'| translate}}</ion-label>
-      <ion-input  number [(ngModel)]="sampledataReceived.age" name="age"></ion-input>
+      <ion-label>{{
+        'sampledatamanagement.sampledata.age' | translate
+      }}</ion-label>
+      <ion-input
+        number
+        [(ngModel)]="sampledataReceived.age"
+        name="age"
+      ></ion-input>
     </ion-item>
     <ion-item lines="inset" class="formItem">
-      <ion-label>{{'sampledatamanagement.sampledata.mail'| translate}}</ion-label>
-      <ion-input  string [(ngModel)]="sampledataReceived.mail" name="mail"></ion-input>
+      <ion-label>{{
+        'sampledatamanagement.sampledata.mail' | translate
+      }}</ion-label>
+      <ion-input
+        string
+        [(ngModel)]="sampledataReceived.mail"
+        name="mail"
+      ></ion-input>
     </ion-item>
-     
   </form>
 </ion-content>
 <ion-footer>
-  <ion-button class="buttonForm" [hidden]=!filterActive (tap)="addOrModify()" expand="full">
-    {{'sampledatamanagement.sampledata.commonbuttons.send' | translate}}
+  <ion-button
+    class="buttonForm"
+    [hidden]="!filterActive"
+    (tap)="addOrModify()"
+    expand="full"
+  >
+    {{ 'sampledatamanagement.sampledata.commonbuttons.send' | translate }}
   </ion-button>
-  <ion-button class="buttonForm" [hidden]=filterActive (tap)="search()" expand="full">
-    {{'sampledatamanagement.sampledata.commonbuttons.send' | translate}}
+  <ion-button
+    class="buttonForm"
+    [hidden]="filterActive"
+    (tap)="search()"
+    expand="full"
+  >
+    {{ 'sampledatamanagement.sampledata.commonbuttons.send' | translate }}
   </ion-button>
-  <ion-button class="buttonForm" [hidden]=filterActive (tap)="clearSearch()" expand="block">
-    {{'sampledatamanagement.sampledata.operations.filter.clear' | translate}}
+  <ion-button
+    class="buttonForm"
+    [hidden]="filterActive"
+    (tap)="clearSearch()"
+    expand="block"
+  >
+    {{ 'sampledatamanagement.sampledata.operations.filter.clear' | translate }}
   </ion-button>
 </ion-footer>

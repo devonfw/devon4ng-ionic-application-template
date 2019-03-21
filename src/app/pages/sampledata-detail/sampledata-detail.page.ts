@@ -24,16 +24,16 @@ export class SampledataDetail {
     sort: [
       {
         property: 'name',
-        direction: 'ASC',
-      },
-    ],
+        direction: 'ASC'
+      }
+    ]
   };
   sampledataSearchCriteria: SampledataSearchCriteria = {
     name: null,
     surname: null,
     age: null,
     mail: null,
-    pageable: this.pageable,
+    pageable: this.pageable
   };
 
   sampledataReceived: Sampledata;
@@ -44,7 +44,7 @@ export class SampledataDetail {
     mail: null,
     id: null,
     modificationCounter: null,
-    revision: null,
+    revision: null
   };
 
   translations = { title: 'Dialog', message: 'message' };
@@ -57,10 +57,10 @@ export class SampledataDetail {
     public params: NavParams,
     public viewCtrl: ModalController,
     public translate: TranslateService,
-    public sampledataRest: SampledataRest,
+    public sampledataRest: SampledataRest
   ) {
     this.getTranslation(
-      'sampledatamanagement.sampledata.operations.' + this.params.get('dialog'),
+      'sampledatamanagement.sampledata.operations.' + this.params.get('dialog')
     );
     this.dialogType = this.params.get('dialog');
     this.sampledataReceived = this.params.get('edit');
@@ -69,7 +69,7 @@ export class SampledataDetail {
         name: null,
         surname: null,
         age: null,
-        mail: null,
+        mail: null
       };
     }
     if (this.dialogType === 'filter') {
@@ -90,7 +90,7 @@ export class SampledataDetail {
    * @param  data - Tuple containing all the objects which the server returns .
    */
   private dismiss(
-    data: [SampledataSearchCriteria, PaginatedListTo<Sampledata>],
+    data: [SampledataSearchCriteria, PaginatedListTo<Sampledata>]
   ) {
     this.viewCtrl.dismiss(data);
     this.filterActive = true;
@@ -138,7 +138,7 @@ export class SampledataDetail {
           surname: null,
           age: null,
           mail: null,
-          pageable: this.pageable,
+          pageable: this.pageable
         };
       });
   }

@@ -14,9 +14,7 @@ const routes: Routes = [
   }
 ];
 @NgModule({
-  declarations: [
-    LoginPage
-  ],
+  declarations: [LoginPage],
   imports: [
     CommonModule,
     FormsModule,
@@ -24,6 +22,6 @@ const routes: Routes = [
     ComponentsModule,
     TranslateModule,
     RouterModule.forChild(routes)
-  ],
+  ]
 })
 export class LoginPageModule {}

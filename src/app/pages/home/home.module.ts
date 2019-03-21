@@ -12,14 +12,12 @@ const routes: Routes = [
   }
 ];
 @NgModule({
-  declarations: [
-    HomePage
-  ],
+  declarations: [HomePage],
   imports: [
     CommonModule,
     IonicModule,
     ComponentsModule,
     RouterModule.forChild(routes)
-  ],
+  ]
 })
 export class HomePageModule {}

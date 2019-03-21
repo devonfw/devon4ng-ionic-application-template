@@ -12,14 +12,11 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'page-Home',
   templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  styleUrls: ['home.page.scss']
 })
 export class HomePage {
-
   constructor(
     public auth: AuthServiceProvider,
-    public translate: TranslateService) {
-
-  }
-
+    public translate: TranslateService
+  ) {}
 }

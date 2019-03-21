@@ -1,24 +1,33 @@
 <ion-app>
   <ion-split-pane>
-    <ion-menu *ngIf="isAuthenticated()" swipe-gesture="true" side="start" contentId="content" >
+    <ion-menu
+      *ngIf="isAuthenticated()"
+      swipe-gesture="true"
+      side="start"
+      contentId="content"
+    >
       <ion-header>
         <ion-toolbar color="primary">
           <ion-title>Pages</ion-title>
         </ion-toolbar>
       </ion-header>
-    
+
       <ion-content padding>
         <div class="content-pad">
           <ion-list>
-              <ion-menu-toggle auto-hide="false" *ngFor="let p of pages">
-                <ion-item  (tap)="openPage(p)" tappable>
-                  {{p.title}}
-                </ion-item>
+            <ion-menu-toggle auto-hide="false" *ngFor="let p of pages">
+              <ion-item (tap)="openPage(p)" tappable>
+                {{ p.title }}
+              </ion-item>
             </ion-menu-toggle>
           </ion-list>
         </div>
       </ion-content>
     </ion-menu>
-    <ion-router-outlet id="content" swipeBackEnabled="true" main></ion-router-outlet>
+    <ion-router-outlet
+      id="content"
+      swipeBackEnabled="true"
+      main
+    ></ion-router-outlet>
   </ion-split-pane>
 </ion-app>

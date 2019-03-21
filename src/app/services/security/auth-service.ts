@@ -13,9 +13,8 @@ import { Injectable } from '@angular/core';
 ore info on providers
   and Angular DI.
 */
-@Injectable({ providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class AuthServiceProvider {
-
   authenticated = false;
   username = ''; // not used for now, could be used in the future.
   token = '';

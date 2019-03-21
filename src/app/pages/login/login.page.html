@@ -5,7 +5,7 @@
 <ion-content class="login-content" padding>
   <ion-row class="logo-row">
     <ion-col width-400>
-      <img src="assets/imgs/Capgemini.png" alt="Capgemini logo"/>
+      <img src="assets/imgs/Capgemini.png" alt="Capgemini logo" />
     </ion-col>
   </ion-row>
   <div class="login-box">
@@ -14,24 +14,39 @@
         <ion-col>
           <ion-list inset>
             <ion-item class="form">
-              <ion-input type="text" [(ngModel)]="user.username" name="name" placeholder="{{'login.user'| translate}}"
-                class="label"></ion-input>
+              <ion-input
+                type="text"
+                [(ngModel)]="user.username"
+                name="name"
+                placeholder="{{ 'login.user' | translate }}"
+                class="label"
+              ></ion-input>
             </ion-item>
             <ion-item class="form">
-              <ion-input type="password" [(ngModel)]="user.password" name="password" placeholder="{{'login.password'| translate}}"></ion-input>
+              <ion-input
+                type="password"
+                [(ngModel)]="user.password"
+                name="password"
+                placeholder="{{ 'login.password' | translate }}"
+              ></ion-input>
             </ion-item>
           </ion-list>
         </ion-col>
       </ion-row>
       <ion-grid>
-      <ion-row>
-        <ion-col class="signup-col">
-          <ion-button type="submit" class="submit-btn" expand="block" shape="round">
-            {{'buttons.login'| translate}}
-          </ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+        <ion-row>
+          <ion-col class="signup-col">
+            <ion-button
+              type="submit"
+              class="submit-btn"
+              expand="block"
+              shape="round"
+            >
+              {{ 'buttons.login' | translate }}
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </form>
   </div>
 </ion-content>

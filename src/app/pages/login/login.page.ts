@@ -8,11 +8,10 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'page-Login',
   templateUrl: 'login.page.html',
-  styleUrls: ['login.page.scss'],
+  styleUrls: ['login.page.scss']
 })
 export class LoginPage {
-
-  user: { username: string, password: string };
+  user: { username: string; password: string };
   alermessages: any = {};
   constructor(
     private router: Router,
@@ -20,7 +19,7 @@ export class LoginPage {
     public auth: AuthServiceProvider,
     public translate: TranslateService,
     public loginp: LoginProvider
-    ) {
+  ) {
     this.user = { username: 'waiter', password: 'waiter' };
   }
 
@@ -29,35 +28,36 @@ export class LoginPage {
   }
 
   loginForm() {
-
-    this.loginp.login({ username: this.user.username, password: this.user.password })
-    .subscribe((res: any) => {
-
-        this.auth.setToken(res.headers.get('Authorization'));
-        this.auth.setAuthenticated(true);
-        this.router.navigate(['home']);
-      }, (err: any) => {
-        this.auth.setAuthenticated(false);
-        this.presentAlert();
-      });
+    this.loginp
+      .login({ username: this.user.username, password: this.user.password })
+      .subscribe(
+        (res: any) => {
+          this.auth.setToken(res.headers.get('Authorization'));
+          this.auth.setAuthenticated(true);
+          this.router.navigate(['home']);
+        },
+        (err: any) => {
+          this.auth.setAuthenticated(false);
+          this.presentAlert();
+        }
+      );
   }
 
   async presentAlert() {
+    const alertTranslations: any = {};
 
-        const alertTranslations: any = {};
+    alertTranslations.header = this.translate.instant('alert.title');
 
-        alertTranslations.header = this.translate.instant('alert.title');
+    alertTranslations.subHeader = this.translate.instant('alert.subtitle');
 
-        alertTranslations.subHeader = this.translate.instant('alert.subtitle');
+    alertTranslations.dismiss = this.translate.instant('alert.dismiss');
 
-        alertTranslations.dismiss = this.translate.instant('alert.dismiss');
+    const alert = await this.alertCtrl.create({
+      header: alertTranslations.header,
+      subHeader: alertTranslations.subHeader,
+      buttons: [alertTranslations.dismiss]
+    });
 
-        const alert = await this.alertCtrl.create({
-          header: alertTranslations.header,
-          subHeader: alertTranslations.subHeader,
-          buttons: [alertTranslations.dismiss]
-        });
-
-        await alert.present();
-      }
+    await alert.present();
+  }
 }
