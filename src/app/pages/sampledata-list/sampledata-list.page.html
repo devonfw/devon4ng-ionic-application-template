@@ -41,7 +41,7 @@
     <ion-item-sliding *ngFor="let sampledata of sampledatas; let i = index">
       <ion-item
         [class.selected]="i === selectedItemIndex"
-        (tap)="enableUpdateDeleteOperations(i)"
+        (click)="enableUpdateDeleteOperations(i)"
         tappable
       >
         <ion-grid>
