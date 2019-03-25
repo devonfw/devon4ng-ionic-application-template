@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'page-Login',
   templateUrl: 'login.page.html',
-  styleUrls: ['login.page.scss']
+  styleUrls: ['login.page.scss'],
 })
 export class LoginPage {
   user: { username: string; password: string };
@@ -18,7 +18,7 @@ export class LoginPage {
     public alertCtrl: AlertController,
     public auth: AuthServiceProvider,
     public translate: TranslateService,
-    public loginp: LoginProvider
+    public loginp: LoginProvider,
   ) {
     this.user = { username: 'waiter', password: 'waiter' };
   }
@@ -39,7 +39,7 @@ export class LoginPage {
         (err: any) => {
           this.auth.setAuthenticated(false);
           this.presentAlert();
-        }
+        },
       );
   }
 
@@ -55,7 +55,7 @@ export class LoginPage {
     const alert = await this.alertCtrl.create({
       header: alertTranslations.header,
       subHeader: alertTranslations.subHeader,
-      buttons: [alertTranslations.dismiss]
+      buttons: [alertTranslations.dismiss],
     });
 
     await alert.present();

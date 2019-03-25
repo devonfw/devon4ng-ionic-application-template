@@ -10,7 +10,7 @@ const StatusBar = Plugins.StatusBar;
 
 @Component({
   selector: 'app-root',
-  templateUrl: 'app.component.html'
+  templateUrl: 'app.component.html',
 })
 export class AppComponent {
   rootPage: any;
@@ -20,7 +20,7 @@ export class AppComponent {
     private platform: Platform,
     private auth: AuthServiceProvider,
     private translate: TranslateService,
-    private router: Router
+    private router: Router,
   ) {
     this.initializeApp();
 
@@ -35,12 +35,12 @@ export class AppComponent {
       this.pages = [
         {
           title: 'Home',
-          route: 'home'
+          route: 'home',
         },
         {
           title: 'sampledata',
-          route: 'sampledata'
-        }
+          route: 'sampledata',
+        },
       ];
     });
     this.translate.setDefaultLang('en');

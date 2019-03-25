@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import {
   HTTP_INTERCEPTORS,
   HttpClient,
-  HttpClientModule
+  HttpClientModule,
 } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -12,7 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import {
   TranslateModule,
   TranslateLoader,
-  TranslateService
+  TranslateService,
 } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FormsModule } from '@angular/forms';
@@ -38,11 +38,11 @@ export function translateFactory(http: HttpClient) {
       loader: {
         provide: TranslateLoader,
         useFactory: translateFactory,
-        deps: [HttpClient]
-      }
+        deps: [HttpClient],
+      },
     }),
     FormsModule,
-    ComponentsModule
+    ComponentsModule,
   ],
 
   providers: [
@@ -51,11 +51,11 @@ export function translateFactory(http: HttpClient) {
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpinterceptorProvider,
-      multi: true
+      multi: true,
     },
     SampledataRest,
-    TranslateService
+    TranslateService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

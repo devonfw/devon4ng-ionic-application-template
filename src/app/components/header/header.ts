@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'layoutheader',
   templateUrl: 'header.html',
-  styleUrls: ['header.scss']
+  styleUrls: ['header.scss'],
 })
 export class HeaderComponent {
   currentlanguage = 'en';
@@ -23,7 +23,7 @@ export class HeaderComponent {
   constructor(
     private translate: TranslateService,
     private auth: AuthServiceProvider,
-    private router: Router
+    private router: Router,
   ) {
     if (typeof translate.currentLang === 'undefined') {
       translate.currentLang = 'en';
@@ -43,7 +43,7 @@ export class HeaderComponent {
     return 'en';
   }
 
-  togglelanguage(lang: string): void {
+  togglelanguage(): void {
     let index = this.langs.indexOf(this.translate.currentLang);
     index = (index + 1) % this.langs.length;
 

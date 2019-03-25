@@ -8,8 +8,8 @@ import { ComponentsModule } from 'src/app/components/components.module';
 const routes: Routes = [
   {
     path: '',
-    component: HomePage
-  }
+    component: HomePage,
+  },
 ];
 @NgModule({
   declarations: [HomePage],
@@ -17,7 +17,7 @@ const routes: Routes = [
     CommonModule,
     IonicModule,
     ComponentsModule,
-    RouterModule.forChild(routes)
-  ]
+    RouterModule.forChild(routes),
+  ],
 })
 export class HomePageModule {}

@@ -23,7 +23,7 @@ export class SampledataRest {
     return this.http.post(
       this.BO.sampledataService() + 'search',
       sampledata,
-      {}
+      {},
     );
   }
 
@@ -40,11 +40,11 @@ export class SampledataRest {
    * @returns The first data page on the server.
    */
   retrieveData(
-    sampledataSearchCriteria: SampledataSearchCriteria
+    sampledataSearchCriteria: SampledataSearchCriteria,
   ): Observable<any> {
     return this.http.post(
       this.BO.sampledataService() + 'search',
-      sampledataSearchCriteria
+      sampledataSearchCriteria,
     );
   }
 
@@ -56,7 +56,7 @@ export class SampledataRest {
     return this.http.post(
       this.BO.sampledataService() + 'search',
       sampledataSearchCriteria,
-      {}
+      {},
     );
   }
 

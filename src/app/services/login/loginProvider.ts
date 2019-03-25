@@ -14,14 +14,14 @@ export class LoginProvider {
   constructor(
     public http: HttpClient,
     public authservice: AuthServiceProvider,
-    private BO: BusinessOperatorProvider
+    private BO: BusinessOperatorProvider,
   ) {}
 
   IonicAngularLogin(login, password): Observable<any> {
     return this.http.post(
       this.BO.login(), // url
       { j_username: login, j_password: password }, // body
-      { responseType: 'text', observe: 'response' }
+      { responseType: 'text', observe: 'response' },
     );
   }
 

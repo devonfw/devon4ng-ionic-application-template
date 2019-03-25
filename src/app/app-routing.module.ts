@@ -7,24 +7,24 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: './pages/login/login.module#LoginPageModule',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'home',
     loadChildren: './pages/home/home.module#HomePageModule',
     pathMatch: 'full',
-    canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService],
   },
   {
     path: 'sampledata',
     component: SampledataList,
     pathMatch: 'full',
-    canActivate: [AuthGuardService]
-  }
+    canActivate: [AuthGuardService],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

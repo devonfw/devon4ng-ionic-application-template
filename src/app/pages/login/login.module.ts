@@ -10,8 +10,8 @@ import { TranslateModule } from '@ngx-translate/core';
 const routes: Routes = [
   {
     path: '',
-    component: LoginPage
-  }
+    component: LoginPage,
+  },
 ];
 @NgModule({
   declarations: [LoginPage],
@@ -21,7 +21,7 @@ const routes: Routes = [
     IonicModule,
     ComponentsModule,
     TranslateModule,
-    RouterModule.forChild(routes)
-  ]
+    RouterModule.forChild(routes),
+  ],
 })
 export class LoginPageModule {}

@@ -5,7 +5,7 @@ import {
   ModalController,
   NavController,
   LoadingController,
-  IonList
+  IonList,
 } from '@ionic/angular';
 import { SampledataRest } from '../../services/sampledata-rest';
 import { SampledataDetail } from '../sampledata-detail/sampledata-detail.page';
@@ -17,7 +17,7 @@ import { PaginatedListTo } from '../../services/interfaces/paginated-list-to';
 @Component({
   selector: 'sampledata-list',
   templateUrl: 'sampledata-list.page.html',
-  styleUrls: ['sampledata-list.page.scss']
+  styleUrls: ['sampledata-list.page.scss'],
 })
 export class SampledataList {
   /** Contains the strings for the deletion prompt */
@@ -28,27 +28,27 @@ export class SampledataList {
     sort: [
       {
         property: 'name',
-        direction: 'ASC'
-      }
-    ]
+        direction: 'ASC',
+      },
+    ],
   };
   sampledataSearchCriteria: SampledataSearchCriteria = {
     name: null,
     surname: null,
     age: null,
     mail: null,
-    pageable: this.pageable
+    pageable: this.pageable,
   };
   sampledataListItem: Sampledata = {
     name: null,
     surname: null,
     age: null,
-    mail: null
+    mail: null,
   };
   deleteButtonNames = ['dismiss', 'confirm'];
   deleteButtons = [
-    { text: '', handler: data => {} },
-    { text: '', handler: data => {} }
+    { text: '', handler: (data) => {} },
+    { text: '', handler: (data) => {} },
   ];
   @Input()
   deleteModifiedButtonsDisabled = true;
@@ -64,7 +64,7 @@ export class SampledataList {
     public alertCtrl: AlertController,
     public translate: TranslateService,
     public modalCtrl: ModalController,
-    public loadingCtrl: LoadingController
+    public loadingCtrl: LoadingController,
   ) {}
 
   @ViewChild('slidingList') slidingList: IonList;
@@ -77,7 +77,7 @@ export class SampledataList {
 
   private async ionViewWillEnterAsync() {
     const loading = await this.loadingCtrl.create({
-      message: 'Please wait...'
+      message: 'Please wait...',
     });
     await loading.present();
     this.sampledataRest.retrieveData(this.sampledataSearchCriteria).subscribe(
@@ -88,7 +88,7 @@ export class SampledataList {
       (err: any) => {
         loading.dismiss();
         console.log(err);
-      }
+      },
     );
   }
 
@@ -136,9 +136,9 @@ export class SampledataList {
         this.sampledatas = data.content;
         this.infiniteScrollEnabled = true;
       },
-      err => {
+      (err) => {
         console.log(err);
-      }
+      },
     );
   }
 
@@ -161,8 +161,8 @@ export class SampledataList {
       component: SampledataDetail,
       componentProps: {
         dialog: 'add',
-        edit: null
-      }
+        edit: null,
+      },
     });
     await modal.present();
     modal.onDidDismiss().then(() => this.reloadSampledataList());
@@ -178,12 +178,12 @@ export class SampledataList {
       component: SampledataDetail,
       componentProps: {
         dialog: 'filter',
-        edit: null
-      }
+        edit: null,
+      },
     });
 
     await modal.present();
-    modal.onDidDismiss().then(data => {
+    modal.onDidDismiss().then((data) => {
       if (data && data.data == null) {
         return;
       } else {
@@ -212,8 +212,8 @@ export class SampledataList {
       component: SampledataDetail,
       componentProps: {
         dialog: 'modify',
-        edit: this.sampledatas[this.selectedItemIndex]
-      }
+        edit: this.sampledatas[this.selectedItemIndex],
+      },
     });
     await modal.present();
     modal.onDidDismiss().then((data: any) => {
@@ -230,7 +230,7 @@ export class SampledataList {
     await this.slidingList.closeSlidingItems();
 
     this.deleteTranslations = this.getTranslation(
-      'sampledatamanagement.sampledata.operations.delete'
+      'sampledatamanagement.sampledata.operations.delete',
     );
     for (const i of Object.keys(this.deleteButtons)) {
       this.deleteButtons[i].text = this.deleteTranslations[
@@ -241,14 +241,14 @@ export class SampledataList {
       header: this.deleteTranslations.title,
       message: this.deleteTranslations.message,
       buttons: [
-        { text: this.deleteButtons[0].text, handler: data => {} },
+        { text: this.deleteButtons[0].text, handler: (data) => {} },
         {
           text: this.deleteButtons[1].text,
-          handler: data => {
+          handler: (data) => {
             this.confirmDeletion();
-          }
-        }
-      ]
+          },
+        },
+      ],
     });
     await prompt.present();
   }
@@ -263,14 +263,14 @@ export class SampledataList {
     const search = this.sampledatas[this.selectedItemIndex];
 
     this.sampledataRest.delete(search.id).subscribe(
-      deleteresponse => {
+      (deleteresponse) => {
         this.sampledatas.splice(this.selectedItemIndex, 1);
         this.selectedItemIndex = -1;
         this.deleteModifiedButtonsDisabled = true;
       },
-      err => {
+      (err) => {
         console.log(err);
-      }
+      },
     );
   }
 
@@ -303,9 +303,9 @@ export class SampledataList {
 
               infiniteScroll.target.complete();
             },
-            err => {
+            (err) => {
               console.log(err);
-            }
+            },
           );
       }, 300);
     }
