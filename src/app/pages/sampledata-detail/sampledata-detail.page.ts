@@ -1,7 +1,7 @@
 import { NavParams, ModalController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { Component } from '@angular/core';
-import { SampledataRest } from '../../services/sampledata-rest';
+import { SampledataRestService } from '../../services/sampledata-rest.service';
 import { Sampledata } from '../../services/interfaces/sampledata';
 import { SampledataSearchCriteria } from '../../services/interfaces/sampledata-search-criteria';
 import { Pageable } from '../../services/interfaces/pageable';
@@ -57,7 +57,7 @@ export class SampledataDetail {
     public params: NavParams,
     public viewCtrl: ModalController,
     public translate: TranslateService,
-    public sampledataRest: SampledataRest,
+    public sampledataRest: SampledataRestService,
   ) {
     this.getTranslation(
       'sampledatamanagement.sampledata.operations.' + this.params.get('dialog'),

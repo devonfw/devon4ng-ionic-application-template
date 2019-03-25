@@ -1,4 +1,4 @@
-import { BusinessOperatorProvider } from '../services/shared/business-operator';
+import { BusinessOperatorService } from './shared/business-operator.service';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -6,14 +6,14 @@ import { SampledataSearchCriteria } from './interfaces/sampledata-search-criteri
 import { Sampledata } from './interfaces/sampledata';
 
 /**
-  Generated class for the SampledataRest provider. Implements the REST service.
+  Generated class for the SampledataRestService service. Implements the REST service.
 
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
 @Injectable({ providedIn: 'root' })
-export class SampledataRest {
-  constructor(public http: HttpClient, public BO: BusinessOperatorProvider) {}
+export class SampledataRestService {
+  constructor(public http: HttpClient, public BO: BusinessOperatorService) {}
 
   /**
    * @param  sampledata The item in the list.

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { SERVER_URL } from '../../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
-export class BusinessOperatorProvider {
+export class BusinessOperatorService {
   public serverPath = SERVER_URL;
   public restPath = SERVER_URL + 'services/rest/';
   constructor() {}

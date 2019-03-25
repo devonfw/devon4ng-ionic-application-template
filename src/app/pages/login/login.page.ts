@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { LoginProvider } from '../../services/login/loginProvider';
-import { AuthServiceProvider } from '../../services/security/auth-service';
+import { LoginService } from '../../services/login/login.service';
+import { AuthService } from '../../services/security/auth.service';
 import { TranslateService } from '@ngx-translate/core';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
@@ -16,9 +16,9 @@ export class LoginPage {
   constructor(
     private router: Router,
     public alertCtrl: AlertController,
-    public auth: AuthServiceProvider,
+    public auth: AuthService,
     public translate: TranslateService,
-    public loginp: LoginProvider,
+    public loginp: LoginService,
   ) {
     this.user = { username: 'waiter', password: 'waiter' };
   }

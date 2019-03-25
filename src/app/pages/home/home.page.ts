@@ -1,5 +1,5 @@
 import { TranslateService } from '@ngx-translate/core';
-import { AuthServiceProvider } from '../../services/security/auth-service';
+import { AuthService } from '../../services/security/auth.service';
 import { Component } from '@angular/core';
 
 /**
@@ -16,7 +16,7 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
   constructor(
-    public auth: AuthServiceProvider,
+    public auth: AuthService,
     public translate: TranslateService,
   ) {}
 }

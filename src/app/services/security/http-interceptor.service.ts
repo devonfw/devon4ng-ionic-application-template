@@ -6,17 +6,17 @@ import {
   HttpHandler,
   HttpRequest,
 } from '@angular/common/http';
-import { AuthServiceProvider } from './auth-service';
+import { AuthService } from './auth.service';
 
 @Injectable({ providedIn: 'root' })
-export class HttpinterceptorProvider implements HttpInterceptor {
+export class HttpinterceptorService implements HttpInterceptor {
   constructor(private inj: Injector) {}
 
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler,
   ): Observable<HttpEvent<any>> {
-    const auth = this.inj.get(AuthServiceProvider);
+    const auth = this.inj.get(AuthService);
 
     const tempToken = auth.getToken();
 

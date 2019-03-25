@@ -1,4 +1,4 @@
-import { AuthServiceProvider } from '../../services/security/auth-service';
+import { AuthService } from '../../services/security/auth.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -22,7 +22,7 @@ export class HeaderComponent {
 
   constructor(
     private translate: TranslateService,
-    private auth: AuthServiceProvider,
+    private auth: AuthService,
     private router: Router,
   ) {
     if (typeof translate.currentLang === 'undefined') {

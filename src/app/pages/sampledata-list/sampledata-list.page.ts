@@ -7,7 +7,7 @@ import {
   LoadingController,
   IonList,
 } from '@ionic/angular';
-import { SampledataRest } from '../../services/sampledata-rest';
+import { SampledataRestService } from '../../services/sampledata-rest.service';
 import { SampledataDetail } from '../sampledata-detail/sampledata-detail.page';
 import { Sampledata } from '../../services/interfaces/sampledata';
 import { Pageable } from '../../services/interfaces/pageable';
@@ -60,7 +60,7 @@ export class SampledataList {
 
   constructor(
     public navCtrl: NavController,
-    public sampledataRest: SampledataRest,
+    public sampledataRest: SampledataRestService,
     public alertCtrl: AlertController,
     public translate: TranslateService,
     public modalCtrl: ModalController,

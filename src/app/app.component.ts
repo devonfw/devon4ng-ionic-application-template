@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
-import { AuthServiceProvider } from './services/security/auth-service';
+import { AuthService } from './services/security/auth.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 
@@ -18,14 +18,13 @@ export class AppComponent {
 
   constructor(
     private platform: Platform,
-    private auth: AuthServiceProvider,
+    private auth: AuthService,
     private translate: TranslateService,
     private router: Router,
   ) {
     this.initializeApp();
 
     platform.ready().then(() => {
-      // StatusBar.setStyle();
       if (Capacitor.isPluginAvailable('SplashScreen')) {
         SplashScreen.hide().catch(() => {
           console.warn('Spashscreen not available');
@@ -49,7 +48,6 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      // this.statusBar.styleDefault();
       if (Capacitor.isPluginAvailable('SplashScreen')) {
         SplashScreen.hide().catch(() => {
           console.warn('Spashscreen not available');

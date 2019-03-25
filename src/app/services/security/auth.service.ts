@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 /*
-  Generated class for the AuthServiceProvider provider.
+  Generated class for the AuthService service.
 
   See https://angular.io/guide/dependency-injection for m  setToken(arg0: any): any {
     throw new Error("Method not implemented.");
@@ -14,7 +14,7 @@ ore info on providers
   and Angular DI.
 */
 @Injectable({ providedIn: 'root' })
-export class AuthServiceProvider {
+export class AuthService {
   authenticated = false;
   username = ''; // not used for now, could be used in the future.
   token = '';

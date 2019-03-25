@@ -18,9 +18,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FormsModule } from '@angular/forms';
 import { ComponentsModule } from './components/components.module';
 import { AuthGuardService } from './services/authorization/auth-guard.service';
-import { HttpinterceptorProvider } from './services/security/httpinterceptor';
+import { HttpinterceptorService } from './services/security/http-interceptor.service';
 import { SampledataDetail } from './pages/sampledata-detail/sampledata-detail.page';
-import { SampledataRest } from './services/sampledata-rest';
+import { SampledataRestService } from './services/sampledata-rest.service';
 import { SampledataList } from './pages/sampledata-list/sampledata-list.page';
 
 export function translateFactory(http: HttpClient) {
@@ -50,10 +50,10 @@ export function translateFactory(http: HttpClient) {
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: HttpinterceptorProvider,
+      useClass: HttpinterceptorService,
       multi: true,
     },
-    SampledataRest,
+    SampledataRestService,
     TranslateService,
   ],
   bootstrap: [AppComponent],
