@@ -1,50 +1,48 @@
 import { NgModule } from '@angular/core';
+import {
+  HTTP_INTERCEPTORS,
+  HttpClient,
+  HttpClientModule,
+} from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
-
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-
-import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
+import {
+  TranslateModule,
+  TranslateLoader,
+  TranslateService,
+} from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FormsModule } from '@angular/forms';
 import { ComponentsModule } from './components/components.module';
-import { SampledataList } from './pages/sampledata-list/sampledata-list';
 import { AuthGuardService } from './services/authorization/auth-guard.service';
-import { HttpinterceptorProvider } from './services/security/httpinterceptor';
-import { SampledataRest } from './services/sampledata-rest';
-import { SampledataDetail } from './pages/sampledata-detail/sampledata-detail';
+import { HttpinterceptorService } from './services/security/http-interceptor.service';
+import { SampledataDetail } from './pages/sampledata-detail/sampledata-detail.page';
+import { SampledataRestService } from './services/sampledata-rest.service';
+import { SampledataList } from './pages/sampledata-list/sampledata-list.page';
 
 export function translateFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 @NgModule({
-  declarations: [
-    AppComponent,
-    SampledataList,
-    SampledataDetail
-  ],
-  entryComponents: [
-    SampledataDetail
-  ],
+  declarations: [AppComponent, SampledataList, SampledataDetail],
+  entryComponents: [SampledataDetail],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-    TranslateModule.forRoot(
-      {
-        loader: {
-          provide: TranslateLoader,
-          useFactory: translateFactory,
-          deps: [HttpClient],
-        },
-      }),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: translateFactory,
+        deps: [HttpClient],
+      },
+    }),
     FormsModule,
-    ComponentsModule
+    ComponentsModule,
   ],
 
   providers: [
@@ -52,10 +50,10 @@ export function translateFactory(http: HttpClient) {
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: HttpinterceptorProvider,
+      useClass: HttpinterceptorService,
       multi: true,
     },
-    SampledataRest,
+    SampledataRestService,
     TranslateService,
   ],
   bootstrap: [AppComponent],

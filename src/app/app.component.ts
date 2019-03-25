@@ -1,17 +1,16 @@
 import { Component } from '@angular/core';
-
 import { Platform } from '@ionic/angular';
-import { AuthServiceProvider } from './services/security/auth-service';
+import { AuthService } from './services/security/auth.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 
 import { Plugins, Capacitor } from '@capacitor/core';
-
-const { SplashScreen, StatusBar } = Plugins;
+const SplashScreen = Plugins.SplashScreen;
+const StatusBar = Plugins.StatusBar;
 
 @Component({
   selector: 'app-root',
-  templateUrl: 'app.component.html'
+  templateUrl: 'app.component.html',
 })
 export class AppComponent {
   rootPage: any;
@@ -19,27 +18,29 @@ export class AppComponent {
 
   constructor(
     private platform: Platform,
-    private auth: AuthServiceProvider,
+    private auth: AuthService,
     private translate: TranslateService,
     private router: Router,
   ) {
     this.initializeApp();
 
     platform.ready().then(() => {
-      // StatusBar.setStyle();
       if (Capacitor.isPluginAvailable('SplashScreen')) {
         SplashScreen.hide().catch(() => {
           console.warn('Spashscreen not available');
         });
       }
 
-      this.pages = [{
+      this.pages = [
+        {
           title: 'Home',
-          route: 'home'
-      }, {
+          route: 'home',
+        },
+        {
           title: 'sampledata',
-          route: 'sampledata'
-      }, ];
+          route: 'sampledata',
+        },
+      ];
     });
     this.translate.setDefaultLang('en');
     this.translate.currentLang = 'en';
@@ -47,7 +48,6 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      // this.statusBar.styleDefault();
       if (Capacitor.isPluginAvailable('SplashScreen')) {
         SplashScreen.hide().catch(() => {
           console.warn('Spashscreen not available');
@@ -57,10 +57,10 @@ export class AppComponent {
   }
 
   isAuthenticated() {
-      return this.auth.getAuthenticated();
+    return this.auth.getAuthenticated();
   }
 
-  openPage(p: { route: any; }) {
-      this.router.navigate([p.route]);
+  openPage(p: any) {
+    this.router.navigate([p.route]);
   }
 }

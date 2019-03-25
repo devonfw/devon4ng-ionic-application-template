@@ -1,5 +1,5 @@
 import { TranslateService } from '@ngx-translate/core';
-import { AuthServiceProvider } from '../../services/security/auth-service';
+import { AuthService } from '../../services/security/auth.service';
 import { Component } from '@angular/core';
 
 /**
@@ -11,15 +11,12 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'page-Home',
-  templateUrl: 'home.html',
-  styleUrls: ['home.scss'],
+  templateUrl: 'home.page.html',
+  styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
   constructor(
-    public auth: AuthServiceProvider,
-    public translate: TranslateService) {
-
-  }
-
+    public auth: AuthService,
+    public translate: TranslateService,
+  ) {}
 }

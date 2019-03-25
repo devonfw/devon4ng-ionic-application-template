@@ -5,11 +5,10 @@ import { Platform } from '@ionic/angular';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-
-  let statusBarSpy: { styleDefault: any; },
-  splashScreenSpy: { hide: any; },
-  platformReadySpy: Promise<void>,
-  platformSpy: { ready: any; };
+  let statusBarSpy: { styleDefault: any },
+    splashScreenSpy: { hide: any },
+    platformReadySpy: Promise<void>,
+    platformSpy: { ready: any };
 
   beforeEach(async(() => {
     statusBarSpy = jasmine.createSpyObj('StatusBar', ['styleDefault']);
@@ -20,9 +19,7 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       declarations: [AppComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
-      providers: [
-        { provide: Platform, useValue: platformSpy },
-      ],
+      providers: [{ provide: Platform, useValue: platformSpy }],
     }).compileComponents();
   }));
 

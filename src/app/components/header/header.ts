@@ -1,9 +1,7 @@
-
-import { AuthServiceProvider } from '../../services/security/auth-service';
+import { AuthService } from '../../services/security/auth.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
 
 /**
  * Generated class for the HeaderComponent component.
@@ -15,19 +13,18 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'layoutheader',
   templateUrl: 'header.html',
-  styleUrls: ['header.scss']
+  styleUrls: ['header.scss'],
 })
 export class HeaderComponent {
-
   currentlanguage = 'en';
   langs = ['en', 'es'];
   @Input() Title: string;
 
   constructor(
     private translate: TranslateService,
-    private auth: AuthServiceProvider,
+    private auth: AuthService,
     private router: Router,
-    ) {
+  ) {
     if (typeof translate.currentLang === 'undefined') {
       translate.currentLang = 'en';
     }
@@ -46,7 +43,7 @@ export class HeaderComponent {
     return 'en';
   }
 
-  togglelanguage(lang: string): void {
+  togglelanguage(): void {
     let index = this.langs.indexOf(this.translate.currentLang);
     index = (index + 1) % this.langs.length;
 

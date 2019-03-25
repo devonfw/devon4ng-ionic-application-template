@@ -5,10 +5,10 @@ import {
   ModalController,
   NavController,
   LoadingController,
-  IonList
+  IonList,
 } from '@ionic/angular';
-import { SampledataRest } from '../../services/sampledata-rest';
-import { SampledataDetail } from '../sampledata-detail/sampledata-detail';
+import { SampledataRestService } from '../../services/sampledata-rest.service';
+import { SampledataDetail } from '../sampledata-detail/sampledata-detail.page';
 import { Sampledata } from '../../services/interfaces/sampledata';
 import { Pageable } from '../../services/interfaces/pageable';
 import { SampledataSearchCriteria } from '../../services/interfaces/sampledata-search-criteria';
@@ -16,8 +16,8 @@ import { PaginatedListTo } from '../../services/interfaces/paginated-list-to';
 
 @Component({
   selector: 'sampledata-list',
-  templateUrl: 'sampledata-list.html',
-  styleUrls: ['sampledata-list.scss']
+  templateUrl: 'sampledata-list.page.html',
+  styleUrls: ['sampledata-list.page.scss'],
 })
 export class SampledataList {
   /** Contains the strings for the deletion prompt */
@@ -60,7 +60,7 @@ export class SampledataList {
 
   constructor(
     public navCtrl: NavController,
-    public sampledataRest: SampledataRest,
+    public sampledataRest: SampledataRestService,
     public alertCtrl: AlertController,
     public translate: TranslateService,
     public modalCtrl: ModalController,
@@ -127,14 +127,13 @@ export class SampledataList {
    * Reloads the sampledata list, retrieving the first page.
    */
   private reloadSampledataList() {
-    this.sampledatas = [];
     this.pageable.pageNumber = 0;
     this.sampledataSearchCriteria.pageable = this.pageable;
     this.deleteModifiedButtonsDisabled = true;
     this.selectedItemIndex = -1;
     this.sampledataRest.retrieveData(this.sampledataSearchCriteria).subscribe(
       (data: PaginatedListTo<Sampledata>) => {
-        this.sampledatas = this.sampledatas.concat(data.content);
+        this.sampledatas = data.content;
         this.infiniteScrollEnabled = true;
       },
       (err) => {
@@ -185,7 +184,7 @@ export class SampledataList {
 
     await modal.present();
     modal.onDidDismiss().then((data) => {
-      if (data.data == null) {
+      if (data && data.data == null) {
         return;
       } else {
         this.infiniteScrollEnabled = true;
@@ -213,20 +212,12 @@ export class SampledataList {
       component: SampledataDetail,
       componentProps: {
         dialog: 'modify',
-        edit:  this.sampledatas[this.selectedItemIndex],
+        edit: this.sampledatas[this.selectedItemIndex],
       },
     });
     await modal.present();
-    modal.onDidDismiss().then((data) => {
-      if (data.data == null) {
-        this.reloadSampledataList();
-      } else {
-        for (const i in cleanItem) {
-          if (data.data[i] !== cleanItem[i]) {
-            data.data.modificationCounter++;
-            break;
-          }
-        }
+    modal.onDidDismiss().then((data: any) => {
+      if (data && data.data) {
         this.sampledatas.splice(this.selectedItemIndex, 1, data.data);
       }
     });
@@ -236,6 +227,8 @@ export class SampledataList {
    * Presents a promt to the user to warn him about the deletion.
    */
   public async deleteSelectedSampledata() {
+    await this.slidingList.closeSlidingItems();
+
     this.deleteTranslations = this.getTranslation(
       'sampledatamanagement.sampledata.operations.delete',
     );
@@ -263,7 +256,6 @@ export class SampledataList {
   /**
    * Removes the current selected item.
    */
-
   private confirmDeletion() {
     if (!this.selectedItemIndex && this.selectedItemIndex !== 0) {
       return;
