@@ -17,15 +17,11 @@ export class LoginService {
     private BO: BusinessOperatorService,
   ) {}
 
-  IonicAngularLogin(login, password): Observable<any> {
+  login(loginparams: any): Observable<any> {
     return this.http.post(
       this.BO.login(), // url
-      { j_username: login, j_password: password }, // body
+      { j_username: loginparams.username, j_password: loginparams.password }, // body
       { responseType: 'text', observe: 'response' },
     );
-  }
-
-  login(loginparams: any): Observable<any> {
-    return this.IonicAngularLogin(loginparams.username, loginparams.password);
   }
 }
