@@ -133,10 +133,11 @@ export class SampledataList {
     this.selectedItemIndex = -1;
     this.sampledataRest.retrieveData(this.sampledataSearchCriteria).subscribe(
       (data: PaginatedListTo<Sampledata>) => {
-        this.sampledatas = data.content;
+        this.sampledatas = [].concat(data.content);
         this.infiniteScrollEnabled = true;
       },
       (err) => {
+        this.sampledatas = [];
         console.log(err);
       },
     );
