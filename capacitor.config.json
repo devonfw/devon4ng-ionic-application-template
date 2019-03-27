@@ -1,5 +1,5 @@
 {
-  "appId": "io.ionic.starter",
+  "appId": "com.devonfw.devon4ionic",
   "appName": "devon4ng-ionic-application-template",
   "bundledWebRuntime": false,
   "webDir": "www",
