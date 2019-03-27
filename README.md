@@ -25,6 +25,7 @@ After that, a browser window will be opened to show the app.
 
 * To display the results on an android device:
 
+* run `run npx cap init "name-for-the-app (between quotes)" "id-for-the-app (between quotes)"`
 * run `ionic build --configuration=android`
 * run `npx cap copy`
 * run `npx cap open android`
