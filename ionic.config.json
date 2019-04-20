@@ -1,8 +1,7 @@
 {
-  "name": "oasp-ionic-application-template",
-  "app_id": "",
-  "type": "ionic-angular",
+  "name": "devon4ng-ionic-application-template",
   "integrations": {
-    "cordova": {}
-  }
+    "capacitor": {}
+  },
+  "type": "angular"
 }

@@ -1,40 +1,66 @@
-import { LoginPage } from '../pages/login/login';
+import { Component } from '@angular/core';
+import { Platform } from '@ionic/angular';
+import { AuthService } from './services/security/auth.service';
+import { TranslateService } from '@ngx-translate/core';
+import { Router } from '@angular/router';
 
-import { AuthServiceProvider } from '../providers/security/auth-service';
-import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { HomePage } from '../pages/home/home';
+import { Plugins, Capacitor } from '@capacitor/core';
+const SplashScreen = Plugins.SplashScreen;
+const StatusBar = Plugins.StatusBar;
 
 @Component({
-  templateUrl: 'app.html'
+  selector: 'app-root',
+  templateUrl: 'app.component.html',
 })
-export class MyApp {
-  @ViewChild(Nav) nav: Nav;
-  rootPage:any = LoginPage;
-  pages:any;
-  
-  user = {name: 'a', password: 'a'};
+export class AppComponent {
+  rootPage: any;
+  pages: any;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private auth: AuthServiceProvider ) {
+  constructor(
+    private platform: Platform,
+    private auth: AuthService,
+    private translate: TranslateService,
+    private router: Router,
+  ) {
+    this.initializeApp();
+
     platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      statusBar.styleDefault();
-      splashScreen.hide();
-      
+      if (Capacitor.isPluginAvailable('SplashScreen')) {
+        SplashScreen.hide().catch(() => {
+          console.warn('Spashscreen not available');
+        });
+      }
+
       this.pages = [
-        { title: 'Home', component:  HomePage},
+        {
+          title: 'Home',
+          route: 'home',
+        },
+        {
+          title: 'sampledata',
+          route: 'sampledata',
+        },
       ];
+    });
+    this.translate.setDefaultLang('en');
+    this.translate.currentLang = 'en';
+  }
+
+  initializeApp() {
+    this.platform.ready().then(() => {
+      if (Capacitor.isPluginAvailable('SplashScreen')) {
+        SplashScreen.hide().catch(() => {
+          console.warn('Spashscreen not available');
+        });
+      }
     });
   }
 
-  isAuthenticated(){
+  isAuthenticated() {
     return this.auth.getAuthenticated();
   }
-  openPage(p){
-    this.nav.setRoot(p.component);
+
+  openPage(p: any) {
+    this.router.navigate([p.route]);
   }
 }
-
