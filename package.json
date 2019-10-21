@@ -24,7 +24,7 @@
     "@capacitor/android": "^1.0.0-beta.17",
     "@capacitor/cli": "^1.0.0-beta.19",
     "@capacitor/core": "^1.0.0-beta.19",
-    "@ionic/angular": "^4.0.0",
+    "@ionic/angular": "^4.11.1",
     "@ionic/storage": "2.1.3",
     "@ngx-translate/core": "^9.0.1",
     "@ngx-translate/http-loader": "^2.0.0",
