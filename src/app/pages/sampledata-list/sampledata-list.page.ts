@@ -67,7 +67,7 @@ export class SampledataList {
     public loadingCtrl: LoadingController,
   ) {}
 
-  @ViewChild('slidingList') slidingList: IonList;
+  @ViewChild('slidingList', { static: true }) slidingList: IonList;
   /**
    * Runs when the page is about to enter and become the active page.
    */
