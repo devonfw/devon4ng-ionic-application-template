@@ -13,18 +13,22 @@
           <ion-label class="label label-md">
             <ion-grid class="header-grid">
               <ion-row>
-                <ion-col class="crop">{{
-                  'sampledatamanagement.sampledata.name' | translate
-                }}</ion-col>
-                <ion-col class="crop">{{
-                  'sampledatamanagement.sampledata.surname' | translate
-                }}</ion-col>
-                <ion-col class="crop">{{
-                  'sampledatamanagement.sampledata.age' | translate
-                }}</ion-col>
-                <ion-col class="crop">{{
-                  'sampledatamanagement.sampledata.mail' | translate
-                }}</ion-col>
+                <ion-col class="crop"
+                  >{{ 'sampledatamanagement.sampledata.name' | translate
+                  }}</ion-col
+                >
+                <ion-col class="crop"
+                  >{{ 'sampledatamanagement.sampledata.surname' | translate
+                  }}</ion-col
+                >
+                <ion-col class="crop"
+                  >{{ 'sampledatamanagement.sampledata.age' | translate
+                  }}</ion-col
+                >
+                <ion-col class="crop"
+                  >{{ 'sampledatamanagement.sampledata.mail' | translate
+                  }}</ion-col
+                >
               </ion-row>
             </ion-grid>
           </ion-label>
@@ -33,8 +37,8 @@
     </span>
   </header>
 </ion-header>
-<ion-content padding>
-  <ion-refresher (ionRefresh)="doRefresh($event)">
+<ion-content class="ion-padding">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
   <ion-list #slidingList>
