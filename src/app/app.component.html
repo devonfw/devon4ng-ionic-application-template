@@ -1,5 +1,5 @@
 <ion-app>
-  <ion-split-pane>
+  <ion-split-pane contentId="content">
     <ion-menu
       *ngIf="isAuthenticated()"
       swipe-gesture="true"
@@ -12,7 +12,7 @@
         </ion-toolbar>
       </ion-header>
 
-      <ion-content padding>
+      <ion-content class="ion-padding">
         <div class="content-pad">
           <ion-list>
             <ion-menu-toggle auto-hide="false" *ngFor="let p of pages">
