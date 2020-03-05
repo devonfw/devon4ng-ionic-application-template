@@ -89,8 +89,8 @@ export class SampledataDetail {
    * Dismisses the current opened dialog and returns the result data to it's creator.
    * @param  data - Tuple containing all the objects which the server returns .
    */
-  private dismiss(
-    data: [SampledataSearchCriteria, PaginatedListTo<Sampledata>],
+  public dismiss(
+    data?: [SampledataSearchCriteria, PaginatedListTo<Sampledata>],
   ) {
     this.viewCtrl.dismiss(data);
     this.filterActive = true;
