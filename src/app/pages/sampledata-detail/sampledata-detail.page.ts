@@ -1,5 +1,5 @@
 import { NavParams, ModalController } from '@ionic/angular';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslocoService } from '@ngneat/transloco';
 import { Component } from '@angular/core';
 import { SampledataRestService } from '../../services/sampledata-rest.service';
 import { Sampledata } from '../../services/interfaces/sampledata';
@@ -56,7 +56,7 @@ export class SampledataDetail {
   constructor(
     public params: NavParams,
     public viewCtrl: ModalController,
-    public translate: TranslateService,
+    public translocoService: TranslocoService,
     public sampledataRest: SampledataRestService,
   ) {
     this.getTranslation(
@@ -82,7 +82,7 @@ export class SampledataDetail {
    * @param  dialog - The passed dialog
    */
   private getTranslation(dialog: string) {
-    this.translations = this.translate.instant(dialog);
+    this.translations = this.translocoService.translate(dialog);
   }
 
   /**

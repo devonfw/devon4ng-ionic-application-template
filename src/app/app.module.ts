@@ -9,12 +9,6 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import {
-  TranslateModule,
-  TranslateLoader,
-  TranslateService,
-} from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FormsModule } from '@angular/forms';
 import { ComponentsModule } from './components/components.module';
 import { AuthGuardService } from './services/authorization/auth-guard.service';
@@ -22,10 +16,8 @@ import { HttpinterceptorService } from './services/security/http-interceptor.ser
 import { SampledataDetail } from './pages/sampledata-detail/sampledata-detail.page';
 import { SampledataRestService } from './services/sampledata-rest.service';
 import { SampledataList } from './pages/sampledata-list/sampledata-list.page';
+import { TranslocoRootModule } from './transloco-root.module';
 
-export function translateFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-}
 @NgModule({
   declarations: [AppComponent, SampledataList, SampledataDetail],
   entryComponents: [SampledataDetail],
@@ -34,15 +26,9 @@ export function translateFactory(http: HttpClient) {
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: translateFactory,
-        deps: [HttpClient],
-      },
-    }),
     FormsModule,
     ComponentsModule,
+    TranslocoRootModule,
   ],
 
   providers: [
@@ -54,7 +40,6 @@ export function translateFactory(http: HttpClient) {
       multi: true,
     },
     SampledataRestService,
-    TranslateService,
   ],
   bootstrap: [AppComponent],
 })

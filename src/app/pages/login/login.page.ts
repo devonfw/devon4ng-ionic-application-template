@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
+import { TranslocoService } from '@ngneat/transloco';
 import { LoginService } from '../../services/login/login.service';
 import { AuthService } from '../../services/security/auth.service';
-import { TranslateService } from '@ngx-translate/core';
-import { AlertController } from '@ionic/angular';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'page-Login',
@@ -17,7 +17,7 @@ export class LoginPage {
     private router: Router,
     public alertCtrl: AlertController,
     public auth: AuthService,
-    public translate: TranslateService,
+    public translocoService: TranslocoService,
     public loginp: LoginService,
   ) {
     this.user = { username: 'waiter', password: 'waiter' };
@@ -46,11 +46,13 @@ export class LoginPage {
   async presentAlert() {
     const alertTranslations: any = {};
 
-    alertTranslations.header = this.translate.instant('alert.title');
-
-    alertTranslations.subHeader = this.translate.instant('alert.subtitle');
-
-    alertTranslations.dismiss = this.translate.instant('alert.dismiss');
+    alertTranslations.header = this.translocoService.translate('alert.title');
+    alertTranslations.subHeader = this.translocoService.translate(
+      'alert.subtitle',
+    );
+    alertTranslations.dismiss = this.translocoService.translate(
+      'alert.dismiss',
+    );
 
     const alert = await this.alertCtrl.create({
       header: alertTranslations.header,

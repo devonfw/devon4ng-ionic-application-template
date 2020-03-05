@@ -38,6 +38,6 @@ export class BusinessOperatorService {
    * @returns The url to the sampledata management service.
    */
   sampledataService() {
-    return this.restPath + 'sampledatamanagement/v1/sampledata/';
+    return this.restPath + 'sampledatamanagement/v1/demo-server/';
   }
 }

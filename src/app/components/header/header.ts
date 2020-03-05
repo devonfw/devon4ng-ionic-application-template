@@ -1,7 +1,7 @@
-import { AuthService } from '../../services/security/auth.service';
-import { TranslateService } from '@ngx-translate/core';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { AvailableLangs, TranslocoService } from '@ngneat/transloco';
+import { AuthService } from '../../services/security/auth.service';
 
 /**
  * Generated class for the HeaderComponent component.
@@ -16,38 +16,37 @@ import { Router } from '@angular/router';
   styleUrls: ['header.scss'],
 })
 export class HeaderComponent {
-  currentlanguage = 'en';
-  langs = ['en', 'es'];
+  currentLanguage: string;
+  langs: AvailableLangs;
   @Input() Title: string;
 
   constructor(
-    private translate: TranslateService,
+    private translocoService: TranslocoService,
     private auth: AuthService,
     private router: Router,
   ) {
-    if (typeof translate.currentLang === 'undefined') {
-      translate.currentLang = 'en';
-    }
-    translate.setDefaultLang(translate.currentLang);
+    this.langs = translocoService.getAvailableLangs();
+    translocoService.langChanges$.subscribe(
+      lang => (this.currentLanguage = lang),
+    );
   }
 
   isAuthenticated(): boolean {
     return this.auth.getAuthenticated();
   }
 
-  getCurrentLanguage(): string {
-    if (this.translate) {
-      return this.translate.currentLang;
+  toggleLanguage(): void {
+    for (const lang of this.langs) {
+      if (typeof lang === 'string' && this.currentLanguage !== lang) {
+        this.translocoService.setActiveLang(lang);
+        break;
+      }
+
+      if (typeof lang === 'object' && this.currentLanguage !== lang.id) {
+        this.translocoService.setActiveLang(lang.id);
+        break;
+      }
     }
-
-    return 'en';
-  }
-
-  togglelanguage(): void {
-    let index = this.langs.indexOf(this.translate.currentLang);
-    index = (index + 1) % this.langs.length;
-
-    this.translate.use(this.langs[index]);
   }
 
   logout(): void {
