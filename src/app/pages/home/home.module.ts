@@ -1,9 +1,9 @@
-import { NgModule, Component } from '@angular/core';
-import { HomePage } from './home.page';
-import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 import { ComponentsModule } from 'src/app/components/components.module';
+import { HomePage } from './home.page';
 
 const routes: Routes = [
   {

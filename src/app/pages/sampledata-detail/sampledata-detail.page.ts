@@ -1,5 +1,5 @@
 import { NavParams, ModalController } from '@ionic/angular';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslocoService } from '@ngneat/transloco';
 import { Component } from '@angular/core';
 import { SampledataRestService } from '../../services/sampledata-rest.service';
 import { Sampledata } from '../../services/interfaces/sampledata';
@@ -32,7 +32,7 @@ export class SampledataDetail {
     name: null,
     surname: null,
     age: null,
-    mail: null,
+    email: null,
     pageable: this.pageable,
   };
 
@@ -41,7 +41,7 @@ export class SampledataDetail {
     name: null,
     surname: null,
     age: null,
-    mail: null,
+    email: null,
     id: null,
     modificationCounter: null,
     revision: null,
@@ -56,7 +56,7 @@ export class SampledataDetail {
   constructor(
     public params: NavParams,
     public viewCtrl: ModalController,
-    public translate: TranslateService,
+    public translocoService: TranslocoService,
     public sampledataRest: SampledataRestService,
   ) {
     this.getTranslation(
@@ -69,7 +69,7 @@ export class SampledataDetail {
         name: null,
         surname: null,
         age: null,
-        mail: null,
+        email: null,
       };
     }
     if (this.dialogType === 'filter') {
@@ -82,15 +82,15 @@ export class SampledataDetail {
    * @param  dialog - The passed dialog
    */
   private getTranslation(dialog: string) {
-    this.translations = this.translate.instant(dialog);
+    this.translations = this.translocoService.translate(dialog);
   }
 
   /**
    * Dismisses the current opened dialog and returns the result data to it's creator.
    * @param  data - Tuple containing all the objects which the server returns .
    */
-  private dismiss(
-    data: [SampledataSearchCriteria, PaginatedListTo<Sampledata>],
+  public dismiss(
+    data?: [SampledataSearchCriteria, PaginatedListTo<Sampledata>],
   ) {
     this.viewCtrl.dismiss(data);
     this.filterActive = true;
@@ -137,7 +137,7 @@ export class SampledataDetail {
           name: null,
           surname: null,
           age: null,
-          mail: null,
+          email: null,
           pageable: this.pageable,
         };
       });

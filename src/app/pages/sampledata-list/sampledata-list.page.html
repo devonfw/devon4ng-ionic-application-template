@@ -14,19 +14,19 @@
             <ion-grid class="header-grid">
               <ion-row>
                 <ion-col class="crop"
-                  >{{ 'sampledatamanagement.sampledata.name' | translate
+                  >{{ 'sampledatamanagement.sampledata.name' | transloco
                   }}</ion-col
                 >
                 <ion-col class="crop"
-                  >{{ 'sampledatamanagement.sampledata.surname' | translate
+                  >{{ 'sampledatamanagement.sampledata.surname' | transloco
                   }}</ion-col
                 >
                 <ion-col class="crop"
-                  >{{ 'sampledatamanagement.sampledata.age' | translate
+                  >{{ 'sampledatamanagement.sampledata.age' | transloco
                   }}</ion-col
                 >
                 <ion-col class="crop"
-                  >{{ 'sampledatamanagement.sampledata.mail' | translate
+                  >{{ 'sampledatamanagement.sampledata.mail' | transloco
                   }}</ion-col
                 >
               </ion-row>
@@ -53,7 +53,7 @@
             <ion-col>{{ sampledata.name }}</ion-col>
             <ion-col>{{ sampledata.surname }}</ion-col>
             <ion-col>{{ sampledata.age }}</ion-col>
-            <ion-col>{{ sampledata.mail }}</ion-col>
+            <ion-col>{{ sampledata.email }}</ion-col>
           </ion-row>
         </ion-grid>
       </ion-item>
@@ -64,7 +64,7 @@
         <ion-item-option
           expandable
           color="danger"
-          (tap)="setSelectedItemIndex(i); deleteSelectedSampledata()"
+          (click)="setSelectedItemIndex(i); deleteSelectedSampledata()"
           tappable
         >
           <ion-icon size="large" name="trash"></ion-icon>
@@ -76,7 +76,7 @@
       >
         <ion-item-option
           expandable
-          (tap)="setSelectedItemIndex(i); updateSelectedSampledata()"
+          (click)="setSelectedItemIndex(i); updateSelectedSampledata()"
           color="secondary"
           tappable
         >
@@ -93,20 +93,20 @@
   </ion-infinite-scroll>
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button color="primary">
-      <ion-icon name="arrow-dropright"></ion-icon>
+      <ion-icon name="arrow-up-outline"></ion-icon>
     </ion-fab-button>
     <ion-fab-list side="top">
       <ion-fab-button
         color="primary"
         class="fabButton fab-button-size"
-        (tap)="createSampledata()"
+        (click)="createSampledata()"
       >
         <ion-icon name="add-circle"></ion-icon>
       </ion-fab-button>
 
       <ion-fab-button
         color="primary"
-        (tap)="updateSelectedSampledata()"
+        (click)="updateSelectedSampledata()"
         [disabled]="deleteModifiedButtonsDisabled"
       >
         <ion-icon name="brush"></ion-icon>
@@ -114,13 +114,13 @@
 
       <ion-fab-button
         color="primary"
-        (tap)="deleteSelectedSampledata()"
+        (click)="deleteSelectedSampledata()"
         [disabled]="deleteModifiedButtonsDisabled"
       >
         <ion-icon name="trash"></ion-icon>
       </ion-fab-button>
 
-      <ion-fab-button color="primary" (tap)="searchSampledatas()">
+      <ion-fab-button color="primary" (click)="searchSampledatas()">
         <ion-icon name="search"></ion-icon>
       </ion-fab-button>
     </ion-fab-list>

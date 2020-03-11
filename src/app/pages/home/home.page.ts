@@ -1,4 +1,4 @@
-import { TranslateService } from '@ngx-translate/core';
+import { TranslocoService } from '@ngneat/transloco';
 import { AuthService } from '../../services/security/auth.service';
 import { Component } from '@angular/core';
 
@@ -15,8 +15,5 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  constructor(
-    public auth: AuthService,
-    public translate: TranslateService,
-  ) {}
+  constructor(public auth: AuthService, public translate: TranslocoService) {}
 }

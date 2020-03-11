@@ -18,7 +18,7 @@
                 type="text"
                 [(ngModel)]="user.username"
                 name="name"
-                placeholder="{{ 'login.user' | translate }}"
+                placeholder="{{ 'login.user' | transloco }}"
                 class="label"
               ></ion-input>
             </ion-item>
@@ -27,7 +27,7 @@
                 type="password"
                 [(ngModel)]="user.password"
                 name="password"
-                placeholder="{{ 'login.password' | translate }}"
+                placeholder="{{ 'login.password' | transloco }}"
               ></ion-input>
             </ion-item>
           </ion-list>
@@ -42,7 +42,7 @@
               expand="block"
               shape="round"
             >
-              {{ 'buttons.login' | translate }}
+              {{ 'buttons.login' | transloco }}
             </ion-button>
           </ion-col>
         </ion-row>

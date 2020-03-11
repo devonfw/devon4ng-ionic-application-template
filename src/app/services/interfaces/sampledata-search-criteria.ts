@@ -5,6 +5,6 @@ export interface SampledataSearchCriteria {
   name: string;
   surname: string;
   age: number;
-  mail: string;
+  email: string;
   pageable: Pageable;
 }

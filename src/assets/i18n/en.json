@@ -26,7 +26,7 @@
       "name": "name_EN",
       "surname": "surname_EN",
       "age": "age_EN",
-      "mail": "mail_EN",
+      "mail": "email_EN",
       "commonbuttons": {
         "send": "Send",
         "dismiss": "Close"

@@ -9,8 +9,8 @@
     </ion-buttons>
 
     <ion-buttons slot="end">
-      <ion-button fill="clear" (tap)="togglelanguage()">
-        {{ getCurrentLanguage() }}
+      <ion-button fill="clear" (click)="toggleLanguage()">
+        {{ currentLanguage }}
       </ion-button>
     </ion-buttons>
 
@@ -19,7 +19,7 @@
         id="logoutbutton"
         *ngIf="isAuthenticated()"
         fill="clear"
-        (tap)="logout()"
+        (click)="logout()"
       >
         <ion-icon name="exit"></ion-icon>
       </ion-button>

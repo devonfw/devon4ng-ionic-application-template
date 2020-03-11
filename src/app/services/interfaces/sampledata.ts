@@ -6,5 +6,5 @@ export interface Sampledata {
   name: string;
   surname: string;
   age: number;
-  mail: string;
+  email: string;
 }

@@ -1,4 +1,4 @@
-import { TranslateService } from '@ngx-translate/core';
+import { TranslocoService } from '@ngneat/transloco';
 import { Component, Input, ViewChild } from '@angular/core';
 import {
   AlertController,
@@ -36,19 +36,19 @@ export class SampledataList {
     name: null,
     surname: null,
     age: null,
-    mail: null,
+    email: null,
     pageable: this.pageable,
   };
   sampledataListItem: Sampledata = {
     name: null,
     surname: null,
     age: null,
-    mail: null,
+    email: null,
   };
   deleteButtonNames = ['dismiss', 'confirm'];
   deleteButtons = [
-    { text: '', handler: (data) => {} },
-    { text: '', handler: (data) => {} },
+    { text: '', handler: data => {} },
+    { text: '', handler: data => {} },
   ];
   @Input()
   deleteModifiedButtonsDisabled = true;
@@ -62,7 +62,7 @@ export class SampledataList {
     public navCtrl: NavController,
     public sampledataRest: SampledataRestService,
     public alertCtrl: AlertController,
-    public translate: TranslateService,
+    public translocoService: TranslocoService,
     public modalCtrl: ModalController,
     public loadingCtrl: LoadingController,
   ) {}
@@ -136,7 +136,7 @@ export class SampledataList {
         this.sampledatas = [].concat(data.content);
         this.infiniteScrollEnabled = true;
       },
-      (err) => {
+      err => {
         this.sampledatas = [];
         console.log(err);
       },
@@ -150,7 +150,7 @@ export class SampledataList {
    */
   private getTranslation(text: string): string {
     let value: string;
-    value = this.translate.instant(text);
+    value = this.translocoService.translate(text);
     return value;
   }
 
@@ -184,7 +184,7 @@ export class SampledataList {
     });
 
     await modal.present();
-    modal.onDidDismiss().then((data) => {
+    modal.onDidDismiss().then(data => {
       if (data && data.data == null) {
         return;
       } else {
@@ -242,10 +242,10 @@ export class SampledataList {
       header: this.deleteTranslations.title,
       message: this.deleteTranslations.message,
       buttons: [
-        { text: this.deleteButtons[0].text, handler: (data) => {} },
+        { text: this.deleteButtons[0].text, handler: data => {} },
         {
           text: this.deleteButtons[1].text,
-          handler: (data) => {
+          handler: data => {
             this.confirmDeletion();
           },
         },
@@ -264,12 +264,12 @@ export class SampledataList {
     const search = this.sampledatas[this.selectedItemIndex];
 
     this.sampledataRest.delete(search.id).subscribe(
-      (deleteresponse) => {
+      deleteresponse => {
         this.sampledatas.splice(this.selectedItemIndex, 1);
         this.selectedItemIndex = -1;
         this.deleteModifiedButtonsDisabled = true;
       },
-      (err) => {
+      err => {
         console.log(err);
       },
     );
@@ -304,7 +304,7 @@ export class SampledataList {
 
               infiniteScroll.target.complete();
             },
-            (err) => {
+            err => {
               console.log(err);
             },
           );
