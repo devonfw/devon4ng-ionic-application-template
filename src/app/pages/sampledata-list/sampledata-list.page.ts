@@ -36,14 +36,14 @@ export class SampledataList {
     name: null,
     surname: null,
     age: null,
-    mail: null,
+    email: null,
     pageable: this.pageable,
   };
   sampledataListItem: Sampledata = {
     name: null,
     surname: null,
     age: null,
-    mail: null,
+    email: null,
   };
   deleteButtonNames = ['dismiss', 'confirm'];
   deleteButtons = [

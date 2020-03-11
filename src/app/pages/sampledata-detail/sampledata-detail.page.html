@@ -6,9 +6,9 @@
     </ion-title>
 
     <ion-buttons slot="end">
-      <ion-button (tap)="dismiss()">
+      <ion-button (click)="dismiss()">
         <ion-text color="primary" showWhen="ios">Cancel</ion-text>
-        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+        <ion-icon name="close-outline" showWhen="android,windows"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -53,7 +53,7 @@
       >
       <ion-input
         string
-        [(ngModel)]="sampledataReceived.mail"
+        [(ngModel)]="sampledataReceived.email"
         name="mail"
       ></ion-input>
     </ion-item>
@@ -63,7 +63,7 @@
   <ion-button
     class="buttonForm"
     [hidden]="!filterActive"
-    (tap)="addOrModify()"
+    (click)="addOrModify()"
     expand="block"
   >
     {{ 'sampledatamanagement.sampledata.commonbuttons.send' | transloco }}
@@ -71,7 +71,7 @@
   <ion-button
     class="buttonForm"
     [hidden]="filterActive"
-    (tap)="search()"
+    (click)="search()"
     expand="block"
   >
     {{ 'sampledatamanagement.sampledata.commonbuttons.send' | transloco }}
@@ -79,7 +79,7 @@
   <ion-button
     class="buttonForm"
     [hidden]="filterActive"
-    (tap)="clearSearch()"
+    (click)="clearSearch()"
     expand="block"
   >
     {{ 'sampledatamanagement.sampledata.operations.filter.clear' | transloco }}

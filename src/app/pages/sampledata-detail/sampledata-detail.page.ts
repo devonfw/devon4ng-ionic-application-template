@@ -32,7 +32,7 @@ export class SampledataDetail {
     name: null,
     surname: null,
     age: null,
-    mail: null,
+    email: null,
     pageable: this.pageable,
   };
 
@@ -41,7 +41,7 @@ export class SampledataDetail {
     name: null,
     surname: null,
     age: null,
-    mail: null,
+    email: null,
     id: null,
     modificationCounter: null,
     revision: null,
@@ -69,7 +69,7 @@ export class SampledataDetail {
         name: null,
         surname: null,
         age: null,
-        mail: null,
+        email: null,
       };
     }
     if (this.dialogType === 'filter') {
@@ -137,7 +137,7 @@ export class SampledataDetail {
           name: null,
           surname: null,
           age: null,
-          mail: null,
+          email: null,
           pageable: this.pageable,
         };
       });
