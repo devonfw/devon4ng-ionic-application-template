@@ -1,5 +1,5 @@
 # devon4ng-ionic-application-template
-This repository contains a basic template of an ionic 4 application, which implements common functionalities such as: login, language settings and interaction with a database (delete, add, modify and update data).
+This repository contains a basic template of an ionic 5 application, which implements common functionalities such as: login, language settings and interaction with a database (delete, add, modify and update data).
 
 ## Dependencies
 
