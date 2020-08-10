@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import {
   HTTP_INTERCEPTORS,
-  HttpClient,
   HttpClientModule,
 } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
