@@ -4994,10 +4994,10 @@ invariant@^2.2.2:
   dependencies:
     loose-envify "^1.0.0"
 
-ionicons@^5.0.1, ionicons@^5.1.2:
-  version "5.1.2"
-  resolved "https://registry.yarnpkg.com/ionicons/-/ionicons-5.1.2.tgz#f00f17d2f23be94e8a248c9ebbaea236a6132f0d"
-  integrity sha512-zO7ZgbBbXhpA7cXO2rDzTNdcCqErjg1Sprq/ossTvaiV0MriOjRE7JO3EGvYjDTPzF9YALGpvLXqCgsRT0tprA==
+ionicons@^5.1.2, ionicons@^5.4.0:
+  version "5.4.0"
+  resolved "https://registry.yarnpkg.com/ionicons/-/ionicons-5.4.0.tgz#7d8b87edbe250284f1fad0d64b261a6e480adf95"
+  integrity sha512-q8jG3vB87lXz3/OokEDoFsEQVUqdyHq3w2r5bp1OUwODus/njuc8MxjlBE7Z1RLkf6NbNaG+/kJTx3dsCJQwQQ==
 
 ip-regex@^2.1.0:
   version "2.1.0"
