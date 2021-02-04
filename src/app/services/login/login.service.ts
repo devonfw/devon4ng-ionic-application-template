@@ -20,7 +20,7 @@ export class LoginService {
   login(loginparams: any): Observable<any> {
     return this.http.post(
       this.BO.login(), // url
-      { j_username: loginparams.username, j_password: loginparams.password }, // body
+      { username: loginparams.username, password: loginparams.password }, // body
       { responseType: 'text', observe: 'response' },
     );
   }
