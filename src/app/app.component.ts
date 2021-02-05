@@ -4,7 +4,7 @@ import { Capacitor, Plugins } from '@capacitor/core';
 import { Platform } from '@ionic/angular';
 import { AuthService } from './services/security/auth.service';
 
-const SplashScreen = Plugins.SplashScreen;
+const splashScreen = Plugins.SplashScreen;
 
 @Component({
   selector: 'app-root',
@@ -22,8 +22,8 @@ export class AppComponent {
     this.initializeApp();
 
     platform.ready().then(() => {
-      if (Capacitor.isPluginAvailable('SplashScreen')) {
-        SplashScreen.hide().catch(() => {
+      if (Capacitor.isPluginAvailable('splashScreen')) {
+        splashScreen.hide().catch(() => {
           console.warn('Spashscreen not available');
         });
       }
@@ -43,8 +43,8 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      if (Capacitor.isPluginAvailable('SplashScreen')) {
-        SplashScreen.hide().catch(() => {
+      if (Capacitor.isPluginAvailable('splashScreen')) {
+        splashScreen.hide().catch(() => {
           console.warn('Spashscreen not available');
         });
       }

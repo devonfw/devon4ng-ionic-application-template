@@ -6,11 +6,11 @@ import { LoginService } from '../../services/login/login.service';
 import { AuthService } from '../../services/security/auth.service';
 
 @Component({
-  selector: 'page-Login',
+  selector: 'app-page-login',
   templateUrl: 'login.page.html',
   styleUrls: ['login.page.scss'],
 })
-export class LoginPage {
+export class LoginPageComponent {
   user: { username: string; password: string };
   alermessages: any = {};
   constructor(

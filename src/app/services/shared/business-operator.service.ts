@@ -2,11 +2,10 @@ import { Injectable } from '@angular/core';
 import { SERVER_URL } from '../../../environments/environment';
 
 /**
-  Generated class for the BussinessOperatorService service.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
+ * Generated class for the BussinessOperatorService service.
+ * See https://angular.io/guide/dependency-injection for more info on providers
+ * and Angular DI.
+ */
 @Injectable({ providedIn: 'root' })
 export class BusinessOperatorService {
   public serverPath = SERVER_URL;

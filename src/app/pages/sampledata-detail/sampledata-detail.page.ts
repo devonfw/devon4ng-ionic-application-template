@@ -1,23 +1,24 @@
-import { NavParams, ModalController } from '@ionic/angular';
-import { TranslocoService } from '@ngneat/transloco';
 import { Component } from '@angular/core';
-import { SampledataRestService } from '../../services/sampledata-rest.service';
-import { Sampledata } from '../../services/interfaces/sampledata';
-import { SampledataSearchCriteria } from '../../services/interfaces/sampledata-search-criteria';
+import { ModalController, NavParams } from '@ionic/angular';
+import { TranslocoService } from '@ngneat/transloco';
 import { Pageable } from '../../services/interfaces/pageable';
 import { PaginatedListTo } from '../../services/interfaces/paginated-list-to';
+import { Sampledata } from '../../services/interfaces/sampledata';
+import { SampledataSearchCriteria } from '../../services/interfaces/sampledata-search-criteria';
+import { SampledataRestService } from '../../services/sampledata-rest.service';
+
 /**
- * Generated class for the SampledataDetail component.
+ * Generated class for the SampledataDetailComponent component.
  *
  * See https://angular.io/api/core/Component for more info on Angular
  * Components.
  */
 @Component({
-  selector: 'sampledata-detail',
+  selector: 'app-sampledata-detail',
   templateUrl: 'sampledata-detail.page.html',
   styleUrls: ['sampledata-detail.page.scss'],
 })
-export class SampledataDetail {
+export class SampledataDetailComponent {
   pageable: Pageable = {
     pageSize: 15,
     pageNumber: 0,
@@ -78,15 +79,8 @@ export class SampledataDetail {
   }
 
   /**
-   * Translates the passed dialog to the current language
-   * @param  dialog - The passed dialog
-   */
-  private getTranslation(dialog: string) {
-    this.translations = this.translocoService.translate(dialog);
-  }
-
-  /**
    * Dismisses the current opened dialog and returns the result data to it's creator.
+   *
    * @param  data - Tuple containing all the objects which the server returns .
    */
   public dismiss(
@@ -130,8 +124,10 @@ export class SampledataDetail {
     this.sampledataRest
       .search(this.sampledataSearchCriteria)
       .subscribe((data: PaginatedListTo<Sampledata>) => {
-        let dataArray: [SampledataSearchCriteria, PaginatedListTo<Sampledata>];
-        dataArray = [this.sampledataSearchCriteria, data];
+        const dataArray: [
+          SampledataSearchCriteria,
+          PaginatedListTo<Sampledata>,
+        ] = [this.sampledataSearchCriteria, data];
         this.dismiss(dataArray);
         this.sampledataSearchCriteria = {
           name: null,
@@ -151,9 +147,20 @@ export class SampledataDetail {
     this.sampledataRest
       .retrieveData(this.sampledataSearchCriteria)
       .subscribe((data: PaginatedListTo<Sampledata>) => {
-        let dataArray: [SampledataSearchCriteria, PaginatedListTo<Sampledata>];
-        dataArray = [this.sampledataSearchCriteria, data];
+        const dataArray: [
+          SampledataSearchCriteria,
+          PaginatedListTo<Sampledata>,
+        ] = [this.sampledataSearchCriteria, data];
         this.dismiss(dataArray);
       });
+  }
+
+  /**
+   * Translates the passed dialog to the current language
+   *
+   * @param  dialog - The passed dialog
+   */
+  private getTranslation(dialog: string) {
+    this.translations = this.translocoService.translate(dialog);
   }
 }
