@@ -1,5 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 
 import { Platform } from '@ionic/angular';
 import { AppComponent } from './app.component';
@@ -35,7 +35,7 @@ describe('AppComponent', () => {
   let authSpy: any;
   let platform: Platform;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     authGuardSpy = jasmine.createSpyObj('AuthGuardService', ['canActivate']);
     authSpy = jasmine.createSpyObj('AuthService', ['canActivate']);
 

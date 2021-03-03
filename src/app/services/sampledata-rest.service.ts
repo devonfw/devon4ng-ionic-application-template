@@ -6,14 +6,13 @@ import { SampledataSearchCriteria } from './interfaces/sampledata-search-criteri
 import { Sampledata } from './interfaces/sampledata';
 
 /**
-  Generated class for the SampledataRestService service. Implements the REST service.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
+ * Generated class for the SampledataRestService service. Implements the REST service.
+ * See https://angular.io/guide/dependency-injection for more info on providers
+ * and Angular DI.
+ */
 @Injectable({ providedIn: 'root' })
 export class SampledataRestService {
-  constructor(public http: HttpClient, public BO: BusinessOperatorService) {}
+  constructor(public http: HttpClient, public bo: BusinessOperatorService) {}
 
   /**
    * @param  sampledata The item in the list.
@@ -21,7 +20,7 @@ export class SampledataRestService {
    */
   getSampledata(sampledata: Sampledata): Observable<any> {
     return this.http.post(
-      this.BO.sampledataService() + 'search',
+      this.bo.sampledataService() + 'search',
       sampledata,
       {},
     );
@@ -32,7 +31,7 @@ export class SampledataRestService {
    * @returns The result of the save operation.
    */
   save(sampledata: Sampledata) {
-    return this.http.post(this.BO.sampledataService(), sampledata, {});
+    return this.http.post(this.bo.sampledataService(), sampledata, {});
   }
 
   /**
@@ -43,7 +42,7 @@ export class SampledataRestService {
     sampledataSearchCriteria: SampledataSearchCriteria,
   ): Observable<any> {
     return this.http.post(
-      this.BO.sampledataService() + 'search',
+      this.bo.sampledataService() + 'search',
       sampledataSearchCriteria,
     );
   }
@@ -54,7 +53,7 @@ export class SampledataRestService {
    */
   search(sampledataSearchCriteria: SampledataSearchCriteria) {
     return this.http.post(
-      this.BO.sampledataService() + 'search',
+      this.bo.sampledataService() + 'search',
       sampledataSearchCriteria,
       {},
     );
@@ -65,6 +64,6 @@ export class SampledataRestService {
    * @returns The result of the delete operation.
    */
   delete(id: number) {
-    return this.http.delete(this.BO.sampledataService() + id, {});
+    return this.http.delete(this.bo.sampledataService() + id, {});
   }
 }

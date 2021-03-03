@@ -11,14 +11,14 @@ import { AuthService } from '../../services/security/auth.service';
  */
 
 @Component({
-  selector: 'layoutheader',
+  selector: 'app-layout-header',
   templateUrl: 'header.html',
   styleUrls: ['header.scss'],
 })
 export class HeaderComponent {
+  @Input() title: string;
   currentLanguage: string;
   langs: AvailableLangs;
-  @Input() Title: string;
 
   constructor(
     private translocoService: TranslocoService,
@@ -27,7 +27,7 @@ export class HeaderComponent {
   ) {
     this.langs = translocoService.getAvailableLangs();
     translocoService.langChanges$.subscribe(
-      lang => (this.currentLanguage = lang),
+      (lang) => (this.currentLanguage = lang),
     );
   }
 

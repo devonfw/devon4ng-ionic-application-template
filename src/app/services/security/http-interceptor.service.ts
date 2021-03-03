@@ -22,7 +22,7 @@ export class HttpinterceptorService implements HttpInterceptor {
 
     if (tempToken != null) {
       const afterTokenreq: HttpRequest<any> = req.clone({
-        setHeaders: { Authorization: tempToken },
+        setHeaders: { authorization: tempToken },
       });
       return next.handle(afterTokenreq);
     } else {

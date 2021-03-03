@@ -3,16 +3,16 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { ComponentsModule } from 'src/app/components/components.module';
-import { HomePage } from './home.page';
+import { HomePageComponent } from './home.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomePage,
+    component: HomePageComponent,
   },
 ];
 @NgModule({
-  declarations: [HomePage],
+  declarations: [HomePageComponent],
   imports: [
     CommonModule,
     IonicModule,

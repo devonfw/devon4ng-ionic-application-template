@@ -1,20 +1,20 @@
-import { NgModule } from '@angular/core';
-import { LoginPage } from './login.page';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
 import { RouterModule, Routes } from '@angular/router';
-import { ComponentsModule } from 'src/app/components/components.module';
+import { IonicModule } from '@ionic/angular';
 import { TranslocoModule } from '@ngneat/transloco';
+import { ComponentsModule } from 'src/app/components/components.module';
+import { LoginPageComponent } from './login.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: LoginPage,
+    component: LoginPageComponent,
   },
 ];
 @NgModule({
-  declarations: [LoginPage],
+  declarations: [LoginPageComponent],
   imports: [
     CommonModule,
     FormsModule,
