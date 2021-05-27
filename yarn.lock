@@ -2,13 +2,21 @@
 # yarn lockfile v1
 
 
-"@angular-devkit/architect@0.1101.2", "@angular-devkit/architect@~0.1101.2":
+"@angular-devkit/architect@0.1101.2":
   version "0.1101.2"
   resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.1101.2.tgz#deb80545133d62e7a09ea6dda120ce9abec66421"
   integrity sha512-MLmBfHiiyPhbFSSAX4oMecPjEuBauOui5uBpI6BKNnk/7783fznbkbAKjXlOco7M81gkNeEoHMR8c+mOfcvv7g==
   dependencies:
     "@angular-devkit/core" "11.1.2"
     rxjs "6.6.3"
+
+"@angular-devkit/architect@~0.1200.2":
+  version "0.1200.2"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.1200.2.tgz#cf5b4965f8a44a8373d5446eca4b948134c760af"
+  integrity sha512-Vy/dE1iwEiV63cxcU+SC+Lf5SUnY64vg9J3YA3jxFlJnELbxxN+T7xDfjMEMPoLzTY02K9XNb8ZGLStZxVmZLg==
+  dependencies:
+    "@angular-devkit/core" "12.0.2"
+    rxjs "6.6.7"
 
 "@angular-devkit/build-angular@~0.1101.2":
   version "0.1101.2"
@@ -127,6 +135,18 @@
     fast-json-stable-stringify "2.1.0"
     magic-string "0.25.7"
     rxjs "6.6.3"
+    source-map "0.7.3"
+
+"@angular-devkit/core@12.0.2":
+  version "12.0.2"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-12.0.2.tgz#53023140f1b011ba42eb118b1c5ab932a8069f97"
+  integrity sha512-n7BmZAW0nx4pEigdAsibvtIm4Vjk1IwY3Bbc8fqD+AQpdYCo+Ake1Eu6fL2XoW8Yco7U4JYYdn/uodWEgBdroQ==
+  dependencies:
+    ajv "8.2.0"
+    ajv-formats "2.0.2"
+    fast-json-stable-stringify "2.1.0"
+    magic-string "0.25.7"
+    rxjs "6.6.7"
     source-map "0.7.3"
 
 "@angular-devkit/schematics@10.0.4":
@@ -2131,6 +2151,13 @@ ajv-errors@^1.0.0:
   resolved "https://registry.yarnpkg.com/ajv-errors/-/ajv-errors-1.0.1.tgz#f35986aceb91afadec4102fbd85014950cefa64d"
   integrity sha512-DCRfO/4nQ+89p/RK43i8Ezd41EqdGIU4ld7nGF8OQ14oc/we5rEntLCUa7+jrn3nn83BosfwZA0wb4pon2o8iQ==
 
+ajv-formats@2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/ajv-formats/-/ajv-formats-2.0.2.tgz#69875cb99d76c74be46e9c7a4444bc232354eba0"
+  integrity sha512-Brah4Uo5/U8v76c6euTwtjVFFaVishwnJrQBYpev1JRh4vjA1F4HY3UzQez41YUCszUCXKagG8v6eVRBHV1gkw==
+  dependencies:
+    ajv "^8.0.0"
+
 ajv-keywords@^3.1.0, ajv-keywords@^3.4.1, ajv-keywords@^3.5.2:
   version "3.5.2"
   resolved "https://registry.yarnpkg.com/ajv-keywords/-/ajv-keywords-3.5.2.tgz#31f29da5ab6e00d1c2d329acf7b5929614d5014d"
@@ -2156,10 +2183,30 @@ ajv@6.12.6, ajv@^6.10.0, ajv@^6.12.4, ajv@^6.12.5:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
+ajv@8.2.0:
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.2.0.tgz#c89d3380a784ce81b2085f48811c4c101df4c602"
+  integrity sha512-WSNGFuyWd//XO8n/m/EaOlNLtO0yL8EXT/74LqT4khdhpZjP7lkj/kT5uwRmGitKEVp/Oj7ZUHeGfPtgHhQ5CA==
+  dependencies:
+    fast-deep-equal "^3.1.1"
+    json-schema-traverse "^1.0.0"
+    require-from-string "^2.0.2"
+    uri-js "^4.2.2"
+
 ajv@^7.0.2:
   version "7.0.4"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-7.0.4.tgz#827e5f5ae32f5e5c1637db61f253a112229b5e2f"
   integrity sha512-xzzzaqgEQfmuhbhAoqjJ8T/1okb6gAzXn/eQRNpAN1AEUoHJTNF9xCDRTtf/s3SKldtZfa+RJeTs+BQq+eZ/sw==
+  dependencies:
+    fast-deep-equal "^3.1.1"
+    json-schema-traverse "^1.0.0"
+    require-from-string "^2.0.2"
+    uri-js "^4.2.2"
+
+ajv@^8.0.0:
+  version "8.5.0"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.5.0.tgz#695528274bcb5afc865446aa275484049a18ae4b"
+  integrity sha512-Y2l399Tt1AguU3BPRP9Fn4eN+Or+StUGWCUpbnFyXSo8NZ9S4uj+AG2pjs5apK+ZMOwYOz1+a+VKvKH7CudXgQ==
   dependencies:
     fast-deep-equal "^3.1.1"
     json-schema-traverse "^1.0.0"
@@ -9020,17 +9067,17 @@ rxjs@6.5.5:
   dependencies:
     tslib "^1.9.0"
 
-rxjs@6.6.3, rxjs@^6.6.0:
+rxjs@6.6.3:
   version "6.6.3"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.6.3.tgz#8ca84635c4daa900c0d3967a6ee7ac60271ee552"
   integrity sha512-trsQc+xYYXZ3urjOiJOuCOa5N3jAZ3eiSpQB5hIT8zGlL2QfnHLJ2r7GMkBGuIausdJN1OneaI6gQlsqNHHmZQ==
   dependencies:
     tslib "^1.9.0"
 
-rxjs@^6.4.0, rxjs@^6.5.3:
-  version "6.6.0"
-  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.6.0.tgz#af2901eedf02e3a83ffa7f886240ff9018bbec84"
-  integrity sha512-3HMA8z/Oz61DUHe+SdOiQyzIf4tOx5oQHmMir7IZEu6TMqCLHT4LRcmNaUS0NwOz8VLvmmBduMsoaUvMaIiqzg==
+rxjs@6.6.7, rxjs@^6.4.0, rxjs@^6.5.3, rxjs@^6.6.0:
+  version "6.6.7"
+  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.6.7.tgz#90ac018acabf491bf65044235d5863c4dab804c9"
+  integrity sha512-hTdwr+7yYNIT5n4AMYp85KA6yw2Va0FLa3Rguvbpa4W3I5xynaBZo41cM3XM+4Q6fRMj3sBYIR1VAmZMXYJvRQ==
   dependencies:
     tslib "^1.9.0"
 
