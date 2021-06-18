@@ -1765,6 +1765,11 @@
     "@angular-devkit/core" "10.0.4"
     "@angular-devkit/schematics" "10.0.4"
 
+"@stencil/core@^2.5.0":
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-2.6.0.tgz#29da96d8b6fc83e689b9f297ef3e8b59b90a676a"
+  integrity sha512-QsxWayZyusnqSZrlCl81R71rA3KqFjVVQSH4E0rGN15F1GdQaFonKlHLyCOLKLig1zzC+DQkLLiUuocexuvdeQ==
+
 "@tootallnate/once@1":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"
@@ -5583,10 +5588,12 @@ intl@1.2.5:
   resolved "https://registry.yarnpkg.com/intl/-/intl-1.2.5.tgz#82244a2190c4e419f8371f5aa34daa3420e2abde"
   integrity sha1-giRKIZDE5Bn4Nx9ao02qNCDiq94=
 
-ionicons@^5.0.1, ionicons@^5.1.2:
-  version "5.1.2"
-  resolved "https://registry.yarnpkg.com/ionicons/-/ionicons-5.1.2.tgz#f00f17d2f23be94e8a248c9ebbaea236a6132f0d"
-  integrity sha512-zO7ZgbBbXhpA7cXO2rDzTNdcCqErjg1Sprq/ossTvaiV0MriOjRE7JO3EGvYjDTPzF9YALGpvLXqCgsRT0tprA==
+ionicons@^5.1.2, ionicons@^5.5.2:
+  version "5.5.2"
+  resolved "https://registry.yarnpkg.com/ionicons/-/ionicons-5.5.2.tgz#1a92315b7cb1d1d5246a85fded50b75d9cb950ec"
+  integrity sha512-SHVBBtzNVQjY4jtcqKEHkqL5nIQwA/o2MIdU9JtMz8kQAB0NRVJFv5AxwmVbXXKDpxz57SiEjeLp8Uzt7jirpw==
+  dependencies:
+    "@stencil/core" "^2.5.0"
 
 ip-regex@^2.1.0:
   version "2.1.0"
