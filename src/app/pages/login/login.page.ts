@@ -5,6 +5,8 @@ import { TranslocoService } from '@ngneat/transloco';
 import { LoginService } from '../../services/login/login.service';
 import { AuthService } from '../../services/security/auth.service';
 
+import { environment } from '../../../environments/environment';
+
 @Component({
   selector: 'app-page-login',
   templateUrl: 'login.page.html',
@@ -32,9 +34,22 @@ export class LoginPageComponent {
       .login({ username: this.user.username, password: this.user.password })
       .subscribe(
         (res: any) => {
-          this.auth.setToken(res.headers.get('Authorization'));
-          this.auth.setAuthenticated(true);
-          this.router.navigate(['home']);
+          //this.auth.setToken(res.headers.get('Authorization'));
+          //this.auth.setAuthenticated(true);
+          //this.router.navigate(['home']);
+          if (environment.security === 'csrf') {
+            this.loginp.getCsrf().subscribe((data: any) => {
+              this.auth.setToken(data.token);
+              this.auth.setAuthenticated(true);
+              this.router.navigate(['home']);
+            });
+          }
+          // JWT
+          if (environment.security === 'jwt') {
+            this.auth.setToken(res.headers.get('Authorization'));
+            this.auth.setAuthenticated(true);
+            this.router.navigate(['home']);
+          }
         },
         (err: any) => {
           this.auth.setAuthenticated(false);

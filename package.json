@@ -68,7 +68,8 @@
     "karma-jasmine-html-reporter": "^1.5.0",
     "protractor": "~7.0.0",
     "ts-node": "~9.0.0",
-    "typescript": "~4.2.4"
+    "typescript": "~4.2.4",
+    "webpack": "^5.43.0"
   },
   "description": "An Ionic project",
   "prettier": {

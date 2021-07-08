@@ -22,7 +22,8 @@ export class HttpinterceptorService implements HttpInterceptor {
 
     if (tempToken != null) {
       const afterTokenreq: HttpRequest<any> = req.clone({
-        setHeaders: { authorization: tempToken },
+        withCredentials: true,
+        setHeaders: { 'x-csrf-token': tempToken }
       });
       return next.handle(afterTokenreq);
     } else {
