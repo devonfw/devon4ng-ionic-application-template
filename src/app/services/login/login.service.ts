@@ -35,7 +35,7 @@ export class LoginService {
     return this.http.post(
       this.bo.login(), // url
       { j_username: loginParams.username, j_password: loginParams.password }, // body
-      { responseType: 'text', observe: 'response' },
+      options,
     );
   }
   getCsrf(): Observable<any> {

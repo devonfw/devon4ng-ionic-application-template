@@ -34,9 +34,7 @@ export class LoginPageComponent {
       .login({ username: this.user.username, password: this.user.password })
       .subscribe(
         (res: any) => {
-          //this.auth.setToken(res.headers.get('Authorization'));
-          //this.auth.setAuthenticated(true);
-          //this.router.navigate(['home']);
+          // CRSF
           if (environment.security === 'csrf') {
             this.loginp.getCsrf().subscribe((data: any) => {
               this.auth.setToken(data.token);
