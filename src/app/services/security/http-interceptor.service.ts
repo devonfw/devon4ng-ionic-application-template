@@ -8,6 +8,8 @@ import {
 } from '@angular/common/http';
 import { AuthService } from './auth.service';
 
+import { environment } from '../../../environments/environment';
+
 @Injectable({ providedIn: 'root' })
 export class HttpinterceptorService implements HttpInterceptor {
   constructor(private inj: Injector) {}
@@ -37,7 +39,6 @@ export class HttpinterceptorService implements HttpInterceptor {
             setHeaders: { authorization: tempToken },
           });
         }
-      });
 
       return next.handle(afterTokenreq);
     } else {
