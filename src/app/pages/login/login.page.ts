@@ -22,7 +22,7 @@ export class LoginPageComponent {
     public translocoService: TranslocoService,
     public loginp: LoginService,
   ) {
-    this.user = { username: 'waiter', password: 'waiter' };
+    this.user = { username: 'admin', password: 'admin' };
   }
 
   isAuthenticated() {
@@ -34,7 +34,7 @@ export class LoginPageComponent {
       .login({ username: this.user.username, password: this.user.password })
       .subscribe(
         (res: any) => {
-          // CRSF
+          // CSRF
           if (environment.security === 'csrf') {
             this.loginp.getCsrf().subscribe((data: any) => {
               this.auth.setToken(data.token);

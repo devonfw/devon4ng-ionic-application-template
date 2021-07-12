@@ -30,7 +30,7 @@ export class BusinessOperatorService {
    * @returns The url to the csrf token service.
    */
   getCsrf() {
-    return this.restPath + 'csrf/v1/token';
+    return this.restPath + 'csrf/v1/token/';
   }
 
   /**
