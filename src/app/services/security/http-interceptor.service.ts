@@ -16,16 +16,16 @@ export class HttpinterceptorService implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler,
   ): Observable<HttpEvent<any>> {
-    const auth = this.inj.get(AuthService);
+    let auth = this.inj.get(AuthService);
 
-    const tempToken = auth.getToken();
+    let tempToken = auth.getToken();
 
     if (tempToken != null) {
-      const afterTokenreq: HttpRequest<any>;
+      let afterTokenreq: HttpRequest<any>;
 
         // CSRF
         if (environment.security === 'csrf') {
-          authReq = req.clone({
+          afterTokenreq = req.clone({
             withCredentials: true,
             setHeaders: { 'x-csrf-token': tempToken },
           });
@@ -33,7 +33,7 @@ export class HttpinterceptorService implements HttpInterceptor {
 
         // JWT
         if (environment.security === 'jwt') {
-          authReq = req.clone({
+          afterTokenreq = req.clone({
             setHeaders: { authorization: tempToken },
           });
         }
