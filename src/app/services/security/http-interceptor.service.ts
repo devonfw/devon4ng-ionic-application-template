@@ -8,6 +8,8 @@ import {
 } from '@angular/common/http';
 import { AuthService } from './auth.service';
 
+import { environment } from '../../../environments/environment';
+
 @Injectable({ providedIn: 'root' })
 export class HttpinterceptorService implements HttpInterceptor {
   constructor(private inj: Injector) {}
@@ -16,14 +18,28 @@ export class HttpinterceptorService implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler,
   ): Observable<HttpEvent<any>> {
-    const auth = this.inj.get(AuthService);
+    let auth = this.inj.get(AuthService);
 
-    const tempToken = auth.getToken();
+    let tempToken = auth.getToken();
 
     if (tempToken != null) {
-      const afterTokenreq: HttpRequest<any> = req.clone({
-        setHeaders: { authorization: tempToken },
-      });
+      let afterTokenreq: HttpRequest<any>;
+
+        // CSRF
+        if (environment.security === 'csrf') {
+          afterTokenreq = req.clone({
+            withCredentials: true,
+            setHeaders: { 'x-csrf-token': tempToken },
+          });
+        }
+
+        // JWT
+        if (environment.security === 'jwt') {
+          afterTokenreq = req.clone({
+            setHeaders: { authorization: tempToken },
+          });
+        }
+
       return next.handle(afterTokenreq);
     } else {
       return next.handle(req);

@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  security: 'csrf'
 };
 
 export const SERVER_URL = 'http://localhost:8081/';
