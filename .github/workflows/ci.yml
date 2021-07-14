@@ -15,6 +15,9 @@ jobs:
 
       - name: Install dependencies with YARN
         run: yarn install
+      
+      - name: Setup ionic
+        uses: coturiv/setup-ionic@v1.0.4
 
       - name: Build the app
         run: npm run build
