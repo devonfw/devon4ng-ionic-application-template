@@ -17,7 +17,7 @@ jobs:
         run: yarn install
       
       - name: Install ionic
-        run: npm install -g @ionic/cli
+        run: npm install @ionic/cli
 
       - name: Build the app
         run: npm run build
