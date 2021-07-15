@@ -1,0 +1,91 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: eslint-plugin-jsdoc
+    versions:
+    - 32.2.0
+    - 32.3.0
+    - 32.3.1
+    - 32.3.2
+  - dependency-name: "@types/node"
+    versions:
+    - 14.14.22
+    - 14.14.24
+    - 14.14.25
+    - 14.14.26
+    - 14.14.28
+    - 14.14.30
+    - 14.14.31
+    - 14.14.32
+    - 14.14.33
+    - 14.14.34
+    - 14.14.35
+    - 14.14.36
+    - 14.14.37
+    - 14.14.39
+    - 14.14.41
+    - 15.0.0
+  - dependency-name: "@angular-devkit/architect"
+    versions:
+    - 0.1101.2
+    - 0.1101.3
+    - 0.1101.4
+    - 0.1102.0
+    - 0.1102.1
+    - 0.1102.10
+    - 0.1102.2
+    - 0.1102.3
+    - 0.1102.4
+    - 0.1102.5
+    - 0.1102.6
+    - 0.1102.7
+    - 0.1102.8
+    - 0.1102.9
+  - dependency-name: y18n
+    versions:
+    - 4.0.2
+  - dependency-name: "@types/jasmine"
+    versions:
+    - 3.6.3
+    - 3.6.4
+    - 3.6.6
+    - 3.6.7
+    - 3.6.8
+    - 3.6.9
+  - dependency-name: karma
+    versions:
+    - 6.0.3
+    - 6.0.4
+    - 6.1.0
+    - 6.1.1
+    - 6.1.2
+    - 6.2.0
+    - 6.3.0
+    - 6.3.1
+  - dependency-name: ionicons
+    versions:
+    - 5.4.0
+    - 5.5.0
+  - dependency-name: rxjs
+    versions:
+    - 6.6.3
+    - 6.6.6
+  - dependency-name: jasmine-spec-reporter
+    versions:
+    - 6.0.0
+  - dependency-name: typescript
+    versions:
+    - 4.0.5
+    - 4.0.6
+    - 4.0.7
+  - dependency-name: codelyzer
+    versions:
+    - 6.0.1
+  - dependency-name: jasmine-core
+    versions:
+    - 3.6.0
