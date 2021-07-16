@@ -24,7 +24,7 @@
     "@capacitor/cli": "^3.1.1",
     "@capacitor/core": "^3.1.1",
     "@ionic/angular": "^5.5.3",
-    "@ionic/storage": "2.3.1",
+    "@ionic/storage": "3.0.6",
     "@ngneat/transloco": "^2.20.0",
     "core-js": "^2.5.4",
     "flag-icon-css": "^3.4.6",
