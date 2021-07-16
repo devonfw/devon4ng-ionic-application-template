@@ -1373,14 +1373,12 @@
     ionicons "^5.5.1"
     tslib "^2.1.0"
 
-"@ionic/storage@2.3.1":
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/@ionic/storage/-/storage-2.3.1.tgz#38ceb2fc9085074cf60043c3485cbeeb92abab27"
-  integrity sha512-IdYKr6xRatumkhceVbjmySCrA20KKcojQN0MyS857D4OgvcDtQhG9mvTXtfX/tU2hxaFlN6WkUaQOy3oPFcJvA==
+"@ionic/storage@3.0.6":
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/@ionic/storage/-/storage-3.0.6.tgz#77affcf39afffa86536c97b388ad9c8ecc56d6d1"
+  integrity sha512-sw+zSJINIpbQCGZR9mEtb9N0WmZLuhcMVqOZJBqLuDACAMdXqG39zmp5nSVqhGI1/9X3nd0K5gVn6icyVfUnUg==
   dependencies:
-    localforage "1.7.1"
-    localforage-cordovasqlitedriver "1.7.0"
-    tslib "^1.10.0"
+    localforage "^1.9.0"
 
 "@ionic/utils-array@2.1.5":
   version "2.1.5"
@@ -6100,21 +6098,7 @@ loader-utils@^1.2.3, loader-utils@^1.4.0:
     emojis-list "^3.0.0"
     json5 "^1.0.1"
 
-localforage-cordovasqlitedriver@1.7.0:
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/localforage-cordovasqlitedriver/-/localforage-cordovasqlitedriver-1.7.0.tgz#8b93957759ee688d3a58d5ba7c0477f6ccb53838"
-  integrity sha1-i5OVd1nuaI06WNW6fAR39sy1ODg=
-  dependencies:
-    localforage ">=1.5.0"
-
-localforage@1.7.1:
-  version "1.7.1"
-  resolved "https://registry.yarnpkg.com/localforage/-/localforage-1.7.1.tgz#e4927e042302b864db30f3211f13b5c6f0de965d"
-  integrity sha1-5JJ+BCMCuGTbMPMhHxO1xvDell0=
-  dependencies:
-    lie "3.1.1"
-
-localforage@>=1.5.0:
+localforage@^1.9.0:
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/localforage/-/localforage-1.9.0.tgz#f3e4d32a8300b362b4634cc4e066d9d00d2f09d1"
   integrity sha512-rR1oyNrKulpe+VM9cYmcFn6tsHuokyVHFaCM3+osEmxaHTbEk8oQu6eGDfS6DQLWi/N67XRmB8ECG37OES368g==
