@@ -1181,10 +1181,10 @@
   resolved "https://registry.yarnpkg.com/@capacitor/android/-/android-3.1.1.tgz#7bfca661a7aacd162694d7e7a81747da79ed20ae"
   integrity sha512-f4QA0wlhr3uRFzHArSQRfgSGXiAFUlCXYOt/TyYwhKIweyrpfzXtHkgqCC4ATqN9Rp7yrrLRnz8JDXBUjff3iw==
 
-"@capacitor/cli@^3.1.1":
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/@capacitor/cli/-/cli-3.1.1.tgz#2805e6952364d465567a97ff20509ca6e1a488aa"
-  integrity sha512-I8YF59WqxToujLH+Kn0k0rmGbmy/aTJGuSFXr7zKwCzBQPI4d6RST9aprvQI+7CTFIdcXIhMOz5XnEV1V/1FTA==
+"@capacitor/cli@^3.1.2":
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/@capacitor/cli/-/cli-3.1.2.tgz#e25b2ab2426412d6db7f1c5e2ef56649a194aff3"
+  integrity sha512-o3NYIXso8A8Gyo77cIWPKMnR0vc7LzzE8rbQnLRFSYrnTLy2G0v7yQrB1J7xm/qgjMIplaJOJ+WzLHbtu0NEFw==
   dependencies:
     "@ionic/cli-framework-output" "^2.2.1"
     "@ionic/utils-fs" "^3.1.5"
