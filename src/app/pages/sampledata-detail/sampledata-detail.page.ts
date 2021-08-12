@@ -61,7 +61,10 @@ export class SampledataDetailComponent {
     public sampledataRest: SampledataRestService,
   ) {
     this.getTranslation(
-      'sampledatamanagement.sampledata.operations.' + this.params.get('dialog'),
+      'sampledatamanagement.sampledata.operations.' + this.params.get('dialog') + '.title',
+    );
+    this.getTranslation(
+      'sampledatamanagement.sampledata.operations.' + this.params.get('dialog') + '.message',
     );
     this.dialogType = this.params.get('dialog');
     this.sampledataReceived = this.params.get('edit');

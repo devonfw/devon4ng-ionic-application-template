@@ -176,8 +176,17 @@ export class SampledataListComponent {
   public async deleteSelectedSampledata() {
     await this.slidingList.closeSlidingItems();
 
-    this.deleteTranslations = this.getTranslation(
-      'sampledatamanagement.sampledata.operations.delete',
+    this.deleteTranslations.title = this.getTranslation(
+      'sampledatamanagement.sampledata.operations.delete.title',
+    );
+    this.deleteTranslations.message = this.getTranslation(
+      'sampledatamanagement.sampledata.operations.delete.message',
+    );
+    this.deleteTranslations.dismiss = this.getTranslation(
+      'sampledatamanagement.sampledata.operations.delete.dismiss',
+    );
+    this.deleteTranslations.confirm = this.getTranslation(
+      'sampledatamanagement.sampledata.operations.delete.confirm',
     );
     for (const i of Object.keys(this.deleteButtons)) {
       this.deleteButtons[i].text = this.deleteTranslations[
