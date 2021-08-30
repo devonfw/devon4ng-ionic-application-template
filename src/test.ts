@@ -11,7 +11,6 @@ import {
   BrowserDynamicTestingModule,
   platformBrowserDynamicTesting,
 } from '@angular/platform-browser-dynamic/testing';
-import 'intl/locale-data/jsonp/en.js';
 
 // Unfortunately there's no typing for the `karma` variable. Just declare it as any.
 declare const karma: any;
