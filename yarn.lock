@@ -4531,10 +4531,10 @@ find-up@^4.0.0, find-up@^4.1.0:
     locate-path "^5.0.0"
     path-exists "^4.0.0"
 
-flag-icon-css@^3.4.6:
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/flag-icon-css/-/flag-icon-css-3.5.0.tgz#430747d5cb91e60babf85494de99173c16dc7cf2"
-  integrity sha512-pgJnJLrtb0tcDgU1fzGaQXmR8h++nXvILJ+r5SmOXaaL/2pocunQo2a8TAXhjQnBpRLPtZ1KCz/TYpqeNuE2ew==
+flag-icon-css@^4.1.3:
+  version "4.1.3"
+  resolved "https://registry.yarnpkg.com/flag-icon-css/-/flag-icon-css-4.1.3.tgz#a329b9d877c39ed691cc1f96fb1d761d3f2cd5c2"
+  integrity sha512-Oa0cdX9pcpmJZbSDV3irVjnVlFctFtPFZorz6zGfc59uJ8gA7V2xSMWBD4TTum0fsh56l1kLgJ4+1ncuKRWSZQ==
 
 flat-cache@^3.0.4:
   version "3.0.4"
