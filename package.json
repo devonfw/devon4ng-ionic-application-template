@@ -27,7 +27,7 @@
     "@ionic/storage": "3.0.6",
     "@ngneat/transloco": "^3.1.1",
     "core-js": "^2.5.4",
-    "flag-icon-css": "^4.1.4",
+    "flag-icon-css": "^4.1.6",
     "hammerjs": "^2.0.8",
     "intl": "1.2.5",
     "ionicons": "^5.5.3",
