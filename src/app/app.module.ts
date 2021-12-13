@@ -15,32 +15,30 @@ import { SampledataListComponent } from './pages/sampledata-list/sampledata-list
 import { TranslocoRootModule } from './transloco-root.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SampledataListComponent,
-    SampledataDetailComponent,
-  ],
-  entryComponents: [SampledataDetailComponent],
-  imports: [
-    BrowserModule,
-    IonicModule.forRoot(),
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    ComponentsModule,
-    TranslocoRootModule,
-  ],
-
-  providers: [
-    AuthGuardService,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: HttpinterceptorService,
-      multi: true,
-    },
-    SampledataRestService,
-  ],
-  bootstrap: [AppComponent],
+    declarations: [
+        AppComponent,
+        SampledataListComponent,
+        SampledataDetailComponent,
+    ],
+    imports: [
+        BrowserModule,
+        IonicModule.forRoot(),
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        ComponentsModule,
+        TranslocoRootModule,
+    ],
+    providers: [
+        AuthGuardService,
+        { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: HttpinterceptorService,
+            multi: true,
+        },
+        SampledataRestService,
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule {}
