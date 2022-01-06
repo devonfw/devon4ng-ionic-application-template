@@ -20,7 +20,7 @@
     "@angular/platform-browser": "^13.1.0",
     "@angular/platform-browser-dynamic": "^13.1.0",
     "@angular/router": "^13.1.0",
-    "@capacitor/android": "^3.2.5",
+    "@capacitor/android": "^3.3.4",
     "@capacitor/cli": "^3.3.3",
     "@capacitor/core": "^3.3.4",
     "@ionic/angular": "^5.9.1",
