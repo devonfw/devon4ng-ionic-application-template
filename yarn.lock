@@ -106,7 +106,7 @@
     "@angular-devkit/architect" "0.1301.4"
     rxjs "6.6.7"
 
-"@angular-devkit/core@13.1.4", "@angular-devkit/core@~13.1.1":
+"@angular-devkit/core@13.1.4":
   version "13.1.4"
   resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-13.1.4.tgz#b5b6ddd674ae351f83beff2e4a0d702096bdfd47"
   integrity sha512-225Gjy4iVxh5Jo9njJnaG75M/Dt95UW+dEPCGWKV5E/++7UUlXlo9sNWq8x2vJm2nhtsPkpnXNOt4pW1mIDwqQ==
@@ -118,7 +118,7 @@
     rxjs "6.6.7"
     source-map "0.7.3"
 
-"@angular-devkit/core@13.2.0":
+"@angular-devkit/core@13.2.0", "@angular-devkit/core@~13.2.0":
   version "13.2.0"
   resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-13.2.0.tgz#d7ee99ba40af70193a436a27ee1591a1ec754cd9"
   integrity sha512-5+aV2W2QUazySMKusBuT2pi2qsXWpTHJG2x62mKGAy0lxzwG8l3if+WP3Uh85SQS+zqlHeKxEbmm9zNn8ZrzFg==
@@ -268,10 +268,10 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/language-service@~13.1.3":
-  version "13.1.3"
-  resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-13.1.3.tgz#90fe77bba1d6b3ce42d64e1d0357c44631567f13"
-  integrity sha512-zqJVBnqAPxUKA4ncTfVeUt4MNNZ/eaI9kTVQeHiyB5zodNgEPeRNnSx+TX+WcENpim1SIhewW6/SkHPLGYy8OA==
+"@angular/language-service@~13.2.0":
+  version "13.2.0"
+  resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-13.2.0.tgz#f198f3108fade0bc329f15e8d28c335ba4f4c549"
+  integrity sha512-nK40YXy9f2MsrejvTiKMrS7YHNvBxp3QIBU8aJN36LpkTTWC8aVqZ5A3to8JL0U6Anra8mkcC070xoYfh6miwg==
 
 "@angular/platform-browser-dynamic@^13.1.0":
   version "13.1.0"
@@ -2221,7 +2221,7 @@ ajv-keywords@^5.0.0:
   dependencies:
     fast-deep-equal "^3.1.3"
 
-ajv@8.8.2, ajv@^8.8.0:
+ajv@8.8.2:
   version "8.8.2"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.8.2.tgz#01b4fef2007a28bf75f0b7fc009f62679de4abbb"
   integrity sha512-x9VuX+R/jcFj1DHo/fCp99esgGDWiHENrKxaCENuCxpoMCmAt/COCGVDwA7kleEpEzJjDnvh3yGoOuLu0Dtllw==
@@ -2231,7 +2231,7 @@ ajv@8.8.2, ajv@^8.8.0:
     require-from-string "^2.0.2"
     uri-js "^4.2.2"
 
-ajv@8.9.0:
+ajv@8.9.0, ajv@^8.0.0, ajv@^8.0.1, ajv@^8.8.0:
   version "8.9.0"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.9.0.tgz#738019146638824dea25edcf299dcba1b0e7eb18"
   integrity sha512-qOKJyNj/h+OWx7s5DePL6Zu1KeM9jPZhwBqs+7DzP6bGOvqzVCSf0xueYmVuaC/oQ/VtS2zLMLHdQFbkka+XDQ==
@@ -2249,16 +2249,6 @@ ajv@^6.10.0, ajv@^6.12.3, ajv@^6.12.4, ajv@^6.12.5:
     fast-deep-equal "^3.1.1"
     fast-json-stable-stringify "^2.0.0"
     json-schema-traverse "^0.4.1"
-    uri-js "^4.2.2"
-
-ajv@^8.0.0, ajv@^8.0.1:
-  version "8.6.2"
-  resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.6.2.tgz#2fb45e0e5fcbc0813326c1c3da535d1881bb0571"
-  integrity sha512-9807RlWAgT564wT+DjeyU5OFMPjmzxVobvDFmNAhY+5zD6A2ly3jDp6sgnfyDtlIQ+7H97oc/DGCzzfu9rjw9w==
-  dependencies:
-    fast-deep-equal "^3.1.1"
-    json-schema-traverse "^1.0.0"
-    require-from-string "^2.0.2"
     uri-js "^4.2.2"
 
 ansi-colors@4.1.1, ansi-colors@^4.1.1:
