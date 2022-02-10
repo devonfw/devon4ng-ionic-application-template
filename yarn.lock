@@ -10,12 +10,20 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     sourcemap-codec "1.4.8"
 
-"@angular-devkit/architect@0.1302.2", "@angular-devkit/architect@~0.1302.1":
+"@angular-devkit/architect@0.1302.2":
   version "0.1302.2"
   resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.1302.2.tgz#82d059bca1a95d90b35bca375caf5cb8e941da9f"
   integrity sha512-kkydqB0PA6ZvaUgHCePoqUAzLzx+x62xOGx5z4FtIlYO9zCYHbv9q4V1jtM0ufj9PZmHCM9HNafp68hx2dcCpg==
   dependencies:
     "@angular-devkit/core" "13.2.2"
+    rxjs "6.6.7"
+
+"@angular-devkit/architect@~0.1302.3":
+  version "0.1302.3"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.1302.3.tgz#0e71cc2d737be6828d4072f53872aa2b17940870"
+  integrity sha512-0m8jMKrFfIqsYt33zTUwSmyekyfuS67hna08RQ6USjzWQSE3z4S8ulCUARSjM6AzdMblX+whfy56nJUpT17NSA==
+  dependencies:
+    "@angular-devkit/core" "13.2.3"
     rxjs "6.6.7"
 
 "@angular-devkit/build-angular@~13.2.2":
@@ -98,10 +106,22 @@
     "@angular-devkit/architect" "0.1302.2"
     rxjs "6.6.7"
 
-"@angular-devkit/core@13.2.2", "@angular-devkit/core@~13.2.2":
+"@angular-devkit/core@13.2.2":
   version "13.2.2"
   resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-13.2.2.tgz#643a97991e25584cc7c54574c2aa4eee45cf40a0"
   integrity sha512-qH0Vu8qwGD5uhmE8PtePA1lm7xL3JtbBCcrQICmLqD6njLDVb2N5pbdDXeiXDlWGUoIRHUhu6Uw4AsY8zXP/FA==
+  dependencies:
+    ajv "8.9.0"
+    ajv-formats "2.1.1"
+    fast-json-stable-stringify "2.1.0"
+    magic-string "0.25.7"
+    rxjs "6.6.7"
+    source-map "0.7.3"
+
+"@angular-devkit/core@13.2.3", "@angular-devkit/core@~13.2.2":
+  version "13.2.3"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-13.2.3.tgz#a5770c7a5e50d1b09e5a41ccb7cf0af140a9e168"
+  integrity sha512-/47RA8qmWzeS60xSdaprIn1MiSv0Iw83t0M9/ENH7irFS5vMAq62NCcwiWXH59pZmvvLbF+7xy/RgYUZLr4nHQ==
   dependencies:
     ajv "8.9.0"
     ajv-formats "2.1.1"
