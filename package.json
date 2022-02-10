@@ -20,8 +20,8 @@
     "@angular/platform-browser": "^13.1.0",
     "@angular/platform-browser-dynamic": "^13.1.0",
     "@angular/router": "^13.1.0",
-    "@capacitor/android": "^3.4.0",
-    "@capacitor/cli": "^3.4.0",
+    "@capacitor/android": "^3.4.1",
+    "@capacitor/cli": "^3.4.1",
     "@capacitor/core": "^3.4.0",
     "@ionic/angular": "^5.9.1",
     "@ionic/storage": "3.0.6",
@@ -37,7 +37,7 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/architect": "~0.1302.1",
+    "@angular-devkit/architect": "~0.1302.3",
     "@angular-devkit/build-angular": "~13.2.2",
     "@angular-devkit/core": "~13.2.2",
     "@angular-devkit/schematics": "~13.2.2",
@@ -57,7 +57,7 @@
     "@typescript-eslint/parser": "4.33.0",
     "eslint": "^7.32.0",
     "eslint-plugin-import": "2.25.4",
-    "eslint-plugin-jsdoc": "37.8.0",
+    "eslint-plugin-jsdoc": "37.8.2",
     "eslint-plugin-prefer-arrow": "1.2.3",
     "jasmine-core": "~3.10.1",
     "jasmine-spec-reporter": "~7.0.0",
