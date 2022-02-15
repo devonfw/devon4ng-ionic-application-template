@@ -138,16 +138,6 @@
   resolved "https://registry.yarnpkg.com/@angular-eslint/bundled-angular-compiler/-/bundled-angular-compiler-13.1.0.tgz#5806625096441050d9b39b01d176f38d7549e9bc"
   integrity sha512-0VSAZ3zrHkKdbvogQ4GLSf+lKojtPL3LXLlvXU9xNgNsqw68+gSNwaWd595tXoQCmpwWpTerKUbyIsGnPA7EYA==
 
-"@angular-eslint/eslint-plugin-template@13.0.1":
-  version "13.0.1"
-  resolved "https://registry.yarnpkg.com/@angular-eslint/eslint-plugin-template/-/eslint-plugin-template-13.0.1.tgz#96d5e319278f629afcd034ff57f02de19e510e2b"
-  integrity sha512-8FclNMjEzb87CtE3TdsXXWk1SRCp/tSSHI0cYVv6YpU7f/9Mnej+ZY3MdvqI/amD8zJueTMdnjNRP/jiwX2XhQ==
-  dependencies:
-    "@angular-eslint/bundled-angular-compiler" "13.0.1"
-    "@typescript-eslint/experimental-utils" "5.3.0"
-    aria-query "^4.2.2"
-    axobject-query "^2.2.0"
-
 "@angular-eslint/eslint-plugin-template@13.1.0":
   version "13.1.0"
   resolved "https://registry.yarnpkg.com/@angular-eslint/eslint-plugin-template/-/eslint-plugin-template-13.1.0.tgz#b5b8cc839c5c32d5bd55ba47bb58a80c0c4c4c42"
