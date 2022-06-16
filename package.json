@@ -23,7 +23,7 @@
     "@capacitor/android": "^3.4.3",
     "@capacitor/cli": "^3.4.3",
     "@capacitor/core": "^3.4.3",
-    "@ionic/angular": "^5.9.1",
+    "@ionic/angular": "^6.1.10",
     "@ionic/storage": "3.0.6",
     "@ngneat/transloco": "^3.2.0",
     "core-js": "^2.5.4",
